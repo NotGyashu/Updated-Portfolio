@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Matter, {
   Engine,
   Render,
@@ -14,6 +14,7 @@ const BallPool = ({ dimensions }) => {
   const cw = dimensions.width;
   const ch = dimensions.height;
   const scene = useRef();
+  const [labels, setlabels] = useState([]); 
   const engine = useRef(
     Engine.create({
       gravity: {
@@ -41,15 +42,27 @@ const BallPool = ({ dimensions }) => {
     World.add(engine.current.world, [
       Bodies.rectangle(cw / 2, -radius, cw + 2 * radius, 2 * radius, {
         isStatic: true,
+        render: {
+          visible: false, // Make top boundary invisible
+        },
       }), // top
       Bodies.rectangle(-radius, ch / 2, 2 * radius, ch + 2 * radius, {
         isStatic: true,
+        render: {
+          visible: false, // Make top boundary invisible
+        },
       }), // left
       Bodies.rectangle(cw / 2, ch + radius, cw + 2 * radius, 2 * radius, {
         isStatic: true,
+        render: {
+          visible: false, // Make top boundary invisible
+        },
       }), // bottom
       Bodies.rectangle(cw + radius, ch / 2, 2 * radius, ch + 2 * radius, {
         isStatic: true,
+        render: {
+          visible: false, // Make top boundary invisible
+        },
       }), // right
     ]);
 
@@ -134,16 +147,17 @@ const renderCircles = async (cw, ch) => {
     // Calculate random velocity vector
     const randomVelocityX = (Math.random() - 0.5) * 5; // Random velocity between -2.5 and 2.5
     const randomVelocityY = (Math.random() - 0.5) * 5;
-console.log(cw, ch);
+    console.log(cw, ch);
     const circle = Bodies.circle(randomX, randomY, radius, {
       restitution: 1,
-      friction: 0.1,  
+      friction: 0.1,
       velocity: { x: randomVelocityX, y: randomVelocityY },
       render: {
         fillStyle: "transparent",
         strokeStyle: "#dee2e6",
         lineWidth: 0.7,
       },
+    
     });
 
     // Assign the circleId to the circle's custom property
@@ -152,7 +166,6 @@ console.log(cw, ch);
     // Add circle to the world
     World.add(engine.current.world, [circle]);
     Matter.Sleeping.set(circle, false); // Wake the circle if needed
-
 
     
     // Render text
@@ -165,6 +178,7 @@ console.log(cw, ch);
     textElement.style.fontSize = "14px";
     textElement.style.textAlign = "center";
     textElement.style.transform = "translate(-50%, -50%)";
+    textElement.style.fontFamily = "panchanag";
     scene.current.appendChild(textElement);
     const updateTextPosition = () => {
       const circlePosition = circle.position;

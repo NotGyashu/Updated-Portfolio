@@ -21,7 +21,6 @@ const CustomCursor = ({hover1,hover2,hover3,hover4}) => {
     };
   }, [cursorX, cursorY]);
 
-  
   return (
     <div className="absolute">
       <motion.div

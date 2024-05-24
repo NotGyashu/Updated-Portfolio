@@ -21,19 +21,19 @@ useEffect(() => {
   };
 }, [])
   return (
-    <div className="h-screen w-screen bg-[#111212]  flex flex-col py-5 px-10 gap-5">
-      {/* <div className="text-white border text-3xl">
-        Skills and recent tool used
+    <div className="h-screen w-screen bg-[#111212]  flex flex-col items-center py-5 px-10 ">
+      <div className="text-white text-xs cabinet-font">CLICK & DRAG</div>
+      <div className="text-white Panchang-font   text-3xl">
+        Skills & recent tools
       </div>
-      <div className="text-white">any thing</div> */}
+
       <div
-        className="border absolute h-[90%] w-[95%] box-border flex-grow mb-6 rounded-3xl overflow-hidden z-20"
+        className="border absolute h-[90%] w-[95%] box-border flex-grow mb-6 rounded-3xl overflow-hidden "
         id="ballpool"
         ref={conatiner}
       >
         <BallPool dimensions={dimensions} />
       </div>
-      
     </div>
   );
 }
