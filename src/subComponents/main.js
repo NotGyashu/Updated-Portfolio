@@ -58,14 +58,14 @@ function Main() {
   };
 
   return (
-    <div className="w-full no-scrollbar border flex-grow relative flex flex-col  justify-between items-center mt-[10vh]">
-      <div className="border-2 absolute top-[20%] left-7 py-2 px-1  rounded-full" id="navbar">
+    <div className="w-full no-scrollbar border flex-grow relative flex flex-col  justify-between items-center lg:mt-[10vh] mt-[5vh]">
+      {/* <div className="border-2 absolute top-[20%] left-7 py-2 px-1  rounded-full" id="navbar">
         <MainNavbar />
-      </div>
+      </div> */}
       <div className="w-[70vw]   flex flex-col ">
         <div className="flex flex-col  Panchang-font">
-          <div className=" bold text-6xl ">Hey,</div>
-          <div className="flex gap-x-5  text-[6rem]">
+          <div className=" bold md:text-6xl text-4xl ">Hey,</div>
+          <div className="flex gap-x-5 flex-col md:flex-row  lg:text-[6rem] text-[3rem]">
             <div>I'm</div>
             <motion.div className="cursor-pointer">
               <motion.span whileHover={{ translateY: -100 }} className="">
@@ -79,8 +79,8 @@ function Main() {
             </motion.div>
           </div>
         </div>
-        <div className="  text-4xl flex justify-end cabinet-font text-right w-full">
-          <div className=" w-[70%]">
+        <div className=" text-2xl lg:text-4xl flex justify-end cabinet-font text-right w-full">
+          <div className=" lg:w-[70%] w-full">
             —Full-Stack Developer & Web Designer with experience crafting
             user-friendly web experiences and tackling challenging algorithms.
           </div>
@@ -94,7 +94,7 @@ function Main() {
           social.map((s, index) => (
             <motion.div
               key={index}
-              className="h-16 w-16 flex items-center justify-center rounded-full  border "
+              className="lg:h-16 lg:w-16 md:h-12 md:w-8 h-8 w-8 flex items-center justify-center rounded-full  border "
               variants={{
                 hidden: {
                   opacity: 0,
@@ -121,7 +121,7 @@ function Main() {
             >
               {" "}
               {console.log((index + 3) % 3 == 2 || (index + 3) % 3 == 2)}
-              <img src={s.src} className="h-8 w-8 m-2 " />
+              <img src={s.src} className="lg:h-8 lg:w-8 lg:m-2 m-1 " />
             </motion.div>
           ))}
       </div>

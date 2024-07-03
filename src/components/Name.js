@@ -10,10 +10,10 @@ function Name() {
   return (
     <div className=" w-[100vw]  box-border min-h-screen flex flex-col ">
   
-        <Canvas />
+        {/* <Canvas /> */}
         <Header />
         <Main />
-        <Inner/>
+        {/* <Inner/> */}
      
     </div>
   );
