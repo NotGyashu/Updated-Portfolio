@@ -4,6 +4,8 @@ import { easeInOut, motion } from "framer-motion";
 import MainNavbar from "./mainNavbar";
 function Main() {
   const [visible, setVisible] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  
   const social = [
     {
       src: "/mail.png",
@@ -57,6 +59,14 @@ function Main() {
     },
   };
 
+
+  const handleTouchStart = () => {
+    setIsHovered(true);
+  };
+
+  const handleTouchEnd = () => {
+    setIsHovered(false);
+  };
   return (
     <div className="w-full no-scrollbar border flex-grow relative flex flex-col  justify-between items-center lg:mt-[10vh] mt-[5vh]">
       {/* <div className="border-2 absolute top-[20%] left-7 py-2 px-1  rounded-full" id="navbar">
@@ -79,7 +89,7 @@ function Main() {
             </motion.div>
           </div>
         </div>
-        
+
         <div className=" text-2xl lg:text-4xl mt-7 flex justify-end cabinet-font text-right w-full">
           <div className=" lg:w-[70%] w-full">
             —Full-Stack Developer & Web Designer with experience crafting
@@ -119,6 +129,9 @@ function Main() {
               whileHover={{ scale: 1.2 }}
               initial="hidden"
               animate="visible"
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+              style={{ transform: isHovered ? "scale(1.2)" : "scale(1)" }}
             >
               {" "}
               {console.log((index + 3) % 3 == 2 || (index + 3) % 3 == 2)}

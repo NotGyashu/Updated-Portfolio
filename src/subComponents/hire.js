@@ -1,6 +1,9 @@
 import { useState } from "react";
 
 function Hire({ setVisible, visible }) {
+   const handleTouchStart = () => {
+     setVisible(!visible);
+   };
   return (
     <div className="">
       <div
@@ -8,7 +11,8 @@ function Hire({ setVisible, visible }) {
         onMouseEnter={() => {
           setVisible(!visible);
         }}
-       >
+        onTouchStart={handleTouchStart}
+      >
         <img src="\paper-plane.png" className="h-6  w-6 " />
       </div>
     </div>
