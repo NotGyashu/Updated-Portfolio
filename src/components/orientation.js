@@ -1,15 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 function OrientationOverlay() {
+  const [landscape, setLandscape] = useState(true); // Assume landscape by default
+
   useEffect(() => {
     function checkOrientation() {
-      const overlay = document.getElementById("orientation-overlay");
       if (window.innerHeight > window.innerWidth) {
         // Portrait mode
-        overlay.classList.remove("hidden");
+        setLandscape(false);
       } else {
         // Landscape mode
-        overlay.classList.add("hidden");
+        setLandscape(true);
       }
     }
 
@@ -24,15 +25,7 @@ function OrientationOverlay() {
     };
   }, []);
 
-  return (
-    <div id="orientation-overlay" className="orientation-overlay hidden ">
-      <div className="flex justify-center items-center">
-        <div className="orientation-message w-full h-ful  text-sm bg-black text-white Panchang-font">
-          Please rotate your device to landscape mode.
-        </div>
-      </div>
-    </div>
-  );
+  return landscape;
 }
 
 export default OrientationOverlay;
