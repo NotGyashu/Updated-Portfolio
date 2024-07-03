@@ -277,75 +277,75 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
 /* Define animations for each iteration */
 
 .blob:nth-child(1) {
-  animation: move1 30s infinite linear;
+  animation: move1 40s infinite linear;
 }
 
 .blob:nth-child(2) {
-  animation: move2 30s infinite linear;
+  animation: move2 40s infinite linear;
 }
 
 .blob:nth-child(3) {
-  animation: move3 30s infinite linear;
+  animation: move3 40s infinite linear;
 }
 
 .blob:nth-child(4) {
-  animation: move4 30s infinite linear;
+  animation: move4 40s infinite linear;
 }
 
 .blob:nth-child(5) {
-  animation: move5 30s infinite linear;
+  animation: move5 40s infinite linear;
 }
 
 .blob:nth-child(6) {
-  animation: move6 30s infinite linear;
+  animation: move6 40s infinite linear;
 }
 
 .blob:nth-child(7) {
-  animation: move7 30s infinite linear;
+  animation: move7 40s infinite linear;
 }
 
 .blob:nth-child(8) {
-  animation: move8 30s infinite linear;
+  animation: move8 40s infinite linear;
 }
 
 .blob:nth-child(9) {
-  animation: move9 30s infinite linear;
+  animation: move9 40s infinite linear;
 }
 
 .blob:nth-child(10) {
-  animation: move10 30s infinite linear;
+  animation: move10 40s infinite linear;
 }
 
 .blob:nth-child(11) {
-  animation: move11 30s infinite linear;
+  animation: move11 40s infinite linear;
 }
 
 .blob:nth-child(12) {
-  animation: move12 30s infinite linear;
+  animation: move12 40s infinite linear;
 }
 
 .blob:nth-child(13) {
-  animation: move13 30s infinite linear;
+  animation: move13 40s infinite linear;
 }
 
 .blob:nth-child(14) {
-  animation: move14 30s infinite linear;
+  animation: move14 40s infinite linear;
 }
 
 .blob:nth-child(15) {
-  animation: move15 30s infinite linear;
+  animation: move15 40s infinite linear;
 }
 
 .blob:nth-child(16) {
-  animation: move16 30s infinite linear;
+  animation: move16 40s infinite linear;
 }
 
 .blob:nth-child(17) {
-  animation: move17 30s infinite linear;
+  animation: move17 40s infinite linear;
 }
 
 .blob:nth-child(18) {
-  animation: move18 30s infinite linear;
+  animation: move18 40s infinite linear;
 }
 
 /* Keyframes for each animation */
@@ -360,7 +360,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(450deg) translate(200px, 0.1px) rotate(-450deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 75s;
+  animation-delay: 5s;
 }
 
 @keyframes move2 {
@@ -371,7 +371,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(540deg) translate(200px, 0.1px) rotate(-540deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 75s;
+  animation-delay: 5s;
 }
 
 @keyframes move3 {
@@ -382,7 +382,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(630deg) translate(200px, 0.1px) rotate(-630deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 75s;
+  animation-delay: 5s;
 }
 
 @keyframes move4 {
@@ -393,7 +393,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(810deg) translate(200px, 0.1px) rotate(-810deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 75s;
+  animation-delay: 5s;
 }
 
 @keyframes move5 {
@@ -404,7 +404,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(990deg) translate(200px, 0.1px) rotate(-990deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 75s;
+  animation-delay: 5s;
 }
 
 @keyframes move6 {
@@ -415,7 +415,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(1170deg) translate(200px, 0.1px) rotate(-1170deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 75s;
+  animation-delay: 5s;
 }
 
 @keyframes move7 {
@@ -426,7 +426,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(1350deg) translate(200px, 0.1px) rotate(-1350deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 75s;
+  animation-delay: 5s;
 }
 
 @keyframes move8 {
@@ -437,7 +437,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(1530deg) translate(200px, 0.1px) rotate(-1530deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 75s;
+  animation-delay: 5s;
 }
 
 @keyframes move9 {
@@ -448,7 +448,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(1710deg) translate(200px, 0.1px) rotate(-1710deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 75s;
+  animation-delay: 5s;
 }
 
 @keyframes move10 {
@@ -459,7 +459,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(1890deg) translate(200px, 0.1px) rotate(-1890deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 75s;
+  animation-delay: 5s;
 }
 
 @keyframes move11 {
@@ -470,7 +470,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(2070deg) translate(200px, 0.1px) rotate(-2070deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 75s;
+  animation-delay: 5s;
 }
 
 @keyframes move12 {
@@ -481,7 +481,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(2250deg) translate(200px, 0.1px) rotate(-2250deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 75s;
+  animation-delay: 5s;
 }
 
 @keyframes move13 {
@@ -492,7 +492,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(2430deg) translate(200px, 0.1px) rotate(-2430deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 75s;
+  animation-delay: 5s;
 }
 
 @keyframes move14 {
@@ -503,7 +503,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(2610deg) translate(200px, 0.1px) rotate(-2610deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 75s;
+  animation-delay: 5s;
 }
 
 @keyframes move15 {
@@ -514,7 +514,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(2790deg) translate(200px, 0.1px) rotate(-2790deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 75s;
+  animation-delay: 5s;
 }
 
 @keyframes move16 {
@@ -525,7 +525,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(2970deg) translate(200px, 0.1px) rotate(-2970deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 75s;
+  animation-delay: 5s;
 }
 
 @keyframes move17 {
@@ -536,7 +536,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(3150deg) translate(200px, 0.1px) rotate(-3150deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 75s;
+  animation-delay: 5s;
 }
 
 @keyframes move18 {
@@ -547,5 +547,5 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(3330deg) translate(200px, 0.1px) rotate(-3330deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 75s;
+  animation-delay: 5s;
 }
