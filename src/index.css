@@ -276,7 +276,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
   margin: 0;
   height: 100%;
   width: 100%;
-  overflow: hidden;
+  
 }
 
 .bgImage {
@@ -288,11 +288,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
   filter: grayscale(70%);
   z-index: -1;
 }
-@media (max-width: 868px) {
-  .bgImage {
-    padding-top: 60px; /* Adjust this value to match the height of your tab bar */
-  }
-}
+
 .blobCont {
   position: absolute;
   width: 100vw;
