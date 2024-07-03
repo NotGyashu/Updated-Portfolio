@@ -6,7 +6,7 @@ function Hire({ setVisible, visible }) {
       <div
         className="border-black border flex items-center justify-center sentient-font p-4 m-1 cursor-pointer   rounded-full "
         onMouseEnter={() => {
-          setVisible(!visible);
+          setVisible(true);
         }}
       >
         <img src="\paper-plane.png" className="h-6 w-6" />

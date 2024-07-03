@@ -24,7 +24,7 @@ const BallPool = ({ dimensions }) => {
     })
   );
 
-  const radius = 55; // Adjusted original radius
+  const radius =  55; // Adjusted original radius
 
   useEffect(() => {
     const render = Render.create({

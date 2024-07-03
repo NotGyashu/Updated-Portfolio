@@ -1,17 +1,47 @@
-import React, { useState } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import React, { useRef, useEffect,useState } from "react";
+import { motion } from "framer-motion";
 import CustomCursor from "../subComponents/projectCursor";
 import { projects } from "../info";
+import Header from "./Header";
+import MainNavbar from "../subComponents/mainNavbar";
+import Inner from "../utility/inner";
 
 function Projects() {
   const [hover1, setHover1] = useState(false);
   const [hover2, setHover2] = useState(false);
   const [hover3, setHover3] = useState(false);
   const [hover4, setHover4] = useState(false);
-  const [show,setShow] = useState(false);
+  const [show, setShow] = useState(false);
+const containerRef = useRef(null);
+
+useEffect(() => {
+  const handleScroll = (event) => {
+    const container = containerRef.current;
+    if (container) {
+      container.scrollLeft += event.deltaY;
+    }
+  };
+
+  const container = containerRef.current;
+  if (container) {
+    container.addEventListener("wheel", handleScroll);
+  }
+
+  return () => {
+    if (container) {
+      container.removeEventListener("wheel", handleScroll);
+    }
+  };
+}, []);
+
+
   return (
-    <div className="min-h-screen cursor-none   overflow-hidden  no-scrollbar w-full  text-white  box-border flex flex-col gap-3 relative ">
-      <div className=" water  absolute z-[-5]">
+    <div className="h-screen overflow-hidden no-scrollbar w-full text-white box-border flex flex-col lg:gap-3 md:gap-2 sm:gap-1 relative">
+      <Inner />
+      <div className=" absolute border border-white bottom-3 left-[50%] translate-x-[-50%] px-2 py-1  rounded-full">
+        <MainNavbar />
+      </div>
+      {/* <div className="water absolute z-[-5]">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
           <path
             fill="#212529"
@@ -20,17 +50,17 @@ function Projects() {
             rotate={360}
           />
         </svg>
-      </div>
-      <div className=" absolute w-[200vw] h-[200vh] bg-black z-[-10]"></div>
+      </div> */}
+      <div className="absolute w-[200vw] h-[200vh] bg-black z-[-10]"></div>
       <CustomCursor
         hover1={hover1}
         hover2={hover2}
         hover3={hover3}
         hover4={hover4}
       />
-      <div className="text-3xl  p-7   Panchang-font font-light">
+
+      <div className="text-xl md:text-2xl lg:text-3xl px-1 md:px-4 lg:px-7 py-2  Panchang-font font-light">
         <span
-          className=""
           onMouseEnter={() => {
             setHover3(true);
           }}
@@ -41,38 +71,56 @@ function Projects() {
           Featured Works
         </span>
       </div>
-      <div className="border  mx-7"></div>
+      <div className="border  md:mx-4 mx-1 lg:mx-7"></div>
       <div
-        className="flex  w-full flex-grow   m-7 py-7 gap-28 justify-between overflow-x-scroll no-scrollbar"
+        className="flex w-full  border flex-grow m-1 md:m-4 lg:m-7 lg:py-7 py-1 md:py-4 gap-12 lg:gap-28 md:gap-16 justify-between overflow-x-scroll  no-scrollbar"
         id="parent"
+        // ref={containerRef}
+        style={{
+          scrollSnapType: "x mandatory",
+
+          // Ensures the container is the full viewport height
+        }}
       >
+        {/* <div className="absolute text-xs md:text-sm top-[50%] translate-y-[-50%] left-[-7%] rotate-90  Panchang-font     flex  gap-6 items-center  ">
+          <div className="w-[1px] h-[6vh]  bg-white rounded-full rotate-90 "></div>
+          <span> SCROLLDOWN</span>
+          <div className="w-[1px] h-[7vh] ml-1  bg-white rounded-full rotate-90 "></div>
+        </div> */}
         {projects.map((p, index) => (
           <div
             key={index}
-            className={`flex-none  flex w-full flex-grow-0 flex-shrink-0 relative  gap-7`}
+            className=" border  flex w-full flex-grow-0 flex-shrink-0 relative gap-7 lg:flex-row flex-col"
+            style={{
+              scrollSnapAlign: "start",
+            }}
           >
-            <div className=" w-2/5 flex   h-full p-16  ">
+            <div className="lg:w-2/5  w-full h-2/5 flex lg:h-full lg:p-16 p-6 border">
               <motion.button
-                className="bg-black text-white shodowcursor1 text-sm  rounded-full border border-white h-16 w-16  absolute bottom-8 left-32 z-10  "
-                initial={{ y: 500 }}
+                className="bg-black text-white shadowcursor1 text-sm rounded-full border border-white lg:h-16 sm:h-8 lg:w-16 sm:w-8 absolute bottom-0 left-32 z-10"
+                initial={{ y: 500, opacity: 0, display: "none" }}
                 animate={
                   show && {
                     y: 0,
+                    opacity: 1,
+                    display: "block",
                     rotate: 360,
-                    transition: { duration: 2, ease: "easeInOut" },
+                    transition: { duration: 1, ease: "easeInOut" },
                   }
                 }
               >
                 Site
               </motion.button>
               <motion.button
-                className="text-black bg-white shodowcursor1 text-sm  rounded-full border border-black h-16 w-16  absolute bottom-8 left-80 z-20"
-                initial={{ y: 500 }}
+                className="text-black bg-white shadowcursor1 text-sm rounded-full border border-black lg:h-16 sm:h-8 lg:w-16 sm:w-8 absolute bottom-0 left-80 z-10"
+                initial={{ y: 500, opacity: 0, display: "none" }}
                 animate={
                   show && {
                     y: 0,
+                    opacity: 1,
+                    display: "block",
                     rotate: 360,
-                    transition: { duration: 2, ease: "easeInOut" },
+                    transition: { duration: 1, ease: "easeInOut" },
                   }
                 }
               >
@@ -81,7 +129,7 @@ function Projects() {
               <motion.div
                 className={` ${
                   hover2 ? " abs " : ""
-                }h-4/5 rounded-md flex-grow  overflow-hidden`}
+                } h-4/5 w-full  rounded-md flex-grow`}
                 initial={{
                   perspective: "1000px",
                   rotateX: 35,
@@ -125,14 +173,14 @@ function Projects() {
               >
                 <img
                   src={p.src}
-                  className="w-full h-full object-cover rounded-md"
+                  className="w-full  rounded-md"
                   alt=""
                 />
               </motion.div>
             </div>
-            <div className=" w-3/5 p-16 gap-7 flex rounded-lg   flex-col">
+            <div className="lg:w-3/5 border w-full h-3/5 lg:h-full p-3 md:p-8 lg:p-16 md:gap-4 gap-2 lg:gap-7 flex rounded-lg flex-col">
               <div
-                className="text-6xl Panchang-font "
+                className="lg:text-6xl  md:text-3xl sm:text-2xl text-xl Panchang-font"
                 onMouseEnter={() => {
                   setHover1(true);
                 }}
@@ -143,7 +191,7 @@ function Projects() {
                 {p.name}
               </div>
               <div
-                className="cabinet-font font-light"
+                className="cabinet-font font-light text-xs md:text-lg"
                 onMouseEnter={() => {
                   setHover1(true);
                 }}
@@ -154,7 +202,7 @@ function Projects() {
                 {p.Timeline}
               </div>
               <div
-                className=" cabinet-font text-xl text-ri"
+                className="cabinet-font md:text-xl text-ri"
                 onMouseEnter={() => {
                   setHover1(true);
                 }}

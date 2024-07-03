@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Hire from "./hire";
 import { easeInOut, motion } from "framer-motion";
+import MainNavbar from "./mainNavbar";
 function Main() {
   const [visible, setVisible] = useState(false);
   const social = [
@@ -58,18 +59,16 @@ function Main() {
 
   return (
     <div className="w-full no-scrollbar border flex-grow relative flex flex-col  justify-between items-center mt-[10vh]">
-      <div className="absolute top-[40%] left-[-5%] rotate-90  Panchang-font flex  gap-6 items-center  ">
-        <div className="w-[1px] h-[6vh]  bg-black rounded-full rotate-90 "></div>
-        <span> SCROLLDOWN</span>
-        <div className="w-[1px] h-[7vh] ml-1  bg-black rounded-full rotate-90 "></div>
+      <div className="border-2 absolute top-[20%] left-7 py-2 px-1  rounded-full" id="navbar">
+        <MainNavbar />
       </div>
-      <div className="w-[70vw]  flex flex-col ">
+      <div className="w-[70vw]   flex flex-col ">
         <div className="flex flex-col  Panchang-font">
           <div className=" bold text-6xl ">Hey,</div>
           <div className="flex gap-x-5  text-[6rem]">
             <div>I'm</div>
-            <div className="">
-              <motion.span whileHover={{ translateY: 100 }} className="">
+            <motion.div className="cursor-pointer">
+              <motion.span whileHover={{ translateY: -100 }} className="">
                 G
               </motion.span>
               <motion.span whileHover={{ translateY: 100 }}>y</motion.span>
@@ -77,7 +76,7 @@ function Main() {
               <motion.span whileHover={{ translateY: 100 }}>s</motion.span>
               <motion.span whileHover={{ translateY: 100 }}>h</motion.span>
               <motion.span whileHover={{ translateY: 100 }}>u</motion.span>
-            </div>
+            </motion.div>
           </div>
         </div>
         <div className="  text-4xl flex justify-end cabinet-font text-right w-full">
@@ -127,7 +126,7 @@ function Main() {
           ))}
       </div>
       <motion.div
-        className="border  rounded-xl  absolute left-[24.5vw] bottom-10 "
+        className="border-black border  rounded-xl  absolute left-[24.5vw] bottom-10 "
         variants={hireVariant}
         initial="hidden"
         animate="visible"

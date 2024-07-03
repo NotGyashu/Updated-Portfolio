@@ -10,8 +10,8 @@ const CustomCursor = ({hover1,hover2,hover3,hover4}) => {
     const moveCursor = (e) => {
       const offsetX = 10; // Adjust this value as needed
       const offsetY = 10; // Adjust this value as needed
-      cursorX.set(e.clientX - offsetX - 38);
-      cursorY.set(e.clientY - offsetY - 15);
+      cursorX.set(e.clientX - offsetX );
+      cursorY.set(e.clientY - offsetY );
     };
 
     document.addEventListener("mousemove", moveCursor);

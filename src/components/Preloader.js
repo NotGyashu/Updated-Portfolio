@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Inner from "../utility/inner";
 
 function Preloader({ onPreloaderHide, preloader, setPreloader }) {
   const [counter, setCounter] = useState(0);
@@ -20,7 +21,6 @@ function Preloader({ onPreloaderHide, preloader, setPreloader }) {
   useEffect(()=>{
     if (counter >= 100) {
       onPreloaderHide();
-      console.log("object"); // Call the prop function to trigger preloader hiding
       return;
     }
   },[counter])
@@ -42,7 +42,7 @@ function Preloader({ onPreloaderHide, preloader, setPreloader }) {
   }, []); // Empty dependency array for one-time setup
 
   return (
-    <div>
+   
       <div
         className={`${
          "bg-black relative overlay overflow-hidden "
@@ -58,7 +58,7 @@ function Preloader({ onPreloaderHide, preloader, setPreloader }) {
         </motion.div>
         <div className="counter">{counter} % </div>
       </div>
-    </div>
+    
   );
 }
 
