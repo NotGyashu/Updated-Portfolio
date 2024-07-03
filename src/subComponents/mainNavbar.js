@@ -68,8 +68,8 @@ function MainNavbar() {
       <div
         className={`h-auto py-1 ${
           isContact || isProjects ||isSkills
-            ? "flex flex-row gap-4"
-            : "flex flex-col gap-4"
+            ? "flex flex-row lg:gap-4 gap-2"
+            : "flex flex-col lg:gap-4 gap-2"
         } 
           
         }`}
@@ -80,7 +80,7 @@ function MainNavbar() {
               param === img.name
                 ? "gradient-border-2 border"
                 : "border border-black"
-            } bg-transparent rounded-full p-2 w-10 `}
+            } bg-transparent rounded-full p-1 w-7 lg:p-2 lg:w-10 `}
             whileHover={{ scale: 1.1 }}
           >
             <Link to={img.link}>

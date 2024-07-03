@@ -69,7 +69,7 @@ function Main() {
   };
   return (
     <div className="w-full no-scrollbar border flex-grow relative flex flex-col  justify-between items-center lg:mt-[10vh] mt-[5vh]">
-      <div className="border-2 absolute top-[20%] left-7 py-2 px-1  rounded-full" id="navbar">
+      <div className="border-2 absolute lg:top-[20%] top-[10%] left-7 py-2 px-1  rounded-full" id="navbar">
         <MainNavbar />
       </div>
       <div className="w-[70vw]   flex flex-col ">
