@@ -23,7 +23,7 @@ function OrientationOverlay() {
     return () => {
       window.removeEventListener("resize", checkOrientation);
     };
-  }, []);
+  }, [landscape]);
 
   return landscape;
 }

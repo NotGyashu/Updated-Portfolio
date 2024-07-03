@@ -13,7 +13,7 @@ function Name() {
         <Canvas />
         <Header />
         <Main />
-        {/* <Inner/> */}
+        <Inner/>
      
     </div>
   );

@@ -20,7 +20,7 @@ function Canvas() {
     <div className="bgImage no-scrollbar ">
       <svg className="blobCont" width="100%" height="100%">
         <image
-          xlinkHref="https://unsplash.com/photos/brown-and-white-house-on-snowcape-mountain-r-Xo8fxc_6w"
+          xlinkHref="https://www.google.com/search?q=ttps%3A%2F%2Fimages.unsplash.com%2Fphoto-1500462918059-b1a0cb512f1d%3Fixlib%3Drb-0.3.5%26s%3De20bc3d490c974d9ea190e05c47962f5%26auto%3Dformat%26fit%3Dcrop%26w%3D634%26q%3D80&rlz=1C1CHZN_enIN1012IN1012&oq=ttps%3A%2F%2Fimages.unsplash.com%2Fphoto-1500462918059-b1a0cb512f1d%3Fixlib%3Drb-0.3.5%26s%3De20bc3d490c974d9ea190e05c47962f5%26auto%3Dformat%26fit%3Dcrop%26w%3D634%26q%3D80&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg60gEHODA2ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8"
           mask="url(#mask)"
           width="100%"
           height="100%"
