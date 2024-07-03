@@ -12,7 +12,7 @@ export const Contact = () => {
   const year = new Date().getFullYear();
   const social = [
     {
-      src: "/linkedin (1).png",
+      src: "/linkedin.png",
       link: "",
     },
     {
@@ -80,7 +80,7 @@ export const Contact = () => {
             <motion.div
               className="lg:text-4xl text-2l Panchang-font border py-1 lg:py-2 px-4    rounded-full"
               whileHover={{ backgroundColor: "#111212", color: "#fff" }}
-              transition={{ duration: 0.3, ease: "easeOutQuart" }}
+              transition={{ duration: 0.3, ease: [0.25, 1, 0.5, 1] }}
               onMouseEnter={disableCursor}
               onMouseLeave={enableCursor}
               onTouchStart={handleTouchStart}
@@ -108,7 +108,7 @@ export const Contact = () => {
                 onClick={() =>
                   (window.location.href = "mailto:rahmangyashu178@gmail.com")
                 }
-               >
+              >
                 rahmangyashu178@gmail.com
               </motion.div>
               {social.map((s, index) => (
@@ -150,7 +150,10 @@ export const Contact = () => {
               onMouseEnter={disableCursor}
               onMouseLeave={enableCursor}
             >
-              <img src="\icons8-up-arrow-100.png" className="lg:h-12 h-8 w-8 lg:w-12" />
+              <img
+                src="\icons8-up-arrow-100.png"
+                className="lg:h-12 h-8 w-8 lg:w-12"
+              />
             </motion.div>
 
             <div>&copy; {year}</div>
