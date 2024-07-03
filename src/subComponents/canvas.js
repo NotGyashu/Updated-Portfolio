@@ -8,7 +8,7 @@ function Canvas() {
       const screenWidth = window.innerWidth;
       const screenHeight = window.innerHeight;
       const minDimension = Math.max(screenWidth, screenHeight);
-      setRadius(minDimension * 0.09  ); // adjust this factor as needed
+      setRadius(minDimension * 0.07  ); // adjust this factor as needed
     }
 
     handleResize(); // call it initially
