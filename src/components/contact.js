@@ -8,6 +8,7 @@ import Inner from "../utility/inner";
 
 export const Contact = () => {
   const [cursorVisible, setCursorVisible] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
   const year = new Date().getFullYear();
   const social = [
     {
@@ -45,6 +46,14 @@ export const Contact = () => {
   const disableCursor = () => setCursorVisible(false);
   const enableCursor = () => setCursorVisible(true);
 
+  const handleTouchStart = () => {
+    setIsHovered(true);
+  };
+
+  const handleTouchEnd = () => {
+    setIsHovered(false);
+  };
+
   return (
     <div
       ref={contactRef}
@@ -56,11 +65,11 @@ export const Contact = () => {
         <ShootingStar />
       </div>
       <div className="flex flex-col gap-5 flex-grow">
-        <div className="text-4xl Panchang-font">Contact</div>
+        <div className="lg:text-6xl md:text-4xl  Panchang-font">Contact</div>
         <div className="flex flex-col gap-3 gradient-border justify-around bg-white flex-grow">
           <div className="flex flex-col gap-3 items-center justify-center">
             <div
-              className="Panchang-font hover:underline"
+              className="Panchang-font hover:underline lg:text-xl text-xs"
               onMouseEnter={disableCursor}
               onMouseLeave={enableCursor}
             >
@@ -69,11 +78,18 @@ export const Contact = () => {
             <Inner />
 
             <motion.div
-              className="text-4xl Panchang-font border py-2 px-4 rounded-full"
+              className="lg:text-4xl text-2l Panchang-font border py-1 lg:py-2 px-4    rounded-full"
               whileHover={{ backgroundColor: "#111212", color: "#fff" }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.3, ease: "easeOutQuart" }}
               onMouseEnter={disableCursor}
               onMouseLeave={enableCursor}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+              style={{
+                transform: isHovered ? "scale(1.2)" : "scale(1)",
+                backgroundColor: isHovered ? "#111212" : "",
+                color: isHovered ? "#fff" : "", // Change text color when hovered
+              }}
             >
               Lets Talk
             </motion.div>
@@ -83,7 +99,7 @@ export const Contact = () => {
               onMouseLeave={enableCursor}
             >
               <motion.div
-                className="border p-1 border-black rounded-full px-2 cabinet-font "
+                className="border p-1 border-black rounded-full px-2 cabinet-font text-xs lg:text-lg"
                 whileHover={{
                   scale: 1.1,
                   backgroundColor: "#111212",
@@ -92,7 +108,7 @@ export const Contact = () => {
                 onClick={() =>
                   (window.location.href = "mailto:rahmangyashu178@gmail.com")
                 }
-              >
+               >
                 rahmangyashu178@gmail.com
               </motion.div>
               {social.map((s, index) => (
@@ -111,7 +127,7 @@ export const Contact = () => {
                   animate="visible"
                   className="border border-black rounded-full"
                 >
-                  <img src={s.src} className="h-6 w-6 m-4" />
+                  <img src={s.src} className="h-6 w-6 lg:m-4 m-2" />
                 </motion.div>
               ))}
             </div>
@@ -119,7 +135,7 @@ export const Contact = () => {
 
           <div className="flex justify-between items-center px-6">
             <motion.div
-              className="h-20 w-20 cursor-pointer border border-black rounded-full flex justify-center items-center"
+              className="lg:h-20 lg:w-20  h-10 w-10 cursor-pointer border border-black rounded-full flex justify-center items-center"
               variants={{
                 hidden: { opacity: 0 },
                 visible: { opacity: 1 },
@@ -134,7 +150,7 @@ export const Contact = () => {
               onMouseEnter={disableCursor}
               onMouseLeave={enableCursor}
             >
-              <img src="\icons8-up-arrow-100.png" className="h-12 w-12" />
+              <img src="\icons8-up-arrow-100.png" className="lg:h-12 h-8 w-8 lg:w-12" />
             </motion.div>
 
             <div>&copy; {year}</div>
