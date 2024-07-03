@@ -23,8 +23,9 @@ const BallPool = ({ dimensions }) => {
       },
     })
   );
-
-  const radius =  55; // Adjusted original radius
+ 
+// Adjusted original radius
+ const radius = 55; // Adjusted original radius
 
   useEffect(() => {
     const render = Render.create({
@@ -191,7 +192,9 @@ const renderCircles = async (cw, ch) => {
   }
 
   // Add click event listener to the scene's canvas
-  scene.current.addEventListener("click", (event) => {
+ 
+  
+ function handleEvent(event) {
     const mousePosition = {
       x: event.offsetX,
       y: event.offsetY,
@@ -226,7 +229,17 @@ const renderCircles = async (cw, ch) => {
         Matter.Body.scale(clickedBody, scaleFactor, scaleFactor);
       }
     }
-  });
+  };
+
+  const handleClick = (event) => {
+    handleEvent(event);
+  };
+
+  const handleTouch = (event) => {
+    handleEvent(event.touches[0]); // Use the first touch point
+  };
+  scene.current.addEventListener("click", handleClick);
+  scene.current.addEventListener("touchstart", handleTouch);
  
   
 };

@@ -28,7 +28,7 @@ function Skills() {
 
   return (
     <div
-      className="h-screen w-screen p-3 overflow-hidden"
+      className="h-screen w-screen lg:p-3 p-1 overflow-hidden"
       style={{
         background:
           "radial-gradient(ellipse at bottom, #04050D 0%, #05010d 100%)",
@@ -40,7 +40,7 @@ function Skills() {
 
       <Inner  />
 
-      <div className="text-white Panchang-font text-4xl px-7">
+      <div className="text-white Panchang-font lg:text-4xl text-2xl px-7">
         Skills & recent tools
       </div>
       <div className="flex py-5 px-10 flex-col items-center w-full h-full relative">
@@ -48,7 +48,7 @@ function Skills() {
           className="absolute inset-0 flex  justify-center top-[30%]"
           id="center"
         >
-          <div className="text-white text-2xl cabinet-font">CLICK & DRAG</div>
+          <div className="text-white lg:text-2xl text-xl cabinet-font">CLICK & DRAG</div>
         </div>
 
         <div

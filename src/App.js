@@ -13,12 +13,12 @@ import ThemeContext from "./contexts/themeContext";
 import Projects from "./components/projects";
 import Skills from "./components/skill";
 import { Contact } from "./components/contact";
+import Inner from "./utility/inner";
 import OrientationOverlay from "./components/orientation";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [preloader, setPreloader] = useState(true);
-  const [landscape, setLandscape] = useState(true); // Assume landscape by default
 
   const handlePreloaderHide = () => {
     setPreloader(false);
@@ -27,26 +27,17 @@ function App() {
   return (
     <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
       <Router>
+        <OrientationOverlay/>
         <div className="">
-          {landscape ? (
-            preloader ? (
-              <Preloader
-                onPreloaderHide={handlePreloaderHide}
-                preloader={preloader}
-                setPreloader={setPreloader}
-              />
-            ) : (
-              <div className="flex flex-col box-border no-scrollbar">
-                <AnimatedRoutes />
-              </div>
-            )
+          {preloader ? (
+            <Preloader
+              onPreloaderHide={handlePreloaderHide}
+              preloader={preloader}
+              setPreloader={setPreloader}
+            />
           ) : (
-            <div id="orientation-overlay" className="orientation-overlay">
-              <div className="flex justify-center items-center">
-                <div className="orientation-message w-full h-full text-sm bg-black text-white Panchang-font">
-                  Please rotate your device to landscape mode.
-                </div>
-              </div>
+            <div className="flex flex-col box-border no-scrollbar">
+              <AnimatedRoutes />
             </div>
           )}
         </div>
@@ -59,7 +50,7 @@ const AnimatedRoutes = () => {
   const location = useLocation();
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Name />} />
         <Route path="/projects" element={<Projects />} />

@@ -160,7 +160,7 @@ export const Contact = () => {
           </div>
         </div>
       </div>
-      <div className="border-2 z-10 absolute bottom-7 left-[40%] px-2 py-1 rounded-full">
+      <div className="border-2 z-10 absolute lg:bottom-7 bottom-4 left-[40%] px-2 py-1 rounded-full">
         <MainNavbar />
       </div>
     </div>
