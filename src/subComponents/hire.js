@@ -9,7 +9,7 @@ function Hire({ setVisible, visible }) {
           setVisible(true);
         }}
        >
-        <img src="\paper-plane.png" className="md:h-6 h-4 md:w-6 w-4" />
+        <img src="\paper-plane.png" className="h-6  w-6 " />
       </div>
     </div>
   );

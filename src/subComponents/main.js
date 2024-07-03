@@ -127,7 +127,7 @@ function Main() {
           ))}
       </div>
       <motion.div
-        className="border-black border  rounded-xl  absolute left-[24.5vw] bottom-10 "
+        className="border-black border  rounded-xl   left-[24.5vw] "
         variants={hireVariant}
         initial="hidden"
         animate="visible"
