@@ -179,8 +179,8 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
   width: 100vw;
   height: 200vh;
   overflow:hidden;
-  transition: all 0.5s ease !important;
-  -webkit-transition: all 0.5s ease !important;
+  transition: all 0.1s ease !important;
+  -webkit-transition: all 0.1s ease !important;
   border: 1px solid transparent;
   border-radius: 40% ;
   animation-name: spin;
@@ -360,7 +360,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(450deg) translate(200px, 0.1px) rotate(-450deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 5s;
+  animation-delay: 1s;
 }
 
 @keyframes move2 {
@@ -371,7 +371,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(540deg) translate(200px, 0.1px) rotate(-540deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 5s;
+  animation-delay: 1s;
 }
 
 @keyframes move3 {
@@ -382,7 +382,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(630deg) translate(200px, 0.1px) rotate(-630deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 5s;
+  animation-delay: 1s;
 }
 
 @keyframes move4 {
@@ -393,7 +393,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(810deg) translate(200px, 0.1px) rotate(-810deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 5s;
+  animation-delay: 1s;
 }
 
 @keyframes move5 {
@@ -404,7 +404,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(990deg) translate(200px, 0.1px) rotate(-990deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 5s;
+  animation-delay: 1s;
 }
 
 @keyframes move6 {
@@ -415,7 +415,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(1170deg) translate(200px, 0.1px) rotate(-1170deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 5s;
+  animation-delay: 1s;
 }
 
 @keyframes move7 {
@@ -426,7 +426,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(1350deg) translate(200px, 0.1px) rotate(-1350deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 5s;
+  animation-delay: 1s;
 }
 
 @keyframes move8 {
@@ -437,7 +437,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(1530deg) translate(200px, 0.1px) rotate(-1530deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 5s;
+  animation-delay: 1s;
 }
 
 @keyframes move9 {
@@ -448,7 +448,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(1710deg) translate(200px, 0.1px) rotate(-1710deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 5s;
+  animation-delay: 1s;
 }
 
 @keyframes move10 {
@@ -459,7 +459,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(1890deg) translate(200px, 0.1px) rotate(-1890deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 5s;
+  animation-delay: 1s;
 }
 
 @keyframes move11 {
@@ -470,7 +470,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(2070deg) translate(200px, 0.1px) rotate(-2070deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 5s;
+  animation-delay: 1s;
 }
 
 @keyframes move12 {
@@ -481,7 +481,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(2250deg) translate(200px, 0.1px) rotate(-2250deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 5s;
+  animation-delay: 1s;
 }
 
 @keyframes move13 {
@@ -492,7 +492,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(2430deg) translate(200px, 0.1px) rotate(-2430deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 5s;
+  animation-delay: 1s;
 }
 
 @keyframes move14 {
@@ -503,7 +503,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(2610deg) translate(200px, 0.1px) rotate(-2610deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 5s;
+  animation-delay: 1s;
 }
 
 @keyframes move15 {
@@ -514,7 +514,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(2790deg) translate(200px, 0.1px) rotate(-2790deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 5s;
+  animation-delay: 1s;
 }
 
 @keyframes move16 {
@@ -525,7 +525,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(2970deg) translate(200px, 0.1px) rotate(-2970deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 5s;
+  animation-delay: 1s;
 }
 
 @keyframes move17 {
@@ -536,7 +536,7 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(3150deg) translate(200px, 0.1px) rotate(-3150deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 5s;
+  animation-delay: 1s;
 }
 
 @keyframes move18 {
@@ -547,5 +547,5 @@ box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
     transform: rotate(3330deg) translate(200px, 0.1px) rotate(-3330deg);
   }
   animation-timing-function: ease-in-out;
-  animation-delay: 5s;
+  animation-delay: 1s;
 }
