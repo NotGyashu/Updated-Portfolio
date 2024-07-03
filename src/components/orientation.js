@@ -26,7 +26,7 @@ function OrientationOverlay() {
 
   return (
     <div id="orientation-overlay" className="orientation-overlay hidden">
-      <div className="orientation-message bg-black text-white Panchang-font">
+      <div className="orientation-message w-full h-full text-sm bg-black text-white Panchang-font">
         Please rotate your device to landscape mode.
       </div>
     </div>
