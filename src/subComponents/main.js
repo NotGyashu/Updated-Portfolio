@@ -88,7 +88,7 @@ function Main() {
         </div>
       </div>
       <div
-        className="flex gap-5  absolute left-[14.7vw] bottom-10
+        className="flex gap-5  absolute left-[14.7vw] md:bottom-10 bottom-16
       "
       >
         {visible &&
@@ -127,7 +127,7 @@ function Main() {
           ))}
       </div>
       <motion.div
-        className="border-black border  rounded-xl   left-[24.5vw] "
+        className="border-black border  rounded-xl md:bottom-10  md:left-[24.5vw] bottom-16"
         variants={hireVariant}
         initial="hidden"
         animate="visible"
