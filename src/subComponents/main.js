@@ -80,7 +80,7 @@ function Main() {
           </div>
         </div>
         
-        <div className=" text-2xl lg:text-4xl flex justify-end cabinet-font text-right w-full">
+        <div className=" text-2xl lg:text-4xl mt-7 flex justify-end cabinet-font text-right w-full">
           <div className=" lg:w-[70%] w-full">
             —Full-Stack Developer & Web Designer with experience crafting
             user-friendly web experiences and tackling challenging algorithms.
@@ -127,7 +127,7 @@ function Main() {
           ))}
       </div>
       <motion.div
-        className="border-black border  rounded-xl md:bottom-10  md:left-[24.5vw] bottom-16"
+        className="border-black border absolute rounded-xl md:bottom-10  md:left-[24.5vw] bottom-16"
         variants={hireVariant}
         initial="hidden"
         animate="visible"
