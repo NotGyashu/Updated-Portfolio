@@ -65,7 +65,7 @@ function Main() {
       <div className="w-[70vw]   flex flex-col ">
         <div className="flex flex-col  Panchang-font">
           <div className=" bold md:text-6xl text-4xl ">Hey,</div>
-          <div className="flex gap-x-5 flex-col md:flex-row  lg:text-[6rem] text-[3rem]">
+          <div className="flex gap-x-5 flex-col md:flex-row  lg:text-[6rem] text-5xl">
             <div>I'm</div>
             <motion.div className="cursor-pointer">
               <motion.span whileHover={{ translateY: -100 }} className="">
@@ -79,6 +79,7 @@ function Main() {
             </motion.div>
           </div>
         </div>
+        
         <div className=" text-2xl lg:text-4xl flex justify-end cabinet-font text-right w-full">
           <div className=" lg:w-[70%] w-full">
             —Full-Stack Developer & Web Designer with experience crafting
