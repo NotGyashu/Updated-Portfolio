@@ -5,7 +5,7 @@ import MainNavbar from "./mainNavbar";
 function Main() {
   const [visible, setVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  
+
   const social = [
     {
       src: "/mail.png",
@@ -74,7 +74,7 @@ function Main() {
       </div> */}
       <div className="w-[70vw]   flex flex-col ">
         <div className="flex flex-col  Panchang-font">
-          <div className=" bold md:text-6xl text-4xl ">Hey,</div>
+          <div className=" bold lg:text-6xl text-4xl ">Hey,</div>
           <div className="flex gap-x-5 flex-col md:flex-row  lg:text-[6rem] text-5xl">
             <div>I'm</div>
             <motion.div className="cursor-pointer">
@@ -98,7 +98,7 @@ function Main() {
         </div>
       </div>
       <div
-        className="flex gap-5  absolute left-[14.7vw] md:bottom-10 bottom-16
+        className="flex gap-5  absolute lg:left-[14.7vw] lg:bottom-10 bottom-3 left-[1w]
       "
       >
         {visible &&
@@ -140,7 +140,7 @@ function Main() {
           ))}
       </div>
       <motion.div
-        className="border-black border absolute rounded-xl md:bottom-10  md:left-[24.5vw] bottom-16"
+        className="border-black border absolute rounded-xl md:bottom-10  md:left-[24.5vw] bottom-3"
         variants={hireVariant}
         initial="hidden"
         animate="visible"
