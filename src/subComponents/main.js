@@ -122,7 +122,7 @@ function Main() {
             >
               {" "}
               {console.log((index + 3) % 3 == 2 || (index + 3) % 3 == 2)}
-              <img src={s.src} className="h-8   w-8 lg:m-2 m-1 " />
+              <img src={s.src} className="h-8   w-8 m-2  " />
             </motion.div>
           ))}
       </div>
