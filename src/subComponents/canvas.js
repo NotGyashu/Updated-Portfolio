@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 function Canvas() {
+  const [radius, setRadius] = useState(50); // default radius
+
+  useEffect(() => {
+    function handleResize() {
+      const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
+      const minDimension = Math.min(screenWidth, screenHeight);
+      setRadius(minDimension * 0.13); // adjust this factor as needed
+    }
+
+    handleResize(); // call it initially
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div className="bgImage no-scrollbar ">
-      <svg className="blobCont">
+      <svg className="blobCont" width="100%" height="100%">
         <image
-          xlinkHref="ttps://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-0.3.5&s=e20bc3d490c974d9ea190e05c47962f5&auto=format&fit=crop&w=634&q=80"
+          xlinkHref="https://unsplash.com/photos/brown-and-white-house-on-snowcape-mountain-r-Xo8fxc_6w"
           mask="url(#mask)"
           width="100%"
           height="100%"
@@ -32,7 +47,7 @@ function Canvas() {
               className="blob"
               cx="10%"
               cy="10%"
-              r="80"
+              r={radius}
               fill="white"
               stroke="white"
             />
@@ -40,7 +55,7 @@ function Canvas() {
               className="blob"
               cx="50%"
               cy="10%"
-              r="40"
+              r={radius * 0.5}
               fill="white"
               stroke="white"
             />
@@ -48,7 +63,7 @@ function Canvas() {
               className="blob"
               cx="17%"
               cy="15%"
-              r="70"
+              r={radius * 0.875}
               fill="white"
               stroke="white"
             />
@@ -56,7 +71,7 @@ function Canvas() {
               className="blob"
               cx="90%"
               cy="20%"
-              r="120"
+              r={radius * 1.5}
               fill="white"
               stroke="white"
             />
@@ -64,7 +79,7 @@ function Canvas() {
               className="blob"
               cx="30%"
               cy="25%"
-              r="30"
+              r={radius * 0.375}
               fill="white"
               stroke="white"
             />
@@ -72,7 +87,7 @@ function Canvas() {
               className="blob"
               cx="50%"
               cy="60%"
-              r="80"
+              r={radius}
               fill="white"
               stroke="white"
             />
@@ -80,7 +95,7 @@ function Canvas() {
               className="blob"
               cx="70%"
               cy="90%"
-              r="10"
+              r={radius * 0.125}
               fill="white"
               stroke="white"
             />
@@ -88,7 +103,7 @@ function Canvas() {
               className="blob"
               cx="90%"
               cy="60%"
-              r="90"
+              r={radius * 1.125}
               fill="white"
               stroke="white"
             />
@@ -96,7 +111,7 @@ function Canvas() {
               className="blob"
               cx="30%"
               cy="90%"
-              r="80"
+              r={radius}
               fill="white"
               stroke="white"
             />
@@ -104,7 +119,7 @@ function Canvas() {
               className="blob"
               cx="10%"
               cy="10%"
-              r="80"
+              r={radius}
               fill="white"
               stroke="white"
             />
@@ -112,7 +127,7 @@ function Canvas() {
               className="blob"
               cx="50%"
               cy="10%"
-              r="20"
+              r={radius * 0.25}
               fill="white"
               stroke="white"
             />
@@ -120,7 +135,7 @@ function Canvas() {
               className="blob"
               cx="17%"
               cy="15%"
-              r="70"
+              r={radius * 0.875}
               fill="white"
               stroke="white"
             />
@@ -128,7 +143,7 @@ function Canvas() {
               className="blob"
               cx="40%"
               cy="20%"
-              r="120"
+              r={radius * 1.5}
               fill="white"
               stroke="white"
             />
@@ -136,7 +151,7 @@ function Canvas() {
               className="blob"
               cx="30%"
               cy="25%"
-              r="30"
+              r={radius * 0.375}
               fill="white"
               stroke="white"
             />
@@ -144,7 +159,7 @@ function Canvas() {
               className="blob"
               cx="80%"
               cy="60%"
-              r="80"
+              r={radius}
               fill="white"
               stroke="white"
             />
@@ -152,7 +167,7 @@ function Canvas() {
               className="blob"
               cx="17%"
               cy="10%"
-              r="100"
+              r={radius * 1.25}
               fill="white"
               stroke="white"
             />
@@ -160,7 +175,7 @@ function Canvas() {
               className="blob"
               cx="40%"
               cy="60%"
-              r="90"
+              r={radius * 1.125}
               fill="white"
               stroke="white"
             />
@@ -168,7 +183,7 @@ function Canvas() {
               className="blob"
               cx="10%"
               cy="50%"
-              r="80"
+              r={radius}
               fill="white"
               stroke="white"
             />
