@@ -14,7 +14,7 @@ const BallPool = ({ dimensions }) => {
   const cw = dimensions.width;
   const ch = dimensions.height;
   const scene = useRef();
-  const [labels, setlabels] = useState([]); 
+  const [labels, setlabels] = useState([]);
   const engine = useRef(
     Engine.create({
       gravity: {
@@ -23,9 +23,19 @@ const BallPool = ({ dimensions }) => {
       },
     })
   );
- 
-// Adjusted original radius
- const radius = cw/20; // Adjusted original radius
+  let radius; // Declare radius variable outside the if-else block
+
+  // Adjusted original radius
+  useEffect(() => {
+    if (cw > 800) {
+      radius = cw / 20; // Adjusted original radius
+    } else {
+      radius = cw / 15;
+    }
+
+    // Now you can use radius appropriately
+    console.log("Current radius:", radius);
+  }, [cw, dimensions]); // Ensure cw is included in dependencies if it's used inside the effect
 
   useEffect(() => {
     const render = Render.create({
@@ -107,145 +117,145 @@ const BallPool = ({ dimensions }) => {
     }
   }, [dimensions]);
 
-const renderCircles = async (cw, ch) => {
-  const clickedCircles = [];
-// Define a boundary collision handler
-  const boundaryCollision = (event) => {
-    const pairs = event.pairs;
-    
-    for (let i = 0; i < pairs.length; i++) {
-      const pair = pairs[i];
-      const bodyA = pair.bodyA;
-      const bodyB = pair.bodyB;
+  const renderCircles = async (cw, ch) => {
+    const clickedCircles = [];
+    // Define a boundary collision handler
+    const boundaryCollision = (event) => {
+      const pairs = event.pairs;
 
-      // Check if the circle body collides with any of the boundaries
-      if (bodyA.isCircle && (bodyB.isWall || bodyB.isBoundary)) {
-        // Reverse the vertical velocity to prevent it from falling out of bounds
-        bodyA.velocity.y *= -1;
+      for (let i = 0; i < pairs.length; i++) {
+        const pair = pairs[i];
+        const bodyA = pair.bodyA;
+        const bodyB = pair.bodyB;
+
+        // Check if the circle body collides with any of the boundaries
+        if (bodyA.isCircle && (bodyB.isWall || bodyB.isBoundary)) {
+          // Reverse the vertical velocity to prevent it from falling out of bounds
+          bodyA.velocity.y *= -1;
+        }
+        if (bodyB.isCircle && (bodyA.isWall || bodyA.isBoundary)) {
+          // Reverse the vertical velocity to prevent it from falling out of bounds
+          bodyB.velocity.y *= -1;
+        }
       }
-      if (bodyB.isCircle && (bodyA.isWall || bodyA.isBoundary)) {
-        // Reverse the vertical velocity to prevent it from falling out of bounds
-        bodyB.velocity.y *= -1;
-      }
-    }
-  };
-
-  // Add the boundary collision handler to the collision event
-  Events.on(engine.current, "collisionStart", boundaryCollision);
-
-  for (let i = 0; i < skills.length; i++) {
-    const skill = skills[i];
-    const delay = Math.random() * 600;
-
-    // Wait for the delay before rendering the circle
-    await new Promise((resolve) => setTimeout(resolve, delay));
-
-    // Calculate random position considering boundaries and direction
-    const randomX = Math.random() * 1000;
-    const randomY = Math.random() * 0;
-
-    // Generate a unique ID for each circle
-    const circleId = `circle-${i}`;
-
-    // Calculate random velocity vector
-    const randomVelocityX = (Math.random() - 0.5) * 5; // Random velocity between -2.5 and 2.5
-    const randomVelocityY = (Math.random() - 0.5) * 5;
-    console.log(cw, ch);
-    const circle = Bodies.circle(randomX, randomY, radius, {
-      restitution: 1,
-      friction: 0.1,
-      velocity: { x: randomVelocityX, y: randomVelocityY },
-      render: {
-        fillStyle: "transparent",
-        strokeStyle: "#dee2e6",
-        lineWidth: 0.7,
-      },
-    
-    });
-
-    // Assign the circleId to the circle's custom property
-    circle.circleId = circleId;
-
-    // Add circle to the world
-    World.add(engine.current.world, [circle]);
-    Matter.Sleeping.set(circle, false); // Wake the circle if needed
-
-    
-    // Render text
-    const textElement = document.createElement("div");
-    textElement.innerHTML = skill;
-    textElement.style.position = "absolute";
-    textElement.style.left = `${randomX}px`;
-    textElement.style.top = `${randomY}px`;
-    textElement.style.color = "#ffffff";
-    textElement.style.fontSize = "14px";
-    textElement.style.textAlign = "center";
-    textElement.style.transform = "translate(-50%, -50%)";
-    textElement.style.fontFamily = "panchanag";
-    scene.current.appendChild(textElement);
-    const updateTextPosition = () => {
-      const circlePosition = circle.position;
-      textElement.style.left = `${circlePosition.x}px`;
-      textElement.style.top = `${circlePosition.y}px`;
     };
 
-    // Subscribe to position updates
-    Events.on(engine.current, "afterUpdate", updateTextPosition);
-  }
+    // Add the boundary collision handler to the collision event
+    Events.on(engine.current, "collisionStart", boundaryCollision);
 
-  // Add click event listener to the scene's canvas
- 
-  
- function handleEvent(event) {
-    const mousePosition = {
-      x: event.offsetX,
-      y: event.offsetY,
-    };
+    for (let i = 0; i < skills.length; i++) {
+      const skill = skills[i];
+      const delay = Math.random() * 600;
 
-    console.log("Mouse Position:", mousePosition);
+      // Wait for the delay before rendering the circle
+      await new Promise((resolve) => setTimeout(resolve, delay));
 
-    // Check if any body contains the clicked point
-    const bodies = Matter.Query.point(
-      engine.current.world.bodies,
-      mousePosition
-    );
+      // Calculate random position considering boundaries and direction
+      const randomX = Math.random() * 1000;
+      const randomY = Math.random() * 0;
 
-    console.log("Bodies:", bodies);
+      // Generate a unique ID for each circle
+      const circleId = `circle-${i}`;
 
-    // If a body is clicked, double its size
-    if (bodies.length > 0) {
-      const clickedBody = bodies[0];
-      const circleId = clickedBody.circleId; // Retrieve circleId here
-      console.log("Clicked Body:", clickedBody);
-      console.log("Circle ID:", circleId);
+      // Calculate random velocity vector
+      const randomVelocityX = (Math.random() - 0.5) * 5; // Random velocity between -2.5 and 2.5
+      const randomVelocityY = (Math.random() - 0.5) * 5;
+      console.log(cw, ch);
+      const circle = Bodies.circle(randomX, randomY, radius, {
+        restitution: 1,
+        friction: 0.1,
+        velocity: { x: randomVelocityX, y: randomVelocityY },
+        render: {
+          fillStyle: "transparent",
+          strokeStyle: "#dee2e6",
+          lineWidth: 0.7,
+        },
+      });
 
-      // Check if the circleId is already in clickedCircles array
-      const size = clickedCircles.includes(circleId);
-      console.log(size);
+      // Assign the circleId to the circle's custom property
+      circle.circleId = circleId;
 
-      // If circleId is not in clickedCircles array, push it and scale the body
-      if (!size) {
-        clickedCircles.push(circleId);
-        console.log(clickedCircles);
-        const scaleFactor = 1.2 + Math.random() * 0.4;
-        Matter.Body.scale(clickedBody, scaleFactor, scaleFactor);
+      // Add circle to the world
+      World.add(engine.current.world, [circle]);
+      Matter.Sleeping.set(circle, false); // Wake the circle if needed
+
+      // Render text
+      const textElement = document.createElement("div");
+      const words = skill.split(" "); // Split text into words
+      if (words.length === 2) {
+        // If there are two words, display them in two lines
+        textElement.innerHTML = `${words[0]}<br>${words[1]}`;
+      } else {
+        textElement.innerHTML = skill;
+      }
+      textElement.style.position = "absolute";
+      textElement.style.left = `${randomX}px`;
+      textElement.style.top = `${randomY}px`;
+      textElement.style.color = "#ffffff";
+      textElement.style.fontSize = "14px";
+      textElement.style.textAlign = "center";
+      textElement.style.transform = "translate(-50%, -50%)";
+      textElement.style.fontFamily = "panchanag";
+      scene.current.appendChild(textElement);
+
+      const updateTextPosition = () => {
+        const circlePosition = circle.position;
+        textElement.style.left = `${circlePosition.x}px`;
+        textElement.style.top = `${circlePosition.y}px`;
+      };
+      // Subscribe to position updates
+      Events.on(engine.current, "afterUpdate", updateTextPosition);
+    }
+
+    // Add click event listener to the scene's canvas
+
+    function handleEvent(event) {
+      event.preventDefault();
+      const mousePosition = {
+        x: event.offsetX || event.touches[0].clientX,
+        y: event.offsetY || event.touches[0].clientY,
+      };
+
+      console.log("Mouse Position:", mousePosition);
+
+      // Check if any body contains the clicked point
+      const bodies = Matter.Query.point(
+        engine.current.world.bodies,
+        mousePosition
+      );
+
+      console.log("Bodies:", bodies);
+
+      // If a body is clicked, double its size
+      if (bodies.length > 0) {
+        const clickedBody = bodies[0];
+        const circleId = clickedBody.circleId; // Retrieve circleId here
+        console.log("Clicked Body:", clickedBody);
+        console.log("Circle ID:", circleId);
+
+        // Check if the circleId is already in clickedCircles array
+        const size = clickedCircles.includes(circleId);
+        console.log(size);
+
+        // If circleId is not in clickedCircles array, push it and scale the body
+        if (!size) {
+          clickedCircles.push(circleId);
+          console.log(clickedCircles);
+          const scaleFactor = 1.2 + Math.random() * 0.4;
+          Matter.Body.scale(clickedBody, scaleFactor, scaleFactor);
+        }
       }
     }
-  };
 
-  const handleClick = (event) => {
-    handleEvent(event);
-  };
+    scene.current.addEventListener("click", handleEvent);
+    scene.current.addEventListener("touchstart", handleEvent);
 
-  const handleTouch = (event) => {
-    handleEvent(event.touches[0]); // Use the first touch point
+    return () => {
+      // Cleanup event listeners
+      scene.current.removeEventListener("click", handleEvent);
+      scene.current.removeEventListener("touchstart", handleEvent);
+    };
   };
-  scene.current.addEventListener("click", handleClick);
-  scene.current.addEventListener("touchstart", handleTouch);
- 
-  
-};
-
 
   return (
     <div

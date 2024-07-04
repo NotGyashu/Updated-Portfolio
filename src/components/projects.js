@@ -41,7 +41,7 @@ function Projects() {
     <div className="h-screen overflow-hidden  no-scrollbar w-full text-white box-border flex flex-col lg:gap-3 md:gap-2 sm:gap-1 relative">
       <Inner />
       <div
-        className="  absolute border border-white bottom-3 left-[50%] translate-x-[-50%] lg:px-2 lg:py-1 px-3 rounded-full"
+        className="z-30   absolute border border-white bottom-3 left-[50%] translate-x-[-50%] lg:px-2 lg:py-1 px-3 rounded-full"
         id="nav"
         onMouseEnter={() => {
           setShowCursor(false);

@@ -25,7 +25,7 @@ function Skills() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-const radius = dimensions.width / 20;
+
   return (
     <div
       className="h-screen w-screen lg:p-3 p-1 overflow-hidden"
@@ -36,13 +36,13 @@ const radius = dimensions.width / 20;
 
 
     >
-      <div className=" absolute border z-30 border-gray-300   bg-white left-[40%] top-[12%] px-2 py-1  rounded-full">
+      <div className=" absolute border z-30 border-gray-300   bg-white left-[40%] top-[12%] px-2 lg:py-1  rounded-full">
         <MainNavbar />
       </div>
 
       <Inner />
 
-      <div className="text-white Panchang-font lg:text-4xl text-2xl px-7">
+      <div className="text-white Panchang-font lg:text-4xl md:text-3xl text-2xl lg:px-7">
         Skills & recent tools
       </div>
       <div className="flex lg:py-5 py-2 lg:px-10 px-4 flex-col items-center w-full h-full relative">
