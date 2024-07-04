@@ -94,7 +94,7 @@ function Projects() {
       >
         <div className="absolute text-xs md:text-sm top-[50%] translate-y-[-50%] left-[-14vh] rotate-90  Panchang-font     flex  gap-6 items-center  ">
           <div className="w-[1px] h-[6vh]  bg-white rounded-full rotate-90 "></div>
-          <span className="lg:text-sm md:text-[6px]"> SCROLLDOWN</span>
+          <span className="lg:text-sm md:text-[10px]"> SCROLLDOWN</span>
           <div className="w-[1px] h-[7vh] ml-1  bg-white rounded-full rotate-90 "></div>
         </div>
         {projects.map((p, index) => (
