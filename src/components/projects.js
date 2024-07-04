@@ -41,7 +41,7 @@ useEffect(() => {
       <div className=" absolute z-100 border border-white bottom-3 left-[50%] translate-x-[-50%] px-2 py-1  rounded-full">
         <MainNavbar />
       </div>
-      {/* <div className="water absolute z-[-5]">
+      <div className="water absolute z-[-5]">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
           <path
             fill="#212529"
@@ -50,7 +50,7 @@ useEffect(() => {
             rotate={360}
           />
         </svg>
-      </div> */}
+      </div>
       <div className="absolute w-[200vw] h-[200vh] bg-black z-[-10]"></div>
       <CustomCursor
         hover1={hover1}
