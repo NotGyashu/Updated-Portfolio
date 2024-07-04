@@ -38,7 +38,7 @@ useEffect(() => {
   return (
     <div className="h-screen overflow-hidden no-scrollbar w-full text-white box-border flex flex-col lg:gap-3 md:gap-2 sm:gap-1 relative">
       <Inner />
-      <div className=" absolute z-100 border border-white bottom-3 left-[50%] translate-x-[-50%] px-2 py-1  rounded-full">
+      <div className=" absolute border border-white bottom-3 left-[50%] translate-x-[-50%] lg:px-2 lg:py-1 px-3 rounded-full">
         <MainNavbar />
       </div>
       <div className="water absolute z-[-5]">
@@ -73,7 +73,7 @@ useEffect(() => {
       </div>
       <div className="border  md:mx-4 mx-1 lg:mx-7"></div>
       <div
-        className="flex w-full   flex-grow m-1 md:m-4 lg:m-7  gap-12 lg:gap-28 md:gap-16 justify-between overflow-x-scroll  no-scrollbar"
+        className="flex w-full border  flex-grow m-1 md:m-4 lg:m-7  gap-12 lg:gap-28 md:gap-16 justify-between overflow-x-scroll  no-scrollbar"
         id="parent"
         // ref={containerRef}
         style={{

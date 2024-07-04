@@ -3,7 +3,7 @@ export const projects = [
     name: "Social-Arena",
     src: "/Screenshot 2024-04-05 164820.png",
     description:
-      "Urdu poetry, rich with melody and depth, paints emotions with vivid words. Ghazals, love sonnets, and nazms, epics, explore themes of love, loss, life's beauty, and philosophical musings.",
+      "Urdu poetry, rich with melody and depth, paints emotions with vivid words. Ghazals, love sonnets, and nazms, epics, explore themes of love, loss, life's beauty, and Urdu poetry, rich with melody and depth, paints emotions with vivid words. Ghazals, love sonnets, and nazms, epics, explore themes of love, loss, life's beauty, and  Urdu poetry, rich with melody and depth, paints emotions with vivid words. Ghazals, love sonnets, and nazms, epics, explore themes of love, loss, life's beauty, and philosophical musings.",
     Timeline: "April'23-oct'23",
   },
   {
