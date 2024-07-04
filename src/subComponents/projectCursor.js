@@ -3,8 +3,8 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 
 const CustomCursor = ({hover1,hover2,hover3,hover4}) => {
   const cursorRef = useRef(null);
-  const cursorX = useMotionValue(0); // Adjust for inner cursor width
-  const cursorY = useMotionValue(0); // Adjust for inner cursor height
+  const cursorX = useMotionValue(-50); // Adjust for inner cursor width
+  const cursorY = useMotionValue(-50); // Adjust for inner cursor height
 
   useEffect(() => {
     const moveCursor = (e) => {

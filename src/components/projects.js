@@ -38,7 +38,7 @@ useEffect(() => {
   return (
     <div className="h-screen overflow-hidden no-scrollbar w-full text-white box-border flex flex-col lg:gap-3 md:gap-2 sm:gap-1 relative">
       <Inner />
-      <div className=" absolute border border-white bottom-3 left-[50%] translate-x-[-50%] px-2 py-1  rounded-full">
+      <div className=" absolute z-100 border border-white bottom-3 left-[50%] translate-x-[-50%] px-2 py-1  rounded-full">
         <MainNavbar />
       </div>
       {/* <div className="water absolute z-[-5]">
@@ -59,7 +59,7 @@ useEffect(() => {
         hover4={hover4}
       />
 
-      <div className="text-xl md:text-2xl lg:text-3xl px-1 md:px-4 lg:px-7 py-2  Panchang-font font-light">
+      <div className="text-xl md:text-2xl lg:text-3xl px-1 md:px-4 lg:px-7 lg:py-2 py-1  Panchang-font font-light">
         <span
           onMouseEnter={() => {
             setHover3(true);
@@ -73,7 +73,7 @@ useEffect(() => {
       </div>
       <div className="border  md:mx-4 mx-1 lg:mx-7"></div>
       <div
-        className="flex w-full  border flex-grow m-1 md:m-4 lg:m-7 lg:py-7 py-1 md:py-4 gap-12 lg:gap-28 md:gap-16 justify-between overflow-x-scroll  no-scrollbar"
+        className="flex w-full   flex-grow m-1 md:m-4 lg:m-7  gap-12 lg:gap-28 md:gap-16 justify-between overflow-x-scroll  no-scrollbar"
         id="parent"
         // ref={containerRef}
         style={{
@@ -90,12 +90,12 @@ useEffect(() => {
         {projects.map((p, index) => (
           <div
             key={index}
-            className=" border  flex w-full flex-grow-0 flex-shrink-0 relative gap-7 md:flex-row flex-col overflow-hidden"
+            className="   flex w-full flex-grow-0 flex-shrink-0 relative   md:flex-row flex-col overflow-hidden"
             style={{
               scrollSnapAlign: "start",
             }}
           >
-            <div className="md:w-2/5  w-full h-2/5 flex md:h-full md:p-16 p-6 border ">
+            <div className="md:w-2/5  w-full h-2/5 flex md:h-full lg:p-16 md:10 p-6  ">
               {/* <motion.button
                 className="bg-black text-white shadowcursor1 text-sm rounded-full border border-white md:h-16 sm:h-8 md:w-16 sm:w-8 absolute bottom-0 left-32 z-10"
                 initial={{ y: 500, opacity: 0, display: "none" }}
@@ -178,7 +178,7 @@ useEffect(() => {
                 />
               </motion.div>
             </div>
-            <div className="md:w-3/5 border w-full overflow-hidden h-3/5 md:h-full md:p-4 p-1 lg:p-16 md:gap-2 gap-1 lg:gap-7 flex rounded-lg flex-col">
+            <div className="md:w-3/5  w-full overflow-hidden h-3/5 md:h-full md:p-4 p-1 lg:p-16 md:gap-2 gap-1 lg:gap-7 flex rounded-lg flex-col">
               <div
                 className="lg:text-6xl  md:text-3xl sm:text-2xl text-xl Panchang-font"
                 onMouseEnter={() => {
