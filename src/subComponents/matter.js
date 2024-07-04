@@ -25,7 +25,7 @@ const BallPool = ({ dimensions }) => {
   );
  
 // Adjusted original radius
- const radius = 55; // Adjusted original radius
+ const radius = cw/20; // Adjusted original radius
 
   useEffect(() => {
     const render = Render.create({
@@ -98,12 +98,14 @@ const BallPool = ({ dimensions }) => {
   }, [dimensions]);
 
   useEffect(() => {
-    if (true) {
-      setTimeout(() => {
-        renderCircles(cw, ch);
-      }, 2000);
+    if (dimensions.width && dimensions.height) {
+      if (true) {
+        setTimeout(() => {
+          renderCircles(cw, ch);
+        }, 2000);
+      }
     }
-  }, []);
+  }, [dimensions]);
 
 const renderCircles = async (cw, ch) => {
   const clickedCircles = [];
