@@ -5,6 +5,7 @@ import { projects } from "../info";
 import Header from "./Header";
 import MainNavbar from "../subComponents/mainNavbar";
 import Inner from "../utility/inner";
+import ScrollTracker from "../subComponents/scrolltracker";
 
 function Projects() {
   const [hover1, setHover1] = useState(false);
@@ -13,6 +14,7 @@ function Projects() {
   const [hover4, setHover4] = useState(false);
   const [show, setShow] = useState(false);
 const containerRef = useRef(null);
+const scrollRef = useRef(null);
 
 useEffect(() => {
   const handleScroll = (event) => {
@@ -71,17 +73,17 @@ useEffect(() => {
           Featured Works
         </span>
       </div>
-      <div className="border  md:mx-4 mx-1 lg:mx-7"></div>
+      <ScrollTracker ref={scrollRef} />
       <div
         className="flex w-full border  flex-grow m-1 md:m-4 lg:m-7  gap-12 lg:gap-28 md:gap-16 justify-between overflow-x-scroll  no-scrollbar"
         id="parent"
-        // ref={containerRef}
+        ref={scrollRef}
         style={{
           scrollSnapType: "x mandatory",
 
           // Ensures the container is the full viewport height
         }}
-       >
+      >
         {/* <div className="absolute text-xs md:text-sm top-[50%] translate-y-[-50%] left-[-7%] rotate-90  Panchang-font     flex  gap-6 items-center  ">
           <div className="w-[1px] h-[6vh]  bg-white rounded-full rotate-90 "></div>
           <span> SCROLLDOWN</span>
@@ -90,7 +92,7 @@ useEffect(() => {
         {projects.map((p, index) => (
           <div
             key={index}
-            className="   flex w-full flex-grow-0 flex-shrink-0 relative   md:flex-row flex-col overflow-hidden"
+            className="   flex w-full flex-grow-0 flex-shrink-0 relative   md:flex-row flex-col "
             style={{
               scrollSnapAlign: "start",
             }}
@@ -170,15 +172,11 @@ useEffect(() => {
                 onMouseLeave={() => {
                   setHover2(false);
                 }}
-               >
-                <img
-                  src={p.src}
-                  className="w-full  rounded-md"
-                  alt=""
-                />
+              >
+                <img src={p.src} className="w-full  rounded-md" alt="" />
               </motion.div>
             </div>
-            <div className="md:w-3/5  w-full overflow-hidden h-3/5 md:h-full md:p-4 p-1 lg:p-16 md:gap-2 gap-1 lg:gap-7 flex rounded-lg flex-col">
+            <div className="md:w-3/5  w-full  h-3/5 md:h-full md:p-4 p-1 lg:p-16 md:gap-2 gap-1 lg:gap-7 flex rounded-lg flex-col">
               <div
                 className="lg:text-6xl  md:text-3xl sm:text-2xl text-xl Panchang-font"
                 onMouseEnter={() => {
@@ -190,6 +188,7 @@ useEffect(() => {
               >
                 {p.name}
               </div>
+
               <div
                 className="cabinet-font font-light text-xs md:text-lg lg:text-xl"
                 onMouseEnter={() => {
