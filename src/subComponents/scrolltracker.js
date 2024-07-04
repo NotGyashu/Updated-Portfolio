@@ -25,7 +25,7 @@ const ScrollTracker = forwardRef((props, ref) => {
 
   return (
     <div className="">
-      <div className="w-[96%] mx-7 h-[1px] rounded-full bg-black ">
+      <div className="w-[96%] lg:mx-7 md:mx-4 mx-1 h-[1px] rounded-full bg-black ">
         <motion.div
           className="h-full bg-[#e1dcdc]"
           style={{ width: `${scrollPercent}%` }}

@@ -75,7 +75,7 @@ useEffect(() => {
       </div>
       <ScrollTracker ref={scrollRef} />
       <div
-        className="flex w-full border  flex-grow m-1 md:m-4 lg:m-7  gap-12 lg:gap-28 md:gap-16 justify-between overflow-x-scroll  no-scrollbar"
+        className="flex w-full   flex-grow m-1 md:m-4 lg:m-7  gap-12 lg:gap-28 md:gap-16 justify-between overflow-x-scroll  no-scrollbar"
         id="parent"
         ref={scrollRef}
         style={{
