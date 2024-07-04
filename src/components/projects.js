@@ -90,13 +90,13 @@ useEffect(() => {
         {projects.map((p, index) => (
           <div
             key={index}
-            className=" border  flex w-full flex-grow-0 flex-shrink-0 relative gap-7 md:flex-row flex-col"
+            className=" border  flex w-full flex-grow-0 flex-shrink-0 relative gap-7 md:flex-row flex-col overflow-hidden"
             style={{
               scrollSnapAlign: "start",
             }}
           >
-            <div className="md:w-2/5  w-full h-2/5 flex md:h-full md:p-16 p-6 border">
-              <motion.button
+            <div className="md:w-2/5  w-full h-2/5 flex md:h-full md:p-16 p-6 border ">
+              {/* <motion.button
                 className="bg-black text-white shadowcursor1 text-sm rounded-full border border-white md:h-16 sm:h-8 md:w-16 sm:w-8 absolute bottom-0 left-32 z-10"
                 initial={{ y: 500, opacity: 0, display: "none" }}
                 animate={
@@ -125,7 +125,7 @@ useEffect(() => {
                 }
               >
                 Code
-              </motion.button>
+              </motion.button> */}
               <motion.div
                 className={` ${
                   hover2 ? " abs " : ""
@@ -170,7 +170,7 @@ useEffect(() => {
                 onMouseLeave={() => {
                   setHover2(false);
                 }}
-              >
+               >
                 <img
                   src={p.src}
                   className="w-full  rounded-md"
@@ -178,7 +178,7 @@ useEffect(() => {
                 />
               </motion.div>
             </div>
-            <div className="md:w-3/5 border w-full h-3/5 md:h-full p-3 md:p-8 lg:p-16 md:gap-4 gap-2 lg:gap-7 flex rounded-lg flex-col">
+            <div className="md:w-3/5 border w-full overflow-hidden h-3/5 md:h-full md:p-4 p-1 lg:p-16 md:gap-2 gap-1 lg:gap-7 flex rounded-lg flex-col">
               <div
                 className="lg:text-6xl  md:text-3xl sm:text-2xl text-xl Panchang-font"
                 onMouseEnter={() => {
@@ -191,7 +191,7 @@ useEffect(() => {
                 {p.name}
               </div>
               <div
-                className="cabinet-font font-light text-xs md:text-lg"
+                className="cabinet-font font-light text-xs md:text-lg lg:text-xl"
                 onMouseEnter={() => {
                   setHover1(true);
                 }}
@@ -202,7 +202,7 @@ useEffect(() => {
                 {p.Timeline}
               </div>
               <div
-                className="cabinet-font md:text-xl text-ri"
+                className="cabinet-font md:text-lg lg:text-xl text-ri"
                 onMouseEnter={() => {
                   setHover1(true);
                 }}
