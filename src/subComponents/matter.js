@@ -30,7 +30,7 @@ const BallPool = ({ dimensions }) => {
     if (cw > 800) {
       radius = cw / 20; // Adjusted original radius
     } else {
-      radius = cw / 15;
+      radius = cw / 18;
     }
 
     // Now you can use radius appropriately
