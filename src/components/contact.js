@@ -135,7 +135,7 @@ export const Contact = () => {
 
           <div className="flex justify-between items-center px-6">
             <motion.div
-              className="lg:h-20 lg:w-20  h-16 w-116 cursor-pointer border border-black rounded-full flex justify-center items-center"
+              className="lg:h-20 lg:w-20  h-16 w-16 cursor-pointer border border-black rounded-full flex justify-center items-center"
               variants={{
                 hidden: { opacity: 0 },
                 visible: { opacity: 1 },
@@ -156,7 +156,7 @@ export const Contact = () => {
               />
             </motion.div>
 
-            <div>&copy; {year}</div>
+            <div className="Panchang-font">&copy; {year}</div>
           </div>
         </div>
       </div>
