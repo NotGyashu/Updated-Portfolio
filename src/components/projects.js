@@ -81,7 +81,7 @@ useEffect(() => {
 
           // Ensures the container is the full viewport height
         }}
-      >
+       >
         {/* <div className="absolute text-xs md:text-sm top-[50%] translate-y-[-50%] left-[-7%] rotate-90  Panchang-font     flex  gap-6 items-center  ">
           <div className="w-[1px] h-[6vh]  bg-white rounded-full rotate-90 "></div>
           <span> SCROLLDOWN</span>
@@ -90,14 +90,14 @@ useEffect(() => {
         {projects.map((p, index) => (
           <div
             key={index}
-            className=" border  flex w-full flex-grow-0 flex-shrink-0 relative gap-7 lg:flex-row flex-col"
+            className=" border  flex w-full flex-grow-0 flex-shrink-0 relative gap-7 md:flex-row flex-col"
             style={{
               scrollSnapAlign: "start",
             }}
           >
-            <div className="lg:w-2/5  w-full h-2/5 flex lg:h-full lg:p-16 p-6 border">
+            <div className="md:w-2/5  w-full h-2/5 flex md:h-full md:p-16 p-6 border">
               <motion.button
-                className="bg-black text-white shadowcursor1 text-sm rounded-full border border-white lg:h-16 sm:h-8 lg:w-16 sm:w-8 absolute bottom-0 left-32 z-10"
+                className="bg-black text-white shadowcursor1 text-sm rounded-full border border-white md:h-16 sm:h-8 md:w-16 sm:w-8 absolute bottom-0 left-32 z-10"
                 initial={{ y: 500, opacity: 0, display: "none" }}
                 animate={
                   show && {
@@ -112,7 +112,7 @@ useEffect(() => {
                 Site
               </motion.button>
               <motion.button
-                className="text-black bg-white shadowcursor1 text-sm rounded-full border border-black lg:h-16 sm:h-8 lg:w-16 sm:w-8 absolute bottom-0 left-80 z-10"
+                className="text-black bg-white shadowcursor1 text-sm rounded-full border border-black md:h-16 sm:h-8 md:w-16 sm:w-8 absolute bottom-0 left-80 z-10"
                 initial={{ y: 500, opacity: 0, display: "none" }}
                 animate={
                   show && {
@@ -178,7 +178,7 @@ useEffect(() => {
                 />
               </motion.div>
             </div>
-            <div className="lg:w-3/5 border w-full h-3/5 lg:h-full p-3 md:p-8 lg:p-16 md:gap-4 gap-2 lg:gap-7 flex rounded-lg flex-col">
+            <div className="md:w-3/5 border w-full h-3/5 md:h-full p-3 md:p-8 lg:p-16 md:gap-4 gap-2 lg:gap-7 flex rounded-lg flex-col">
               <div
                 className="lg:text-6xl  md:text-3xl sm:text-2xl text-xl Panchang-font"
                 onMouseEnter={() => {

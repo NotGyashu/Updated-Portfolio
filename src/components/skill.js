@@ -34,7 +34,7 @@ function Skills() {
           "radial-gradient(ellipse at bottom, #04050D 0%, #05010d 100%)",
       }}
     >
-      <div className=" absolute border z-30 border-gray-300   bg-white left-[40%] top-[12%] px-2 py-1  rounded-full">
+      <div className=" absolute border z-30 border-gray-300   bg-white left-[40%] top-[12%] px-2 py-1  rounded-full"> 
         <MainNavbar />
       </div>
 
@@ -43,7 +43,7 @@ function Skills() {
       <div className="text-white Panchang-font lg:text-4xl text-2xl px-7">
         Skills & recent tools
       </div>
-      <div className="flex py-5 px-10 flex-col items-center w-full h-full relative">
+      <div className="flex lg:py-5 py-2 lg:px-10 px-4 flex-col items-center w-full h-full relative">
         <div
           className="absolute inset-0 flex  justify-center top-[30%]"
           id="center"
@@ -52,7 +52,7 @@ function Skills() {
         </div>
 
         <div
-          className="border absolute h-[85%] w-[95%] box-border flex-grow mb-6 rounded-3xl overflow-hidden"
+          className="border absolute h-[85%]w-[95%]  box-border flex-grow mb-6 rounded-3xl "
           id="ballpool"
           ref={container}
         >
