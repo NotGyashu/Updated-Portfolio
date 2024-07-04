@@ -97,43 +97,10 @@ useEffect(() => {
               scrollSnapAlign: "start",
             }}
           >
-            <div className="md:w-2/5  w-full h-2/5 flex md:h-full lg:p-16 md:10 p-6  ">
-              {/* <motion.button
-                className="bg-black text-white shadowcursor1 text-sm rounded-full border border-white md:h-16 sm:h-8 md:w-16 sm:w-8 absolute bottom-0 left-32 z-10"
-                initial={{ y: 500, opacity: 0, display: "none" }}
-                animate={
-                  show && {
-                    y: 0,
-                    opacity: 1,
-                    display: "block",
-                    rotate: 360,
-                    transition: { duration: 1, ease: "easeInOut" },
-                  }
-                }
-              >
-                Site
-              </motion.button>
-              <motion.button
-                className="text-black bg-white shadowcursor1 text-sm rounded-full border border-black md:h-16 sm:h-8 md:w-16 sm:w-8 absolute bottom-0 left-80 z-10"
-                initial={{ y: 500, opacity: 0, display: "none" }}
-                animate={
-                  show && {
-                    y: 0,
-                    opacity: 1,
-                    display: "block",
-                    rotate: 360,
-                    transition: { duration: 1, ease: "easeInOut" },
-                  }
-                }
-              >
-                Code
-              </motion.button> */}
+            <div className="md:w-2/5  w-full h-2/5 flex md:h-full lg:p-16 md:p-10 p-6 overflow-hidden">
               <motion.div
-                className={` ${
-                  hover2 ? " abs " : ""
-                } h-4/5 w-full  rounded-md flex-grow`}
+                className={`h-4/5 w-full  rounded-md flex-grow relative`}
                 initial={{
-                  perspective: "1000px",
                   rotateX: 35,
                   rotateY: 4,
                   rotateZ: -30,
@@ -143,21 +110,18 @@ useEffect(() => {
                 animate={
                   hover2
                     ? {
-                        perspective: "1000px",
-                        opacity: 1,
                         rotateX: 0,
                         rotateY: 0,
                         rotateZ: 0,
+                        opacity: 1,
                         position: "absolute",
                         cursor: "pointer",
                         transition: {
                           duration: 0.5,
                           ease: "easeIn",
-                          fps: 10000,
                         },
                       }
                     : {
-                        perspective: "1000px",
                         rotateX: 35,
                         rotateY: 4,
                         rotateZ: -30,
@@ -167,13 +131,18 @@ useEffect(() => {
                 }
                 onMouseEnter={() => {
                   setHover2(true);
-                  setShow(true);
                 }}
                 onMouseLeave={() => {
                   setHover2(false);
                 }}
               >
-                <img src={p.src} className="w-full  rounded-md" alt="" />
+                <div className="overflow-hidden rounded-md aspect-w-4 aspect-h-5">
+                  <img
+                    src={p.src}
+                    className="object-cover w-full h-full"
+                    alt=""
+                  />
+                </div>
               </motion.div>
             </div>
             <div className="md:w-3/5  w-full  h-3/5 md:h-full md:p-4 p-1 lg:p-16 md:gap-2 gap-1 lg:gap-7 flex rounded-lg flex-col">

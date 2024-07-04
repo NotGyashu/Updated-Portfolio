@@ -237,3 +237,37 @@ export const skills = ['Javascript','Typescript','Python','Node.js','Express','T
 // };
 
 // export { BallPool };
+
+
+{
+  /* <motion.button
+                className="bg-black text-white shadowcursor1 text-sm rounded-full border border-white md:h-16 sm:h-8 md:w-16 sm:w-8 absolute bottom-0 left-32 z-10"
+                initial={{ y: 500, opacity: 0, display: "none" }}
+                animate={
+                  show && {
+                    y: 0,
+                    opacity: 1,
+                    display: "block",
+                    rotate: 360,
+                    transition: { duration: 1, ease: "easeInOut" },
+                  }
+                }
+              >
+                Site
+              </motion.button>
+              <motion.button
+                className="text-black bg-white shadowcursor1 text-sm rounded-full border border-black md:h-16 sm:h-8 md:w-16 sm:w-8 absolute bottom-0 left-80 z-10"
+                initial={{ y: 500, opacity: 0, display: "none" }}
+                animate={
+                  show && {
+                    y: 0,
+                    opacity: 1,
+                    display: "block",
+                    rotate: 360,
+                    transition: { duration: 1, ease: "easeInOut" },
+                  }
+                }
+              >
+                Code
+              </motion.button> */
+}
