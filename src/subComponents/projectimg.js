@@ -36,6 +36,22 @@ const ProjectImg = ({ project }) => {
     },
   };
 
+  const buttonVariants = {
+    hidden: { y: 550, opacity: 0, rotate: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      rotate: 720,
+      transition: { duration: 2, ease: "easeInOut" },
+    },
+    exit: {
+      y: 0,
+      opacity: 0,
+      
+      transition: { duration: .5, ease: "easeInOut" },
+    },
+  };
+
   return (
     <div>
       {!isDialogOpen && (
@@ -84,25 +100,43 @@ const ProjectImg = ({ project }) => {
                 rotateY: 0,
                 rotateZ: 0,
                 opacity: 1,
-                transition: { duration: 0.5, ease: "easeInOut" },
+                transition: { duration: 1, ease: "easeInOut" },
               }}
               exit={{
                 scale: 0.8,
-                rotateX: 35, rotateY: 4, rotateZ: -30, opacity: 0.8 ,
-                transition: { duration: 0.5, ease: "easeInOut" },
+                rotateX: 35,
+                rotateY: 4,
+                rotateZ: -30,
+                opacity: 0.8,
+                transition: { duration: 1, ease: "easeInOut" },
               }}
             >
-              <button
-                className="absolute top-4 right-4 bg-red-500 text-white px-4 py-2 rounded-md"
-                onClick={handleClose}
-              >
-                Close
-              </button>
               <img
                 src={project.src}
                 className="object-cover w-full h-full rounded-md"
                 alt=""
               />
+
+              <motion.div
+                className="bg-black h-12 w-12 p-3 rounded-full absolute bottom-2 left-[2vh]"
+                //initial={{ x: -200, y: -200 }}
+                variants={buttonVariants}
+              >
+                <img src="rocket.png" className="object-cover h-6 w-6" alt="" />
+              </motion.div>
+              <motion.div
+                className="bg-black h-12 w-12 p-3 rounded-full absolute bottom-2 left-[40vw]"
+                variants={buttonVariants}
+                onClick={handleClose}
+              >
+                <img src="cancel.png" className="object-cover h-6 w-6" alt="" />
+              </motion.div>
+              <motion.div
+                className="bg-black h-12 w-12 p-3 rounded-full absolute bottom-2 right-[2vh]"
+                variants={buttonVariants}
+              >
+                <img src="code.png" className="object-cover h-6 w-6" alt="" />
+              </motion.div>
             </motion.div>
           </motion.div>
         )}
