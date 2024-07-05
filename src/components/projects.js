@@ -6,6 +6,7 @@ import Header from "./Header";
 import MainNavbar from "../subComponents/mainNavbar";
 import Inner from "../utility/inner";
 import ScrollTracker from "../subComponents/scrolltracker";
+import ProjectImg from "../subComponents/projectimg";
 
 function Projects() {
   const [hover1, setHover1] = useState(false);
@@ -100,64 +101,9 @@ function Projects() {
         {projects.map((p, index) => (
           <div
             key={index}
-            className="flex w-full box-border border flex-grow-0 flex-shrink-0 relative md:flex-row flex-col"
-            // style={{
-            //   scrollSnapAlign: "start",
-            //   flex: "0 0 auto", // Ensure fixed width for children
-            //   width: "100%", // Full width of container
-            //   height: "100%", // Full height of viewport
-            //   scrollSnapStop: "always", // Optional: Ensures consistent snapping behavior
-            // }}
-          >
+            className="flex w-[97%]  border flex-grow-0 flex-shrink-0 relative md:flex-row flex-col" >
             <div className="md:w-2/5  w-full h-2/5 flex md:h-full lg:p-16 md:p-10 p-6 overflow-hidden">
-              <motion.div
-                className={`h-4/5 w-full  rounded-md flex-grow relative`}
-                initial={{
-                  rotateX: 35,
-                  rotateY: 4,
-                  rotateZ: -30,
-                  opacity: 0.8,
-                  //transition: { duration: 0.5, ease: "easeInOut" },
-                }}
-                animate={
-                  // hover2
-                  //   ? {
-                  //       rotateX: 0,
-                  //       rotateY: 0,
-                  //       rotateZ: 0,
-                  //       opacity: 1,
-                  //       position: "absolute",
-                  //       cursor: "pointer",
-                  //       transition: {
-                  //         duration: 0.5,
-                  //         ease: "easeIn",
-                  //       },
-                  //     }
-                  //   : {
-                  {
-                    rotateX: 35,
-                    rotateY: 4,
-                    rotateZ: -30,
-                    opacity: 0.8,
-                    // transition: { duration: 0.5, ease: "easeInOut" },
-                    //</div>}
-                  }
-                }
-                // onMouseEnter={() => {
-                //   setHover2(true);
-                // }}
-                // onMouseLeave={() => {
-                //   setHover2(false);
-                // }}
-              >
-                <div className="overflow-hidden rounded-md aspect-w-4 aspect-h-5">
-                  <img
-                    src={p.src}
-                    className="object-cover w-full h-full"
-                    alt=""
-                  />
-                </div>
-              </motion.div>
+              <ProjectImg project = {p}/>
             </div>
             <div className="md:w-3/5  w-full  h-3/5 md:h-full md:p-4 p-1 lg:p-16 md:gap-2 gap-1 lg:gap-7 flex rounded-lg flex-col">
               <div
