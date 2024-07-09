@@ -1,27 +1,28 @@
-import { easeInOut, motion } from "framer-motion";
+import {  motion } from "framer-motion";
 import ContactCursor from "../subComponents/contactCursor";
 import { useState, useEffect, useRef } from "react";
-import Header from "./Header";
 import MainNavbar from "../subComponents/mainNavbar";
 import ShootingStar from "../subComponents/skillCanvas";
 import Inner from "../utility/inner";
+import { useNavigate } from "react-router-dom";
 
 export const Contact = () => {
   const [cursorVisible, setCursorVisible] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
   const year = new Date().getFullYear();
+  const nav = useNavigate();
   const social = [
     {
       src: "/linkedin.png",
-      link: "",
+      link: "https://www.linkedin.com/in/gyashu-rahman-299627224/",
     },
     {
       src: "/social-media.png",
-      link: "",
+      link: "https://github.com/NotGyashu/",
     },
     {
       src: "/logo.png",
-      link: "",
+      link: "https://www.instagram.com/gyashu_rahman/",
     },
   ];
 
@@ -66,7 +67,7 @@ export const Contact = () => {
       </div>
       <div className="flex flex-col gap-5 flex-grow">
         <div className="lg:text-6xl md:text-4xl  Panchang-font">Contact</div>
-        <div className="flex flex-col gap-3 gradient-border justify-around bg-white flex-grow">
+        <div className="flex flex-col gap-3 gradient-border justify-around  bg-white flex-grow">
           <div className="flex flex-col gap-3 items-center justify-center">
             <div
               className="Panchang-font hover:underline lg:text-xl text-xs"
@@ -94,7 +95,7 @@ export const Contact = () => {
               Lets Talk
             </motion.div>
             <div
-              className="flex justify-center mt-6 gap-3 items-center"
+              className="flex justify-center mt-6 gap-3 items-center cursor-pointer"
               onMouseEnter={disableCursor}
               onMouseLeave={enableCursor}
             >
@@ -126,6 +127,9 @@ export const Contact = () => {
                   initial="hidden"
                   animate="visible"
                   className="border border-black rounded-full"
+                  onClick={() => {
+                    nav(s.link);
+                  }}
                 >
                   <img src={s.src} className="h-6 w-6 lg:m-4 m-2" />
                 </motion.div>
@@ -149,14 +153,17 @@ export const Contact = () => {
               }}
               onMouseEnter={disableCursor}
               onMouseLeave={enableCursor}
+              onClick={() => {
+                nav("/");
+
+              }}
             >
               <img
                 src="\icons8-up-arrow-100.png"
                 className="lg:h-12 h-8 w-8 lg:w-12"
               />
             </motion.div>
-
-            <div className="Panchang-font">&copy; {year}</div>
+            <div className="Panchang-font text-xs">&copy; {year} made with &love;</div>
           </div>
         </div>
       </div>

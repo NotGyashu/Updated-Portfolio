@@ -13,13 +13,12 @@ import ThemeContext from "./contexts/themeContext";
 import Projects from "./components/projects";
 import Skills from "./components/skill";
 import { Contact } from "./components/contact";
-import Inner from "./utility/inner";
 import OrientationOverlay from "./components/orientation";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [preloader, setPreloader] = useState(true);
-
+  const [start,setStart] = useState(false);
   const handlePreloaderHide = () => {
     setPreloader(false);
   };
@@ -27,20 +26,22 @@ function App() {
   return (
     <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
       <Router>
-        <OrientationOverlay/>
-        <div className="">
-          {preloader ? (
-            <Preloader
-              onPreloaderHide={handlePreloaderHide}
-              preloader={preloader}
-              setPreloader={setPreloader}
-            />
-          ) : (
-            <div className="flex flex-col box-border no-scrollbar">
-              <AnimatedRoutes />
-            </div>
-          )}
-        </div>
+        <OrientationOverlay setStart={setStart}/>
+        {start && (
+          <div className="">
+            {preloader ? (
+              <Preloader
+                onPreloaderHide={handlePreloaderHide}
+                preloader={preloader}
+                setPreloader={setPreloader}
+              />
+            ) : (
+              <div className="flex flex-col box-border no-scrollbar">
+                <AnimatedRoutes />
+              </div>
+            )}
+          </div>
+        )}
       </Router>
     </ThemeContext.Provider>
   );

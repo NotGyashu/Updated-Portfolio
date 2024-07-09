@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import Inner from "../utility/inner";
 
 function Preloader({ onPreloaderHide, preloader, setPreloader }) {
   const [counter, setCounter] = useState(0);
@@ -45,11 +44,11 @@ function Preloader({ onPreloaderHide, preloader, setPreloader }) {
    
       <div
         className={`${
-         "bg-black relative overlay overflow-hidden "
+         "bg-black relative box-border overlay h-screen w-screen no-scrollbar"
         } `}
       >
         <motion.div
-          className="name relative"
+          className="name"
           variants={nameVariant}
           initial="hidden"
           animate="visible"

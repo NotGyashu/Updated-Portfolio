@@ -36,10 +36,10 @@ export default function Inner(props) {
   }, []);
 
  const routes = {
-    "/":"Home",
-    "/projects":"Projects",
-    "/skills":"Skills",
-    "/contact":"Contact"
+    "/":["Home","Hello"],
+    "/projects":["Projects", "What i Built ?"],
+    "/skills":["Skills", "What I Know ?"],
+    "/contact":["Contact","Lets Talk"]
  }
  const text = {
    initial: {
@@ -74,13 +74,15 @@ export default function Inner(props) {
         style={{ opacity: dimension.width > 0 ? 0 : 1 }}
         className="bg-black h-screen w-screen fixed flex pointer-events-none top-[0] left-0 z-[40]"
       ></div>
-      <motion.p
+      <motion.div
         key={router.pathname}
         {...anim(text)}
-        className="absolute Panchang-font left-[50%] top-[40%] z-[50] text-white translate-x-[-50%] text-3xl"
+        className="absolute text-center Panchang-font left-[50%] top-[40%] z-[50] text-white translate-x-[-50%] text-3xl"
       >
-        {routes[router.pathname]}
-      </motion.p>
+        {" "}
+        <p> {routes[router.pathname][1]} </p>
+       <p> {routes[router.pathname][0]} </p>
+      </motion.div>
       {dimension.width > 1 && (
         <SVG width={dimension.width} height={dimension.height} />
       )}

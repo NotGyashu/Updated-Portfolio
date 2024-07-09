@@ -2,28 +2,11 @@ import { useState } from "react";
 import Hire from "./hire";
 import { easeInOut, motion } from "framer-motion";
 import MainNavbar from "./mainNavbar";
+import { social } from "../info";
+
 function Main() {
   const [visible, setVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-
-  const social = [
-    {
-      src: "/mail.png",
-      link: "",
-    },
-    {
-      src: "/linkedin.png",
-      link: "",
-    },
-    {
-      src: "/social-media.png",
-      link: "",
-    },
-    {
-      src: "/logo.png",
-      link: "",
-    },
-  ];
 
   const hireVariant = {
     hidden: {
@@ -59,7 +42,6 @@ function Main() {
     },
   };
 
-
   const handleTouchStart = () => {
     setIsHovered(true);
   };
@@ -67,18 +49,32 @@ function Main() {
   const handleTouchEnd = () => {
     setIsHovered(false);
   };
+
+  const handleClick = (url) => {
+    if (url.startsWith("mailto:")) {
+      window.location.href = url;
+    } else {
+      window.open(url);
+    }
+  };
+
   return (
-    <div className="w-full no-scrollbar border flex-grow relative flex flex-col  justify-between items-center lg:mt-[10vh] mt-[5vh]">
-      <div className="border-2 absolute lg:top-[20%] top-[10%] lg:left-7 md:left-[90%] py-2 px-1  rounded-full" id="navbar">
+    <div className="w-full no-scrollbar border flex-grow relative flex flex-col justify-between items-center lg:mt-[10vh] mt-[5vh]">
+      <div
+        className="border-2 absolute lg:top-[20%] top-[10%] lg:left-7 md:left-[90%] py-2 px-1 rounded-full"
+        id="navbar"
+      >
         <MainNavbar />
       </div>
-      <div className="w-[70vw]   flex flex-col ">
-        <div className="flex flex-col  Panchang-font">
-          <div className=" bold lg:text-6xl text-4xl ">Hey,</div>
-          <div className="flex gap-x-5 flex-col md:flex-row  lg:text-[6rem] text-5xl">
+      <div className="w-[70vw] flex flex-col ">
+        <div className="flex flex-col Panchang-font">
+          <div className="bold lg:text-6xl text-4xl ">Hey,</div>
+          <div className="flex gap-x-5 flex-col md:flex-row lg:text-[6rem] text-5xl">
             <div>I'm</div>
             <motion.div className="cursor-pointer">
-              <motion.span whileHover={{ translateY: -100 }} className="">
+              <motion.span
+                whileHover={{ translateY: 100 }}
+              >
                 G
               </motion.span>
               <motion.span whileHover={{ translateY: 100 }}>y</motion.span>
@@ -90,22 +86,22 @@ function Main() {
           </div>
         </div>
 
-        <div className=" text-2xl lg:text-4xl mt-7 flex justify-end cabinet-font text-right w-full">
-          <div className=" lg:w-[70%] w-full">
+        <div className="text-2xl lg:text-4xl mt-7 flex justify-end cabinet-font text-right w-full">
+          <div className="lg:w-[70%] w-full">
             —Full-Stack Developer & Web Designer with experience crafting
             user-friendly web experiences and tackling challenging algorithms.
           </div>
         </div>
       </div>
       <div
-        className="flex gap-5  absolute lg:left-[14.7vw] left-[1vw] lg:bottom-10 bottom-3 
+        className="flex gap-5 absolute lg:left-[14.7vw] left-[1vw] lg:bottom-10 bottom-3 
       "
       >
         {visible &&
           social.map((s, index) => (
             <motion.div
               key={index}
-              className="lg:h-16 lg:w-16 h-12 w-12  flex items-center justify-center rounded-full  border "
+              className="lg:h-16 lg:w-16 h-12 w-12 flex items-center justify-center rounded-full border"
               variants={{
                 hidden: {
                   opacity: 0,
@@ -114,7 +110,8 @@ function Main() {
                 visible: {
                   opacity: 1,
                   translateY:
-                    -100 - ((index + 3) % 3 == 2 || (index + 3) % 3 == 1) * 29,
+                    -100 -
+                    ((index + 3) % 3 === 2 || (index + 3) % 3 === 1) * 29,
 
                   rotate: 360, // Rotate to its original position
                   transition: {
@@ -131,16 +128,14 @@ function Main() {
               animate="visible"
               onTouchStart={handleTouchStart}
               onTouchEnd={handleTouchEnd}
-              style={{ transform: isHovered ? "scale(1.2)" : "scale(1)" }}
+              onClick={() => handleClick(s.link)}
             >
-              {" "}
-              {console.log((index + 3) % 3 == 2 || (index + 3) % 3 == 2)}
-              <img src={s.src} className="h-8   w-8 m-2  " />
+              <img src={s.src} className="h-8 w-8 m-2" alt="logo" />
             </motion.div>
           ))}
       </div>
       <motion.div
-        className="border-black border absolute rounded-xl lg:bottom-10 left-[120px]  lg:left-[24.5vw] bottom-3"
+        className="border-black border absolute rounded-xl lg:bottom-10 left-[120px] lg:left-[24.5vw] bottom-3"
         variants={hireVariant}
         initial="hidden"
         animate="visible"

@@ -1,8 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import CustomCursor from "../subComponents/projectCursor";
 import { projects } from "../info";
-import Header from "./Header";
 import MainNavbar from "../subComponents/mainNavbar";
 import Inner from "../utility/inner";
 import ScrollTracker from "../subComponents/scrolltracker";
@@ -64,7 +62,7 @@ function Projects() {
         </svg>
       </div>
       <div className="absolute w-[200vw] h-[200vh] bg-black z-[-10]"></div>
-      {setShowCursor && (
+      {showCursor && (
         <CustomCursor
           hover1={hover1}
           hover2={hover2}
@@ -93,7 +91,7 @@ function Projects() {
           scrollSnapType: "y mandatory", // Ensure snapping behavior
         }}
       >
-        <div className="absolute  text-xs md:text-sm top-[50%] translate-y-[-50%] left-[-14vh] rotate-90  Panchang-font     flex  gap-6 items-center  ">
+        <div className="absolute  text-xs md:text-sm top-[50%] translate-y-[-50%] left-[-5vh] rotate-90  Panchang-font     flex  gap-6 items-center  ">
           <div className="w-[1px] h-[6vh]  bg-white rounded-full rotate-90 "></div>
           <span className="lg:text-sm md:text-[10px]">SCROLLDOWN</span>
           <div className="w-[1px] h-[7vh] ml-1  bg-white rounded-full rotate-90 "></div>

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { projects as projectsInfo } from "../info"; // Adjust the import as needed
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 function MainNavbar() {
@@ -17,11 +16,11 @@ function MainNavbar() {
 
   useEffect(() => {
     const isProjects = param === "projects";
-    const isSkills = param === "skills";
-    const isContact = param === "contact";
-    const isHome = param === "";
+    // const isSkills = param === "skills";
+    // const isContact = param === "contact";
+    // const isHome = param === "";
 
-    console.log(isProjects, isContact, isHome, isSkills);
+    
 
     if (isProjects) {
       setDark(true);
@@ -60,7 +59,7 @@ function MainNavbar() {
   const isProjects = param === "projects";
   const isSkills = param === "skills";
   const isContact = param === "contact";
-  const isHome = param === "";
+  // const isHome = param === "";
 
 
   return (
@@ -76,6 +75,7 @@ function MainNavbar() {
       >
         {imgLight.map((img, index) => (
           <motion.div
+          key={index}
             className={`border  ${
               param === img.name
                 ? "gradient-border-2 border"

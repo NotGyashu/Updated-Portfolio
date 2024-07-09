@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-function OrientationOverlay() {
+function OrientationOverlay({setStart}) {
   useEffect(() => {
     function checkOrientation() {
       const overlay = document.getElementById('orientation-overlay');
@@ -10,6 +10,7 @@ function OrientationOverlay() {
       } else {
         // Landscape mode
         overlay.classList.add('hidden');
+               setStart(true);
       }
     }
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import Matter, {
   Engine,
   Render,
@@ -14,7 +14,6 @@ const BallPool = ({ dimensions }) => {
   const cw = dimensions.width;
   const ch = dimensions.height;
   const scene = useRef();
-  const [labels, setlabels] = useState([]);
   const engine = useRef(
     Engine.create({
       gravity: {
@@ -34,7 +33,7 @@ const BallPool = ({ dimensions }) => {
     }
 
     // Now you can use radius appropriately
-    console.log("Current radius:", radius);
+    //console.log("Current radius:", radius);
   }, [cw, dimensions]); // Ensure cw is included in dependencies if it's used inside the effect
 
   useEffect(() => {
@@ -91,7 +90,7 @@ const BallPool = ({ dimensions }) => {
 
     World.add(engine.current.world, mouseConstraint);
     // run the engine
-    Engine.run(engine.current);
+    Matter.Runner.run(engine.current);
     Render.run(render);
 
     // unmount
@@ -160,7 +159,7 @@ const BallPool = ({ dimensions }) => {
       // Calculate random velocity vector
       const randomVelocityX = (Math.random() - 0.5) * 5; // Random velocity between -2.5 and 2.5
       const randomVelocityY = (Math.random() - 0.5) * 5;
-      console.log(cw, ch);
+      //console.log(cw, ch);
       const circle = Bodies.circle(randomX, randomY, radius, {
         restitution: 1,
         friction: 0.1,
@@ -196,7 +195,7 @@ const BallPool = ({ dimensions }) => {
       textElement.style.textAlign = "center";
       textElement.style.transform = "translate(-50%, -50%)";
       textElement.style.fontFamily = "panchanag";
-      scene.current.appendChild(textElement);
+      scene.current?.appendChild(textElement);
 
       const updateTextPosition = () => {
         const circlePosition = circle.position;
@@ -247,8 +246,8 @@ const BallPool = ({ dimensions }) => {
       }
     }
 
-    scene.current.addEventListener("click", handleEvent);
-    scene.current.addEventListener("touchstart", handleEvent);
+    scene.current?.addEventListener("click", handleEvent);
+    scene.current?.addEventListener("touchstart", handleEvent);
 
     return () => {
       // Cleanup event listeners

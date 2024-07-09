@@ -1,9 +1,10 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ProjectImg = ({ project }) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-
+  const nav = useNavigate();
   const handleMouseEnter = () => {
     if (window.innerWidth > 768) {
       setIsDialogOpen(true);
@@ -52,6 +53,9 @@ const ProjectImg = ({ project }) => {
     },
   };
 
+  const handleboxClick =(url) =>{
+    window.open(url)
+  }
   return (
     <div>
       {!isDialogOpen && (
@@ -118,22 +122,45 @@ const ProjectImg = ({ project }) => {
               />
 
               <motion.div
-                className="bg-black h-12 w-12 p-3 rounded-full absolute bottom-2 left-[2vh]"
+                className="bg-black cursor-pointer h-12 w-12 p-3 rounded-full absolute bottom-2 left-[2vh]"
                 //initial={{ x: -200, y: -200 }}
                 variants={buttonVariants}
+                onClick={handleboxClick(project.code)}
+                whileHover={{
+                  scale: 1.3,
+                  x: [0, -1, 1, -1, 0, 1, 0],
+                  y: [0, -1, 1, -1, 0, 1],
+                  transition: 1,
+                }}
+                exit={{ transition: 1 }}
               >
                 <img src="rocket.png" className="object-cover h-6 w-6" alt="" />
               </motion.div>
               <motion.div
-                className="bg-black h-12 w-12 p-3 rounded-full absolute bottom-2 left-[40vw]"
+                className="bg-black cursor-pointer h-12 w-12 p-3 rounded-full absolute bottom-2 left-[40vw]"
                 variants={buttonVariants}
                 onClick={handleClose}
+                whileHover={{
+                  scale: 1.3,
+                  x: [0, -1, 1, -1, 0, 1, 0],
+                  y: [0, -1, 1, -1, 0, 1],
+                  transition: 1,
+                }}
+                exit={{ transition: 1 }}
               >
                 <img src="cancel.png" className="object-cover h-6 w-6" alt="" />
               </motion.div>
               <motion.div
-                className="bg-black h-12 w-12 p-3 rounded-full absolute bottom-2 right-[2vh]"
+                className="bg-black cursor-pointer h-12 w-12 p-3 rounded-full absolute bottom-2 right-[2vh]"
                 variants={buttonVariants}
+                onClick={handleboxClick(project.code)}
+                whileHover={{
+                  scale: 1.3,
+                  x: [0, -1, 1, -1, 0, 1, 0],
+                  y: [0, -1, 1, -1, 0, 1],
+                  transition: 1,
+                }}
+                exit={{ transition: 1 }}
               >
                 <img src="code.png" className="object-cover h-6 w-6" alt="" />
               </motion.div>

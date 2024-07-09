@@ -4,270 +4,60 @@ export const projects = [
     src: "/Screenshot 2024-04-05 164820.png",
     description:
       "Urdu poetry, rich with melody and depth, paints emotions with vivid words. Ghazals, love sonnets, and nazms, epics, explore themes of love, loss, life's beauty, and Urdu poetry, rich with melody.",
-    Timeline: "April'23-oct'23",
+    Timeline: "Oct’23 - Dec’23",
+    link: "https://social-arena.vercel.app/",
+    code: "https://github.com/NotGyashu/Social-Arena",
   },
   {
-    name: "Social-Arena",
-    src: "/Screenshot 2024-04-05 164820.png",
+    name: "Admi-Dashboard",
+    src: "/Screenshot 2024-04-05 164921.png",
     description:
       "Urdu poetry, rich with melody and depth, paints emotions with vivid words. Ghazals, love sonnets, and nazms, epics, explore themes of love, loss, life's beauty, and philosophical musings.",
-    Timeline: "April'23-oct'23",
+    Timeline: "Dec'23-Jan'23",
+    link: "https://notgyashu.github.io/Admin-dashboard/login",
+    code: "https://github.com/NotGyashu/Admin-dashboard",
   },
   {
-    name: "Social-Arena",
-    src: "/Screenshot 2024-04-05 164820.png",
+    name: "Anonymous-thoughts ",
+    src: "/Screenshot 2024-07-09 223342.png",
     description:
       "Urdu poetry, rich with melody and depth, paints emotions with vivid words. Ghazals, love sonnets, and nazms, epics, explore themes of love, loss, life's beauty, and philosophical musings.",
-    Timeline: "April'23-oct'23",
+    Timeline: "July'23-Aug'23",
+    link: "https://anonymus-thoughts-client.vercel.app/login",
+    code: "https://github.com/NotGyashu/Anonymus-thoughts",
   },
   {
-    name: "Social-Arena",
-    src: "/Screenshot 2024-04-05 164820.png",
+    name: "stockTracker",
+    src: "/Screenshot 2024-04-05 165438.png",
     description:
-      "Urdu poetry, rich with melody and depth, paints emotions with vivid words. Ghazals, love sonnets, and nazms, epics, explore themes of love, loss, life's beauty, and philosophical musings.",
+      "A web App which uses a REST API to fetch data and provides information about stocks including there name, price,gain or loss, parent company,countey,IPO,Market Capitalization previous trend from last year.",
     Timeline: "April'23-oct'23",
+    link: "https://notgyashu.github.io/stockTracker/",
+    code: "https://github.com/NotGyashu/stockTracker",
   },
 ];
 
 export const skills = ['Javascript','Typescript','Python','Node.js','Express','Tailwind','Firebase','Next.js','React.js','Redux','jQuery','Matter.Js','Framer Motion','MongoDB','SQL']
 
 
-// 'HTML' , 'CSS','Javascript','Typescript','Python','Bootstrap','Node.js','Express','Tailwind','EJS','Firebase','Next.js','React.js','Redux','jQuery','Swiper.js','Mongoose','Framer Motion','MongoDB','SQL'
-
-// import React, { useEffect, useRef } from "react";
-// import Matter, {
-//   Engine,
-//   Render,
-//   Bodies,
-//   World,
-//   Events,
-//   Mouse,
-//   MouseConstraint,
-// } from "matter-js";
-// import { skills } from "../info";
-
-// const BallPool = ({ dimensions }) => {
-//   const cw = dimensions.width;
-//   const ch = dimensions.height;
-//   const scene = useRef();
-//   const engine = useRef(
-//     Engine.create({
-//       gravity: {
-//         x: 0, // horizontal gravity
-//         y: 0.5, // Vertical gravity (adjust as needed)
-//       },
-//     })
-//   );
-
-//   const radius = 55; // Adjusted original radius
-
-//   useEffect(() => {
-//     const render = Render.create({
-//       element: scene.current,
-//       engine: engine.current,
-//       options: {
-//         width: cw,
-//         height: ch,
-//         wireframes: false,
-//         background: "transparent",
-//       },
-//     });
-
-//     // boundaries
-//     World.add(engine.current.world, [
-//       Bodies.rectangle(cw / 2, -radius, cw + 2 * radius, 2 * radius, {
-//         isStatic: true,
-//       }), // top
-//       Bodies.rectangle(-radius, ch / 2, 2 * radius, ch + 2 * radius, {
-//         isStatic: true,
-//       }), // left
-//       Bodies.rectangle(cw / 2, ch + radius, cw + 2 * radius, 2 * radius, {
-//         isStatic: true,
-//       }), // bottom
-//       Bodies.rectangle(cw + radius, ch / 2, 2 * radius, ch + 2 * radius, {
-//         isStatic: true,
-//       }), // right
-//     ]);
-
-//     // Add mouse constraint
-//     const mouse = Mouse.create(render.canvas);
-//     const mouseConstraint = MouseConstraint.create(engine.current, {
-//       mouse: mouse,
-//       constraint: {
-//         stiffness: 0.8, // stiffness of the constraint
-//         render: {
-//           visible: false,
-//         },
-//       },
-//     });
-
-//     World.add(engine.current.world, mouseConstraint);
-//     // run the engine
-//     Engine.run(engine.current);
-//     Render.run(render);
-
-//     // unmount
-//     return () => {
-//       // destroy Matter
-//       Render.stop(render);
-//       World.clear(engine.current.world);
-//       Engine.clear(engine.current);
-//       render.canvas.remove();
-//       render.canvas = null;
-//       render.context = null;
-//       render.textures = {};
-//     };
-//   }, [dimensions]);
-
-//   useEffect(() => {
-//     if (true) {
-//       setTimeout(() => {
-//         renderCircles(cw, ch);
-//       }, 2000);
-//     }
-//   }, []);
-
-//   const renderCircles = async (cw, ch) => {
-//     const clickedCircles = [];
-//     // Define a boundary collision handler
-//     const boundaryCollision = (event) => {
-//       const pairs = event.pairs;
-
-//       for (let i = 0; i < pairs.length; i++) {
-//         const pair = pairs[i];
-//         const bodyA = pair.bodyA;
-//         const bodyB = pair.bodyB;
-
-//         // Check if the circle body collides with any of the boundaries
-//         if (bodyA.isCircle && (bodyB.isWall || bodyB.isBoundary)) {
-//           // Reverse the vertical velocity to prevent it from falling out of bounds
-//           bodyA.velocity.y *= -1;
-//         }
-//         if (bodyB.isCircle && (bodyA.isWall || bodyA.isBoundary)) {
-//           // Reverse the vertical velocity to prevent it from falling out of bounds
-//           bodyB.velocity.y *= -1;
-//         }
-//       }
-//     };
-
-//     // Add the boundary collision handler to the collision event
-//     Events.on(engine.current, "collisionStart", boundaryCollision);
-
-//     for (let i = 0; i < skills.length; i++) {
-//       const delay = Math.random() * 600;
-
-//       // Wait for the delay before rendering the circle
-//       await new Promise((resolve) => setTimeout(resolve, delay));
-
-//       // Calculate random position considering boundaries and direction
-//       const randomX = Math.random() * 1000;
-//       const randomY = Math.random() * 0;
-
-//       // Generate a unique ID for each circle
-//       const circleId = `circle-${i}`;
-
-//       // Calculate random velocity vector
-//       const randomVelocityX = (Math.random() - 0.5) * 5; // Random velocity between -2.5 and 2.5
-//       const randomVelocityY = (Math.random() - 0.5) * 5;
-//       console.log(cw, ch);
-//       const circle = Bodies.circle(randomX, randomY, radius, {
-//         restitution: 1,
-//         friction: 0.1,
-//         velocity: { x: randomVelocityX, y: randomVelocityY },
-//         render: {
-//           fillStyle: "transparent",
-//           strokeStyle: "#dee2e6",
-//           lineWidth: 0.7,
-//         },
-//       });
-
-//       // Assign the circleId to the circle's custom property
-//       circle.circleId = circleId;
-
-//       // Add circle to the world
-//       World.add(engine.current.world, [circle]);
-//       Matter.Sleeping.set(circle, false); // Wake the circle if needed
-//     }
-
-//     // Add click event listener to the scene's canvas
-//     scene.current.addEventListener("click", (event) => {
-//       const mousePosition = {
-//         x: event.offsetX,
-//         y: event.offsetY,
-//       };
-
-//       console.log("Mouse Position:", mousePosition);
-
-//       // Check if any body contains the clicked point
-//       const bodies = Matter.Query.point(
-//         engine.current.world.bodies,
-//         mousePosition
-//       );
-
-//       console.log("Bodies:", bodies);
-
-//       // If a body is clicked, double its size
-//       if (bodies.length > 0) {
-//         const clickedBody = bodies[0];
-//         const circleId = clickedBody.circleId; // Retrieve circleId here
-//         console.log("Clicked Body:", clickedBody);
-//         console.log("Circle ID:", circleId);
-
-//         // Check if the circleId is already in clickedCircles array
-//         const size = clickedCircles.includes(circleId);
-//         console.log(size);
-
-//         // If circleId is not in clickedCircles array, push it and scale the body
-//         if (!size) {
-//           clickedCircles.push(circleId);
-//           console.log(clickedCircles);
-//           const scaleFactor = 1.2 + Math.random() * 0.4;
-//           Matter.Body.scale(clickedBody, scaleFactor, scaleFactor);
-//         }
-//       }
-//     });
-//   };
-
-//   return (
-//     <div
-//       ref={scene}
-//       style={{ position: "relative", width: "100%", height: "100%" }}
-//     />
-//   );
-// };
-
-// export { BallPool };
+// 'HTML' , 'CSS','Javascript','Typescript','Python','Bootstrap','Node.js','Express','Tailwind','EJS','Firebase','Next.js','React.js','Redux','jQuery','Swiper.js','Mongoose','Framer Motion','MongoDB','SQL','C++'
 
 
-{
-  /* <motion.button
-                className="bg-black text-white shadowcursor1 text-sm rounded-full border border-white md:h-16 sm:h-8 md:w-16 sm:w-8 absolute bottom-0 left-32 z-10"
-                initial={{ y: 500, opacity: 0, display: "none" }}
-                animate={
-                  show && {
-                    y: 0,
-                    opacity: 1,
-                    display: "block",
-                    rotate: 360,
-                    transition: { duration: 1, ease: "easeInOut" },
-                  }
-                }
-              >
-                Site
-              </motion.button>
-              <motion.button
-                className="text-black bg-white shadowcursor1 text-sm rounded-full border border-black md:h-16 sm:h-8 md:w-16 sm:w-8 absolute bottom-0 left-80 z-10"
-                initial={{ y: 500, opacity: 0, display: "none" }}
-                animate={
-                  show && {
-                    y: 0,
-                    opacity: 1,
-                    display: "block",
-                    rotate: 360,
-                    transition: { duration: 1, ease: "easeInOut" },
-                  }
-                }
-              >
-                Code
-              </motion.button> */
-}
+export const social = [
+  {
+    src: "/mail.png",
+    link: "mailto:rahmangyashu178@gmail.com",
+  },
+  {
+    src: "/linkedin.png",
+    link: "https://www.linkedin.com/in/gyashu-rahman-299627224/",
+  },
+  {
+    src: "/social-media.png",
+    link: "https://github.com/NotGyashu/",
+  },
+  {
+    src: "/logo.png",
+    link: "https://www.instagram.com/gyashu_rahman/",
+  },
+];
