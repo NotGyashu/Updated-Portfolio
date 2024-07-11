@@ -4,7 +4,7 @@ import { easeInOut, motion } from "framer-motion";
 import MainNavbar from "./mainNavbar";
 import { social } from "../info";
 import { useNavigate } from "react-router-dom";
-
+import { about } from "../info";
 function Main() {
   const [visible, setVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
@@ -74,6 +74,7 @@ const handleClick = (url) => {
           <div className="flex gap-x-5 flex-col md:flex-row lg:text-[6rem] text-5xl">
             <div>I'm</div>
             <motion.div className="cursor-pointer">
+            
               <motion.span whileHover={{ translateY: 100 }}>G</motion.span>
               <motion.span whileHover={{ translateY: 100 }}>y</motion.span>
               <motion.span whileHover={{ translateY: 100 }}>a</motion.span>
@@ -86,8 +87,7 @@ const handleClick = (url) => {
 
         <div className="text-2xl lg:text-4xl mt-7 flex justify-end cabinet-font text-right w-full">
           <div className="lg:w-[70%] w-full">
-            —Full-Stack Developer & Web Designer with experience crafting
-            user-friendly web experiences and tackling challenging algorithms.
+           {about.description}
           </div>
         </div>
       </div>

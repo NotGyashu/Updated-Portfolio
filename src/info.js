@@ -1,3 +1,28 @@
+export const about = {
+  name: "Gyashu Rahman",
+  description: " —Full-Stack Developer & Web Designer with experience crafting user-friendly web experiences and tackling challenging algorithms.",
+
+    // "I'm a passionate full-stack developer with a strong foundation in front-end and back-end technologies. I specialize in creating responsive web applications with intuitive interfaces and robust functionality. My expertise includes React.js, Node.js, and MongoDB, and I am proficient in integrating third-party services like Firebase and Socket.io. I am committed to delivering high-quality code and innovative solutions to enhance user experiences. I am seeking opportunities to leverage my skills and experience in a dynamic development environment.",
+  skills: [
+    "Javascript",
+    "Typescript",
+    "Python",
+    "Node.js",
+    "Express",
+    "Tailwind",
+    "Firebase",
+    "Next.js",
+    "React.js",
+    "Redux",
+    "jQuery",
+    "Matter.Js",
+    "Framer Motion",
+    "MongoDB",
+    "SQL",
+  ],
+  // 'HTML' , 'CSS','Javascript','Typescript','Python','Bootstrap','Node.js','Express','Tailwind','EJS','Firebase','Next.js','React.js','Redux','jQuery','Swiper.js','Mongoose','Framer Motion','MongoDB','SQL','C++'
+};
+
 export const projects = [
   {
     name: "Social-Arena",
@@ -36,11 +61,6 @@ export const projects = [
     code: "https://github.com/NotGyashu/stockTracker",
   },
 ];
-
-export const skills = ['Javascript','Typescript','Python','Node.js','Express','Tailwind','Firebase','Next.js','React.js','Redux','jQuery','Matter.Js','Framer Motion','MongoDB','SQL']
-
-
-// 'HTML' , 'CSS','Javascript','Typescript','Python','Bootstrap','Node.js','Express','Tailwind','EJS','Firebase','Next.js','React.js','Redux','jQuery','Swiper.js','Mongoose','Framer Motion','MongoDB','SQL','C++'
 
 
 export const social = [

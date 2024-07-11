@@ -8,7 +8,7 @@ import Matter, {
   Mouse,
   MouseConstraint,
 } from "matter-js";
-import { skills } from "../info";
+import { about } from "../info";
 
 const BallPool = ({ dimensions }) => {
   const cw = dimensions.width;
@@ -142,8 +142,8 @@ const BallPool = ({ dimensions }) => {
     // Add the boundary collision handler to the collision event
     Events.on(engine.current, "collisionStart", boundaryCollision);
 
-    for (let i = 0; i < skills.length; i++) {
-      const skill = skills[i];
+    for (let i = 0; i < about.skills.length; i++) {
+      const skill = about.skills[i];
       const delay = Math.random() * 600;
 
       // Wait for the delay before rendering the circle
