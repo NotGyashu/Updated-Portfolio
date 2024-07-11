@@ -8,9 +8,9 @@ import ProjectImg from "../subComponents/projectimg";
 
 function Projects() {
   const [hover1, setHover1] = useState(false);
-  const [hover2, setHover2] = useState(false);
+ 
   const [hover3, setHover3] = useState(false);
-  const [hover4, setHover4] = useState(false);
+
   const [showCursor, setShowCursor] = useState(true);
 
   const scrollRef = useRef(null);
@@ -65,9 +65,9 @@ function Projects() {
       {showCursor && (
         <CustomCursor
           hover1={hover1}
-          hover2={hover2}
+         
           hover3={hover3}
-          hover4={hover4}
+     
         />
       )}
       <div className="text-xl md:text-2xl lg:text-3xl px-1 md:px-4 lg:px-7 lg:py-2 py-1  Panchang-font font-light">
@@ -84,7 +84,7 @@ function Projects() {
       </div>
       <ScrollTracker ref={scrollRef} />
       <div
-        className="flex w-full box-border  flex-grow m-1 md:m-4 lg:m-7  gap-12 lg:gap-28 md:gap-16 justify-between overflow-x-scroll  no-scrollbar"
+        className="flex w-full box-border  overflow-y-hidden flex-grow m-1 md:m-4 lg:m-7  gap-12 lg:gap-28 md:gap-16 justify-between overflow-x-scroll  no-scrollbar"
         id="parent"
         ref={scrollRef}
         style={{

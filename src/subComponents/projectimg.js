@@ -1,10 +1,9 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 const ProjectImg = ({ project }) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const nav = useNavigate();
+
   const handleMouseEnter = () => {
     if (window.innerWidth > 768) {
       setIsDialogOpen(true);
@@ -21,13 +20,15 @@ const ProjectImg = ({ project }) => {
     setIsDialogOpen(false);
   };
 
+  const handleBoxClick = (url) => {
+    window.location.href = url;
+  };
+
   const dialogVariants = {
-    hidden: { opacity: 0, scale: 0.8, x: 0, y: 0 },
+    hidden: { opacity: 0, scale: 0.8 },
     visible: {
       opacity: 1,
       scale: 1,
-      x: 0,
-      y: 0,
       transition: { duration: 0.5, ease: "easeInOut" },
     },
     exit: {
@@ -38,7 +39,7 @@ const ProjectImg = ({ project }) => {
   };
 
   const buttonVariants = {
-    hidden: { y: 550, opacity: 0, rotate: 0 },
+    hidden: { y: 550, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
@@ -48,31 +49,17 @@ const ProjectImg = ({ project }) => {
     exit: {
       y: 0,
       opacity: 0,
-      
-      transition: { duration: .5, ease: "easeInOut" },
+      transition: { duration: 0.5, ease: "easeInOut" },
     },
   };
 
-  const handleboxClick =(url) =>{
-    window.open(url)
-  }
   return (
     <div>
       {!isDialogOpen && (
         <motion.div
           className="h-4/5 w-full rounded-md flex-grow relative"
-          initial={{
-            rotateX: 35,
-            rotateY: 4,
-            rotateZ: -30,
-            opacity: 0.8,
-          }}
-          animate={{
-            rotateX: 35,
-            rotateY: 4,
-            rotateZ: -30,
-            opacity: 0.8,
-          }}
+          initial={{ rotateX: 35, rotateY: 4, rotateZ: -30, opacity: 0.8 }}
+          animate={{ rotateX: 35, rotateY: 4, rotateZ: -30, opacity: 0.8 }}
           onMouseEnter={handleMouseEnter}
           onClick={handleClick}
         >
@@ -80,7 +67,7 @@ const ProjectImg = ({ project }) => {
             <img
               src={project.src}
               className="object-cover w-full h-full"
-              alt=""
+              alt={project.alt}
             />
           </div>
         </motion.div>
@@ -118,14 +105,13 @@ const ProjectImg = ({ project }) => {
               <img
                 src={project.src}
                 className="object-cover w-full h-full rounded-md"
-                alt=""
+                alt={project.alt}
               />
 
               <motion.div
-                className="bg-black cursor-pointer h-12 w-12 p-3 rounded-full absolute bottom-2 left-[2vh]"
-                //initial={{ x: -200, y: -200 }}
+                className="bg-black z-10 cursor-pointer h-12 w-12 p-3 rounded-full absolute bottom-2 left-[2vh]"
                 variants={buttonVariants}
-                onClick={handleboxClick(project.code)}
+                onClick={() => handleBoxClick(project.link)}
                 whileHover={{
                   scale: 1.3,
                   x: [0, -1, 1, -1, 0, 1, 0],
@@ -134,7 +120,11 @@ const ProjectImg = ({ project }) => {
                 }}
                 exit={{ transition: 1 }}
               >
-                <img src="rocket.png" className="object-cover h-6 w-6" alt="" />
+                <img
+                  src="rocket.png"
+                  className="object-cover h-6 w-6"
+                  alt="rocket"
+                />
               </motion.div>
               <motion.div
                 className="bg-black cursor-pointer h-12 w-12 p-3 rounded-full absolute bottom-2 left-[40vw]"
@@ -148,12 +138,16 @@ const ProjectImg = ({ project }) => {
                 }}
                 exit={{ transition: 1 }}
               >
-                <img src="cancel.png" className="object-cover h-6 w-6" alt="" />
+                <img
+                  src="cancel.png"
+                  className="object-cover h-6 w-6"
+                  alt="cancel"
+                />
               </motion.div>
               <motion.div
                 className="bg-black cursor-pointer h-12 w-12 p-3 rounded-full absolute bottom-2 right-[2vh]"
                 variants={buttonVariants}
-                onClick={handleboxClick(project.code)}
+                onClick={() => handleBoxClick(project.code)}
                 whileHover={{
                   scale: 1.3,
                   x: [0, -1, 1, -1, 0, 1, 0],
@@ -162,7 +156,11 @@ const ProjectImg = ({ project }) => {
                 }}
                 exit={{ transition: 1 }}
               >
-                <img src="code.png" className="object-cover h-6 w-6" alt="" />
+                <img
+                  src="code.png"
+                  className="object-cover h-6 w-6"
+                  alt="code"
+                />
               </motion.div>
             </motion.div>
           </motion.div>

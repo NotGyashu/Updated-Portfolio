@@ -27,9 +27,7 @@ const CustomCursor = ({hover1,hover2,hover3,hover4}) => {
         ref={cursorRef}
         className={`custom-cursor flex items-center justify-center ${
           hover1 ? "bg-[#212529] border-none noshodowcursor" : ""
-        }${hover2 ? "class2 " : ""}${hover3 ? "bg-[#212529] border-none" : ""}${
-          hover4 ? "class4 " : "border-2 border-white shodowcursor1 "
-        }`}
+        }${hover3 ? "bg-[#212529] border-none" : "border-2 border-white shodowcursor1 "}`}
         animate={hover1 || hover3 ? { scale: 3 } : { scale: 1 }}
         style={{
           x: cursorX,
