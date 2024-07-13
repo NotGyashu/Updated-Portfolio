@@ -63,7 +63,7 @@ export const Contact = () => {
   return (
     <div
       ref={contactRef}
-      className="p-3 relative overflow-hidden flex flex-col min-h-screen"
+      className="lg:p-3 p-1 relative overflow-hidden flex flex-col min-h-screen"
     >
       {cursorVisible && <ContactCursor />}
 
@@ -164,7 +164,7 @@ export const Contact = () => {
               />
             </motion.div>
             <div className="Panchang-font text-xs">
-              &copy; {year} made with &love;
+              &copy; {year} made with &#x2764;&#xFE0F;;
             </div>
           </div>
         </div>
