@@ -3,15 +3,14 @@ import { useLocation } from "react-router-dom";
 
 import { motion } from "framer-motion";
 
-const anim = (variants)=>{
-    return {
-        initial:"initial",
-        animate:"enter",
-        exit:"exit",
-        variants
-
-    }
-}
+const anim = (variants) => {
+  return {
+    initial: "initial",
+    animate: "enter",
+    exit: "exit",
+    variants,
+  };
+};
 
 export default function Inner(props) {
   const [dimension, setDimension] = useState({
@@ -19,7 +18,6 @@ export default function Inner(props) {
     width: 0,
   });
   const router = useLocation();
-  
 
   useEffect(() => {
     const resize = () => {
@@ -35,38 +33,38 @@ export default function Inner(props) {
     return () => window.removeEventListener("resize", resize);
   }, []);
 
- const routes = {
-    "/":["Home","Hello"],
-    "/projects":["Projects", "What i Built ?"],
-    "/skills":["Skills", "What I Know ?"],
-    "/contact":["Contact","Lets Talk"]
- }
- const text = {
-   initial: {
-     opacity: 1,
-   },
-   enter: {
-     top: -100,
-     opacity: 0,
-     transition: {
-       duration: 1.2,
-       delay: 0.3,
-       ease: [0.76, 0, 0.24, 1],
-     },
-     transitionEnd:{
-        top:"48%"
-     }
-   },
-   exit: {
-     opacity: 1,
-     top: "40%",
-     transition: {
-       duration: .5,
-       delay: 0.4,
-       ease: [0.76, 0, 0.24, 1],
-     },
-   },
- };
+  const routes = {
+    "/": ["Home", "Hello"],
+    "/projects": ["Projects", "What i Built ?"],
+    "/skills": ["Skills", "What I Know ?"],
+    "/contact": ["Contact", "Lets Talk"],
+  };
+  const text = {
+    initial: {
+      opacity: 1,
+    },
+    enter: {
+      top: -100,
+      opacity: 0,
+      transition: {
+        duration: 1.2,
+        delay: 0.3,
+        ease: [0.76, 0, 0.24, 1],
+      },
+      transitionEnd: {
+        top: "48%",
+      },
+    },
+    exit: {
+      opacity: 1,
+      top: "40%",
+      transition: {
+        duration: 0.5,
+        delay: 0.4,
+        ease: [0.76, 0, 0.24, 1],
+      },
+    },
+  };
 
   return (
     <div className="h-screen w-screen fixed flex pointer-events-none top-[-0] left-0 z-[40] ">
@@ -79,9 +77,10 @@ export default function Inner(props) {
         {...anim(text)}
         className="absolute text-center Panchang-font left-[50%] top-[40%] z-[50] text-white translate-x-[-50%] text-3xl"
       >
-        {" "}
         <p> {routes[router.pathname][1]} </p>
-       <p> {routes[router.pathname][0]} </p>
+        {/* <ul className="text-sm">
+          <li className=" list-disc"> {routes[router.pathname][0]} </li>
+        </ul> */}
       </motion.div>
       {dimension.width > 1 && (
         <SVG width={dimension.width} height={dimension.height} />
@@ -103,11 +102,10 @@ const SVG = ({ width, height }) => {
   const targetPath = `
     M 0 200
     Q ${w / 2} 0 ${w} 200
-    L ${w} ${h }
-    Q ${w / 2} ${h } 0 ${h }
+    L ${w} ${h}
+    Q ${w / 2} ${h} 0 ${h}
     L 0 200
   `;
-
 
   const curve = {
     initial: {
@@ -150,7 +148,7 @@ const SVG = ({ width, height }) => {
       top: "-200px",
       transition: {
         duration: 1.2,
-        
+
         ease: [0.76, 0, 0.24, 1],
       },
     },
@@ -158,16 +156,14 @@ const SVG = ({ width, height }) => {
 
   return (
     <motion.svg
-    {...anim(slide)}
+      {...anim(slide)}
       viewBox={`0 0 ${w} ${h}`}
-     preserveAspectRatio="xMidYMid meet"
+      preserveAspectRatio="xMidYMid meet"
       width={w}
       height={h}
-      style={{ overflow: "visible",position:"fixed" }}
+      style={{ overflow: "visible", position: "fixed" }}
     >
-      
-        <motion.path {...anim(curve)}  />
-     
+      <motion.path {...anim(curve)} />
     </motion.svg>
   );
 };

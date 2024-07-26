@@ -20,7 +20,7 @@ export const about = {
     "MongoDB",
     "SQL",
   ],
-  // 'HTML' , 'CSS','Javascript','Typescript','Python','Bootstrap','Node.js','Express','Tailwind','EJS','Firebase','Next.js','React.js','Redux','jQuery','Swiper.js','Mongoose','Framer Motion','MongoDB','SQL','C++'
+  // 'HTML' , 'CSS','Javascript','Typescript','Python','Bootstrap','Node.js','Express','Tailwind','EJS','Firebase','Next.js','React.js','Redux','jQuery','Swiper.js','Mongoose','Framer Motion','MongoDB','SQL','C++','NLP','GenAI'
 };
 
 export const projects = [
@@ -32,6 +32,15 @@ export const projects = [
     Timeline: "Oct’23 - Dec’23",
     link: "https://social-arena.vercel.app/",
     code: "https://github.com/NotGyashu/Social-Arena",
+  },
+  {
+    name: "chrome-assistant",
+    src: "/Screenshot 2024-07-26 221725.png",
+    description:
+      "A Chrome extension using Manifest V3 and React.js, integrating Google GenAI and TensorFlow.js to create an In-Page AI Companion. The extension features real-time data scraping with Cheerio and Readability for in-depth webpage analysis and summarization. I implemented a context management system to enhance user prompts with embedded text, overcoming GenAI API limitations. Webpack 5 was used to optimize performance and ensure a smooth user experience with streaming responses",
+    Timeline: "Jun’24 - Jul’24",
+    link: "https://github.com/NotGyashu/Chrome-Assistant",
+    code: "https://github.com/NotGyashu/Chrome-Assistant",
   },
   {
     name: "Admin - Dashboard",
@@ -50,6 +59,15 @@ export const projects = [
     Timeline: "July'23-Aug'23",
     link: "https://anonymus-thoughts-client.vercel.app/login",
     code: "https://github.com/NotGyashu/Anonymus-thoughts",
+  },
+  {
+    name: "page-summarizer",
+    src: "/Screenshot 2024-07-26 222143.png",
+    description:
+      "A Chrome extension called Page-Summarizer using Manifest V3 and Cohere AI. This extension summarizes webpage text in real-time, leveraging text chunking to efficiently handle lengthy content. The user interface, built with React, ensures a seamless experience. This tool helps users save time by quickly summarizing long documents, articles, and research papers.",
+    Timeline: "Jun’24 - Jul’24",
+    link: "https://github.com/NotGyashu/page-summarizer",
+    code: "https://github.com/NotGyashu/page-summarizer",
   },
   {
     name: "stockTracker",
