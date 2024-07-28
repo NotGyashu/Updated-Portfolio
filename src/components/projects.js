@@ -38,7 +38,7 @@ function Projects() {
   }, []);
 
   return (
-    <div className="h-screen overflow-hidden  no-scrollbar w-full text-white box-border flex flex-col lg:gap-3 md:gap-2 sm:gap-1 relative">
+    <div className="h-screen overflow-hidden  no-scrollbar w-full text-white box-border flex flex-col lg:gap-2 md:gap-1  relative">
       <Inner />
       <div
         className="z-30   absolute border border-white bottom-3 left-[50%] translate-x-[-50%] lg:px-2 lg:py-1 px-3 rounded-full"
@@ -71,7 +71,7 @@ function Projects() {
      
         />
       )}
-      <div className="text-xl md:text-2xl lg:text-3xl px-1 md:px-4 lg:px-7 lg:py-2 py-1  Panchang-font font-light">
+      <div className="text-xl md:text-2xl lg:text-3xl px-1 md:px-4 lg:px-7 lg:py-1  Panchang-font font-light">
         <span
           onMouseEnter={() => {
             setHover3(true);
