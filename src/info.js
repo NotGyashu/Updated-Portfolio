@@ -47,8 +47,8 @@ export const projects = [
     src: "/Screenshot 2024-04-05 164921.png",
     description:
       "An admin dashboard using React, HTML, CSS, and Tailwind CSS, integrated with Firebase for user registration and login. The dashboard included analytics features using Recharts to monitor revenue, earnings, and user balances. I designed intuitive interfaces for seamless product management, including creation, sharing, and interaction. User management functionalities allowed administrators to view, add, and manage users and products efficiently. The project focused on a modern, intuitive UI to streamline administrative tasks and enhance overall user experience.",
-    Timeline: "Dec'23-Jan'23",
-    link: "https://notgyashu.github.io/Admin-dashboard/login",
+    Timeline: "Dec'23-Jan'24",
+    link: "https://notgyashu.github.io/Admin-dashboard/",
     code: "https://github.com/NotGyashu/Admin-dashboard",
   },
   {
