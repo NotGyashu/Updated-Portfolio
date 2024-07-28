@@ -12,6 +12,7 @@ function Projects() {
   const [hover3, setHover3] = useState(false);
 
   const [showCursor, setShowCursor] = useState(true);
+  
 
   const scrollRef = useRef(null);
 
@@ -78,28 +79,24 @@ function Projects() {
           onMouseLeave={() => {
             setHover3(false);
           }}
-        >
+         >
           Featured Works
         </span>
       </div>
       <ScrollTracker ref={scrollRef} />
       <div
-        className="flex w-full box-border  overflow-y-hidden flex-grow m-1 md:m-4 lg:m-7  gap-12 lg:gap-28 md:gap-16 justify-between overflow-x-scroll  no-scrollbar"
+        className="flex w-[97%] box-border  overflow-y-hidden flex-grow m-1 md:m-4 lg:m-7  gap-12 lg:gap-28 md:gap-16 justify-between overflow-x-scroll  no-scrollbar"
         id="parent"
         ref={scrollRef}
         style={{
           scrollSnapType: "y mandatory", // Ensure snapping behavior
         }}
-      >
-        <div className="absolute  text-xs md:text-sm top-[50%] translate-y-[-50%] left-[-5vh] rotate-90  Panchang-font     flex  gap-6 items-center  ">
-          <div className="w-[1px] h-[6vh]  bg-white rounded-full rotate-90 "></div>
-          <span className="lg:text-sm md:text-[10px]">SCROLLDOWN</span>
-          <div className="w-[1px] h-[7vh] ml-1  bg-white rounded-full rotate-90 "></div>
-        </div>
+       >
+       
         {projects.map((p, index) => (
           <div
             key={index}
-            className="flex w-[97%]  border flex-grow-0 flex-shrink-0 relative md:flex-row flex-col" >
+            className="flex w-[100%]  border flex-grow-0 flex-shrink-0 relative md:flex-row flex-col" >
             <div className="md:w-2/5  w-full h-2/5 flex md:h-full lg:p-16 md:p-10 p-6 overflow-hidden">
               <ProjectImg project = {p}/>
             </div>
