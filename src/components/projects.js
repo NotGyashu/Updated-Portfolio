@@ -85,7 +85,7 @@ function Projects() {
       </div>
       <ScrollTracker ref={scrollRef} />
       <div
-        className="flex w-[97%] box-border  overflow-y-hidden flex-grow   md:mx-4 lg:m-7  gap-12 lg:gap-28 md:gap-16 justify-between overflow-x-scroll  no-scrollbar"
+        className="flex w-[97%] box-border  overflow-y-hidden flex-grow md:mb-2  md:mx-4 lg:m-7  gap-12 lg:gap-28 md:gap-16 justify-between overflow-x-scroll  no-scrollbar"
         id="parent"
         ref={scrollRef}
         style={{
