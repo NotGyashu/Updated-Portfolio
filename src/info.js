@@ -99,3 +99,22 @@ export const social = [
     link: "https://www.instagram.com/gyashu_rahman/",
   },
 ];
+
+export const Sections = [
+  {
+    name:"Home",
+    link:"/",
+  },
+  {
+    name:"Projects",
+    link:"/projects",
+  },
+  {
+    name:"Skills",
+    link:"/skills",
+  },
+  {
+    name:"Contact",
+    link:"/contact",
+  }
+];
