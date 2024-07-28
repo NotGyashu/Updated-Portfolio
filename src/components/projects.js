@@ -38,7 +38,7 @@ function Projects() {
   }, []);
 
   return (
-    <div className="h-screen overflow-hidden  no-scrollbar w-full text-white box-border flex flex-col lg:gap-2 md:gap-1  relative">
+    <div className="h-screen overflow-hidden  no-scrollbar w-full text-white box-border flex flex-col  relative">
       <Inner />
       <div
         className="z-30   absolute border border-white bottom-3 left-[50%] translate-x-[-50%] lg:px-2 lg:py-1 px-3 rounded-full"
@@ -85,7 +85,7 @@ function Projects() {
       </div>
       <ScrollTracker ref={scrollRef} />
       <div
-        className="flex w-[97%] box-border  overflow-y-hidden flex-grow m-1 md:m-4 lg:m-7  gap-12 lg:gap-28 md:gap-16 justify-between overflow-x-scroll  no-scrollbar"
+        className="flex w-[97%] box-border  overflow-y-hidden flex-grow   md:mx-4 lg:m-7  gap-12 lg:gap-28 md:gap-16 justify-between overflow-x-scroll  no-scrollbar"
         id="parent"
         ref={scrollRef}
         style={{
@@ -125,7 +125,7 @@ function Projects() {
                 {p.Timeline}
               </div>
               <div
-                className="cabinet-font md:text-lg lg:text-xl text-ri"
+                className="cabinet-font md:text-xs lg:text-xl text-ri"
                 onMouseEnter={() => {
                   setHover1(true);
                 }}

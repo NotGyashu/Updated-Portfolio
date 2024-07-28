@@ -24,7 +24,7 @@ const ScrollTracker = forwardRef((props, ref) => {
   }, [ref]);
 
   return (
-    <div className="flex gap-1 pl-1 md:pl-4 lg:pl-7 pr-1 items-center ">
+    <div className="flex gap-1 pl-1 md:pl-4 border lg:pl-7 pr-1 items-center ">
       <div className="w-[100%]    h-[1px] rounded-full bg-black ">
         <motion.div
           className="h-full bg-[#e1dcdc]"
