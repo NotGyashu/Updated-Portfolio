@@ -64,19 +64,19 @@ function Header() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.6 }}
-            className="z-10 h-[99vh] box-border overflow-hidden flex flex-col rounded-tl-[15%] rounded-bl-[15%] lg:rounded-tl-[20%] lg:rounded-bl-[20%] px-[3%] py-[5%] lg:w-[35%] md:w-[45%] w-[90%] lg:text-5xl md:text-3xl text-xl Panchang-font border-2 absolute top-0 right-0 gap-10 bg-white"
+            className="z-10 h-[99vh] box-border overflow-hidden flex flex-col rounded-tl-[15%] rounded-bl-[15%] lg:rounded-tl-[20%] lg:rounded-bl-[20%] px-[3%] py-[2%] lg:w-[35%] md:w-[45%] w-[90%] lg:text-5xl md:text-3xl text-xl Panchang-font border-2 absolute top-0 right-0  bg-white"
           >
             <motion.img
               src="/letter-x.png"
               alt="close icon"
               onClick={handleXClick}
-              className="h-10 w-10 cursor-pointer border p-2 rounded-full"
+              className="h-10 w-10 cursor-pointer p-2 lg:my-3 rounded-full"
               animate={{
                 backgroundColor: isXClicked ? "#ffffed" : "#ffffff",
               }}
               transition={{ duration: 0.6 }}
             />
-            <motion.ul className="border flex flex-col gap-5 flex-grow">
+            <motion.ul className=" flex flex-col  flex-grow">
               {Sections.map((section, index) => (
                 <motion.li
                   initial={{ x: "100%" }}
