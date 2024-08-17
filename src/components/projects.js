@@ -38,7 +38,7 @@ function Projects() {
   }, []);
 
   return (
-    <div className="h-screen overflow-hidden  no-scrollbar w-full text-white box-border flex flex-col  relative">
+    <div className="h-screen overflow-hidden cursor-none  no-scrollbar w-full text-white box-border flex flex-col  relative">
       <Inner />
       <div
         className="z-30   absolute border border-white bottom-3 left-[50%] translate-x-[-50%] lg:px-2 lg:py-1 px-3 rounded-full"
@@ -97,8 +97,8 @@ function Projects() {
           <div
             key={index}
             className="flex w-[100%]  border flex-grow-0 flex-shrink-0 relative md:flex-row flex-col" >
-            <div className="md:w-2/5  w-full h-2/5 flex md:h-full lg:p-16 md:p-10 p-6 overflow-hidden">
-              <ProjectImg project = {p}/>
+            <div className="md:w-2/5   w-full h-2/5 flex md:h-full lg:p-16 md:p-10 p-6 overflow-hidden">
+              <ProjectImg project = {p} className=""/>
             </div>
             <div className="md:w-3/5  w-full  h-3/5 md:h-full md:p-4 p-1 lg:p-16 md:gap-2 gap-1 lg:gap-7 flex rounded-lg flex-col">
               <div

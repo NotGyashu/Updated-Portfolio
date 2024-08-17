@@ -34,7 +34,7 @@ const ScrollTracker = forwardRef((props, ref) => {
           transition={{ ease: "linear", duration: 1 }}
         />
       </div>
-      <span className="text-xl cabinet-font"> {Math.ceil(scrollPercent)}%</span>
+      <span className="md:text-5xl text-2xl cabinet-font"> {Math.ceil(scrollPercent)}%</span>
     </div>
   );
 });

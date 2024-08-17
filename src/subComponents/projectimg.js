@@ -54,19 +54,24 @@ const ProjectImg = ({ project }) => {
   };
 
   return (
-    <div>
+    <div className="">
       {!isDialogOpen && (
         <motion.div
-          className="h-4/5 w-full rounded-md flex-grow relative"
+          className="h-4/5 w-full rounded-md flex-grow relative "
           initial={{ rotateX: 35, rotateY: 4, rotateZ: -30, opacity: 0.8 }}
           animate={{ rotateX: 35, rotateY: 4, rotateZ: -30, opacity: 0.8 }}
-          onMouseEnter={handleMouseEnter}
           onClick={handleClick}
         >
-          <div className="overflow-hidden rounded-md aspect-w-4 aspect-h-5">
+          <div className="overflow-hidden relative  rounded-md aspect-w-4 aspect-h-5">
+            <img
+              src="/preview.png"
+              alt="preview"
+              className="h-7 w-7 absolute right-2 top-2 bg-white p-1 rounded-md"
+              onClick={handleMouseEnter }
+            />
             <img
               src={project.src}
-              className="object-cover w-full h-full"
+              className="object-cover  w-full h-full"
               alt={project.alt}
             />
           </div>
@@ -76,7 +81,7 @@ const ProjectImg = ({ project }) => {
       <AnimatePresence>
         {isDialogOpen && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75"
+            className="fixed cursor-default inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75"
             initial="hidden"
             animate="visible"
             exit="exit"
