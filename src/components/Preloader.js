@@ -28,7 +28,7 @@ function Preloader({ onPreloaderHide, preloader, setPreloader }) {
       
       setCounter((prevCounter) => {
         const nextCounter = Math.min(
-          prevCounter + Math.floor(Math.random() * 5) + 1,
+          prevCounter + Math.floor(Math.random() * 20) + 1,
           100
         );
         return nextCounter;
