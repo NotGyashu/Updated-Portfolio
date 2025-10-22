@@ -57,21 +57,21 @@ const ProjectImg = ({ project }) => {
     <div className="">
       {!isDialogOpen && (
         <motion.div
-          className="h-4/5 w-full rounded-md flex-grow relative "
+          className=" w-full rounded-md flex-grow relative"
           initial={{ rotateX: 35, rotateY: 4, rotateZ: -30, opacity: 0.8 }}
           animate={{ rotateX: 35, rotateY: 4, rotateZ: -30, opacity: 0.8 }}
           onClick={handleClick}
         >
-          <div className="overflow-hidden relative  rounded-md aspect-w-4 aspect-h-5">
+          <div className="overflow-hidden relative rounded-md aspect-w-4 aspect-h-5">
             <img
               src="/preview.png"
               alt="preview"
-              className="h-7 w-7 absolute right-2 top-2 bg-white p-1 rounded-md"
-              onClick={handleMouseEnter }
+              className="h-7 w-7 absolute right-2 top-2 bg-white p-1 rounded-md z-10"
+              onClick={handleMouseEnter}
             />
             <img
               src={project.src}
-              className="object-cover  w-full h-full"
+              className="object-cover w-full h-full"
               alt={project.alt}
             />
           </div>
@@ -88,7 +88,7 @@ const ProjectImg = ({ project }) => {
             variants={dialogVariants}
           >
             <motion.div
-              className="relative bg-white rounded-lg w-full h-full md:w-4/5 md:h-4/5"
+              className="relative rounded-lg w-[95vw] h-[90vh] md:w-4/5 md:h-4/5 max-w-full max-h-full overflow-hidden flex items-center justify-center"
               initial={{ rotateX: 35, rotateY: 4, rotateZ: -30, opacity: 0.8 }}
               animate={{
                 scale: 1,
@@ -109,12 +109,12 @@ const ProjectImg = ({ project }) => {
             >
               <img
                 src={project.src}
-                className="object-cover w-full h-full rounded-md"
+                className="object-contain md:object-cover w-full h-full rounded-md"
                 alt={project.alt}
               />
 
               <motion.div
-                className="bg-black z-10 cursor-pointer h-12 w-12 p-3 rounded-full absolute bottom-2 left-[2vh]"
+                className="bg-black z-10 cursor-pointer h-10 w-10 sm:h-12 sm:w-12 p-2 sm:p-3 rounded-full absolute bottom-2 sm:bottom-3 left-2 sm:left-[2vh]"
                 variants={buttonVariants}
                 onClick={() => handleBoxClick(project.link)}
                 whileHover={{
@@ -127,12 +127,12 @@ const ProjectImg = ({ project }) => {
               >
                 <img
                   src="rocket.png"
-                  className="object-cover h-6 w-6"
+                  className="object-cover w-full h-full"
                   alt="rocket"
                 />
               </motion.div>
               <motion.div
-                className="bg-black cursor-pointer h-12 w-12 p-3 rounded-full absolute bottom-2 left-[40vw]"
+                className="bg-black cursor-pointer h-10 w-10 sm:h-12 sm:w-12 p-2 sm:p-3 rounded-full absolute bottom-2 sm:bottom-3 left-1/2 -translate-x-1/2"
                 variants={buttonVariants}
                 onClick={handleClose}
                 whileHover={{
@@ -145,12 +145,12 @@ const ProjectImg = ({ project }) => {
               >
                 <img
                   src="cancel.png"
-                  className="object-cover h-6 w-6"
+                  className="object-cover w-full h-full"
                   alt="cancel"
                 />
               </motion.div>
               <motion.div
-                className="bg-black cursor-pointer h-12 w-12 p-3 rounded-full absolute bottom-2 right-[2vh]"
+                className="bg-black cursor-pointer h-10 w-10 sm:h-12 sm:w-12 p-2 sm:p-3 rounded-full absolute bottom-2 sm:bottom-3 right-2 sm:right-[2vh]"
                 variants={buttonVariants}
                 onClick={() => handleBoxClick(project.code)}
                 whileHover={{
@@ -163,7 +163,7 @@ const ProjectImg = ({ project }) => {
               >
                 <img
                   src="code.png"
-                  className="object-cover h-6 w-6"
+                  className="object-cover w-full h-full"
                   alt="code"
                 />
               </motion.div>

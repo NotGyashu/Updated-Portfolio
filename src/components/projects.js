@@ -8,11 +8,8 @@ import ProjectImg from "../subComponents/projectimg";
 
 function Projects() {
   const [hover1, setHover1] = useState(false);
- 
   const [hover3, setHover3] = useState(false);
-
   const [showCursor, setShowCursor] = useState(true);
-  
 
   const scrollRef = useRef(null);
 
@@ -38,10 +35,10 @@ function Projects() {
   }, []);
 
   return (
-    <div className="h-screen overflow-hidden cursor-none  no-scrollbar w-full text-white box-border flex flex-col  relative">
+    <div className="h-screen overflow-hidden cursor-none no-scrollbar w-full text-white box-border flex flex-col relative">
       <Inner />
       <div
-        className="z-30   absolute border border-white bottom-3 left-[50%] translate-x-[-50%] lg:px-2 lg:py-1 px-3 rounded-full"
+        className="z-30 absolute border border-white bottom-3 left-[50%] translate-x-[-50%] lg:px-2 lg:py-1 px-3 rounded-full"
         id="nav"
         onMouseEnter={() => {
           setShowCursor(false);
@@ -66,12 +63,10 @@ function Projects() {
       {showCursor && (
         <CustomCursor
           hover1={hover1}
-         
           hover3={hover3}
-     
         />
       )}
-      <div className="text-xl md:text-2xl lg:text-3xl px-1 md:px-4 lg:px-7 lg:py-1  Panchang-font font-light">
+      <div className="text-xl md:text-2xl lg:text-3xl px-1 md:px-4 lg:px-7 lg:py-1 Panchang-font font-light">
         <span
           onMouseEnter={() => {
             setHover3(true);
@@ -79,30 +74,30 @@ function Projects() {
           onMouseLeave={() => {
             setHover3(false);
           }}
-         >
+        >
           Featured Works
         </span>
       </div>
       <ScrollTracker ref={scrollRef} />
       <div
-        className="flex w-[97%] box-border  overflow-y-hidden flex-grow md:mb-2  md:mx-4 lg:m-7  gap-12 lg:gap-28 md:gap-16 justify-between overflow-x-scroll  no-scrollbar"
+        className="flex flex-grow md:mb-2 md:mx-4 lg:m-7 gap-12 lg:gap-28 md:gap-16 justify-between overflow-x-scroll no-scrollbar"
         id="parent"
         ref={scrollRef}
         style={{
-          scrollSnapType: "y mandatory", // Ensure snapping behavior
+          scrollSnapType: "x mandatory",
         }}
-       >
-       
+      >
         {projects.map((p, index) => (
           <div
             key={index}
-            className="flex w-[100%]  border flex-grow-0 flex-shrink-0 relative md:flex-row flex-col" >
-            <div className="md:w-2/5   w-full h-2/5 flex md:h-full lg:p-16 md:p-10 p-6 overflow-hidden">
-              <ProjectImg project = {p} className=""/>
+            className="flex w-[100%] border gap-2 flex-shrink-0 relative lg:flex-row flex-col"
+          >
+            <div className="lg:w-2/5  w-full h-[55%] flex md:h-full lg:p-16 md:p-10 p-6 overflow-hidden">
+              <ProjectImg project={p} className="border p-1" />
             </div>
-            <div className="md:w-3/5  w-full  h-3/5 md:h-full md:p-4 p-1 lg:p-16 md:gap-2 gap-1 lg:gap-7 flex rounded-lg flex-col">
+            <div className="lg:w-3/5 w-full h-[45%] md:h-full p-3 md:p-6 lg:p-16  md:gap-4 lg:gap-7 flex rounded-lg flex-col">
               <div
-                className="lg:text-6xl  md:text-3xl sm:text-2xl text-xl Panchang-font"
+                className="text-[clamp(1.5rem,4vw,3.5rem)] Panchang-font"
                 onMouseEnter={() => {
                   setHover1(true);
                 }}
@@ -114,7 +109,7 @@ function Projects() {
               </div>
 
               <div
-                className="cabinet-font font-light text-xs md:text-lg lg:text-xl"
+                className="cabinet-font font-light text-[clamp(1rem,2vw,2rem)]"
                 onMouseEnter={() => {
                   setHover1(true);
                 }}
@@ -125,7 +120,7 @@ function Projects() {
                 {p.Timeline}
               </div>
               <div
-                className="cabinet-font md:text-xs lg:text-xl text-ri"
+                className="cabinet-font  text-[clamp(0.875rem,1.5vw,1.25rem)] overflow-scroll"
                 onMouseEnter={() => {
                   setHover1(true);
                 }}
