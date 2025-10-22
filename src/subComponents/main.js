@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Hire from "./hire";
 import { easeInOut, motion, AnimatePresence } from "framer-motion";
 import { social } from "../info";
@@ -8,6 +8,23 @@ import MainNavbar from "./mainNavbar";
 function Main() {
   const [visible, setVisible] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
+
+  // Fix for mobile viewport height
+  useEffect(() => {
+    const setVh = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+
+    setVh();
+    window.addEventListener('resize', setVh);
+    window.addEventListener('orientationchange', setVh);
+
+    return () => {
+      window.removeEventListener('resize', setVh);
+      window.removeEventListener('orientationchange', setVh);
+    };
+  }, []);
 
   const hireVariant = {
     hidden: { opacity: 0 },
@@ -36,20 +53,18 @@ function Main() {
   const handleClick = (url) => window.location.href = url;
 
   return (
-    <div className="h-full flex flex-col gap-3 md:gap-5 p-2 lg:p-5 overflow-hidden">
-      {/* Header Section - Fixed height, no flex-grow */}
+    <div className="h-[100dvh] flex flex-col gap-2 md:gap-4 lg:gap-5 p-2 lg:p-5 overflow-hidden" style={{ height: 'calc(var(--vh, 1vh) * 100)' }}>
+      {/* Header Section */}
       <div className="flex flex-col flex-shrink-0">
         <div className="flex flex-col Panchang-font">
-          {/* "Hey," with Navbar */}
-          <div className="flex justify-between items-center text-[clamp(1.3rem,4vw,4rem)]">
+          <div className="flex justify-between items-center text-[clamp(1.3rem,4vw,3.5rem)]">
             <div>Hey,</div>
             <div className="border-2 px-1 rounded-full" id="navbar">
               <MainNavbar />
             </div>
           </div>
           
-          {/* "I'm Gyashu" */}
-          <div className="flex gap-x-3 md:gap-x-5 text-[clamp(2rem,6vw,6rem)]">
+          <div className="flex gap-x-3 md:gap-x-5 text-[clamp(2rem,5.5vw,6rem)]">
             <div>I'm</div>
             <motion.div className="cursor-pointer flex">
               {"Gyashu".split("").map((char, i) => (
@@ -67,22 +82,22 @@ function Main() {
         </div>
       </div>
 
-      {/* Content Section - Grows to fill remaining space */}
-      <div className="flex-grow flex md:flex-row-reverse flex-col justify-between gap-3 md:gap-8 lg:gap-16 p-2 md:p-4 lg:p-8 min-h-0">
+      {/* Content Section */}
+      <div className="flex-grow flex flex-col md:flex-row-reverse  justify-between gap-4 md:gap-6 lg:gap-12 p-1 md:p-3 lg:p-6 min-h-0 pb-[env(safe-area-inset-bottom)]">
         
         {/* Description Text */}
-        <div className="w-full md:w-[70%] lg:w-[65%] flex items-center cabinet-font text-left md:text-right text-[clamp(1rem,2.5vw,2.5rem)]">
+        <div className="w-full md:w-[65%] lg:w-[60%] flex items-center cabinet-font text-left md:text-right text-[clamp(0.9rem,2.2vw,2.3rem)] leading-tight">
           {about.description}
         </div>
 
-        {/* Social Icons + Hire Button Container - FIXED GAP */}
-        <div className="flex w-full md:w-[30%] lg:w-[35%] flex-col justify-end items-center gap-8 md:gap-12 lg:gap-16 min-h-0">
+        {/* Social Icons + Hire Button Container */}
+        <div className="flex w-full md:w-[35%] lg:w-[40%] flex-col justify-end items-center gap-4 md:gap-6 lg:gap-10 min-h-0">
           
           {/* Social Icons */}
           <AnimatePresence>
             {visible && (
               <motion.div
-                className="flex gap-3 md:gap-4 lg:gap-5 flex-wrap justify-center"
+                className="flex gap-2 md:gap-3 lg:gap-4 flex-wrap justify-center"
                 initial={{ opacity: 1, y: 0 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{
@@ -95,13 +110,13 @@ function Main() {
                 {social.map((s, index) => (
                   <motion.div
                     key={index}
-                    className="flex items-center justify-center rounded-full border h-[clamp(2.5rem,5vw,4rem)] w-[clamp(2.5rem,5vw,4rem)]"
+                    className="flex items-center justify-center rounded-full border h-[clamp(2rem,4.5vw,3.5rem)] w-[clamp(2rem,4.5vw,3.5rem)]"
                     variants={{
                       hidden: { opacity: 0 },
                       visible: {
                         opacity: 1,
-                        translateY: `calc(clamp(-5px, -15vh, -30px) - ${
-                          ((index + 3) % 3 === 2 || (index + 3) % 3 === 1) ? 33 : 0
+                        translateY: `calc(clamp(-10px, -10vh, -35px) - ${
+                          ((index + 3) % 3 === 2 || (index + 3) % 3 === 1) ? 25 : 0
                         }px)`,
                         rotate: 360,
                         transition: {
@@ -113,7 +128,7 @@ function Main() {
                         ease: easeInOut,
                       },
                     }}
-                    whileHover={{ scale: 1.2 }}
+                    whileHover={{ scale: 1.15 }}
                     initial="hidden"
                     animate="visible"
                     onTouchStart={handleTouchStart}
@@ -123,7 +138,7 @@ function Main() {
                   >
                     <img
                       src={s.src}
-                      className="h-[clamp(1.2rem,3vw,2.5rem)] w-[clamp(1.2rem,3vw,2.5rem)]"
+                      className="h-[clamp(1rem,2.5vw,2rem)] w-[clamp(1rem,2.5vw,2rem)]"
                       alt="logo"
                     />
                   </motion.div>

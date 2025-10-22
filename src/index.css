@@ -14,6 +14,12 @@ html, body, #root {
   overflow: hidden; /* prevents scrollbars */
 }
 
+@supports (height: 100dvh) {
+    html, body, #root {
+      height: 100dvh;
+    }
+}
+
 .hidden {
   display: none;
 }
