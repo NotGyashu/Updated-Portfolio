@@ -19,7 +19,6 @@ function Projects() {
       if (container) {
         container.scrollLeft += event.deltaY;
       }
-      // event.preventDefault();
     };
 
     const container = scrollRef.current;
@@ -66,7 +65,9 @@ function Projects() {
           hover3={hover3}
         />
       )}
-      <div className="text-lg md:text-xl lg:text-3xl px-2 py-1 md:px-4 lg:px-7 lg:py-1 Panchang-font font-light flex-shrink-0">
+      
+      {/* Header - Fixed height */}
+      <div className="text-base md:text-xl lg:text-3xl px-2 py-1 md:px-4 lg:px-7 Panchang-font font-light flex-shrink-0 h-[40px] md:h-[50px] lg:h-[60px] flex items-center">
         <span
           onMouseEnter={() => {
             setHover3(true);
@@ -78,11 +79,15 @@ function Projects() {
           Featured Works
         </span>
       </div>
-      <div className="hidden md:block flex-shrink-0">
+
+      {/* ScrollTracker - Fixed height */}
+      <div className="flex-shrink-0 mb-20px h-[20px] md:h-[30px]">
         <ScrollTracker ref={scrollRef} />
       </div>
+
+      {/* Main content area - Takes remaining space */}
       <div
-        className="flex flex-grow overflow-y-hidden md:mb-2 md:mx-4 lg:mx-7 lg:mb-7 gap-12 lg:gap-28 md:gap-16 justify-between overflow-x-scroll no-scrollbar min-h-0"
+        className="flex flex-1 overflow-y-hidden mb-[60px] md:mb-[70px] md:mx-4 lg:mx-7 gap-12 lg:gap-28 md:gap-16 justify-between overflow-x-scroll no-scrollbar"
         id="parent"
         ref={scrollRef}
         style={{
@@ -92,14 +97,17 @@ function Projects() {
         {projects.map((p, index) => (
           <div
             key={index}
-            className="flex w-full min-w-full border gap-2 flex-shrink-0 relative lg:flex-row flex-col h-full"
+            className="flex border w-full min-w-full gap-2 flex-shrink-0 relative lg:flex-row flex-col h-full"
           >
-            <div className="lg:w-2/5 w-full lg:h-full h-[48%] flex lg:p-16 md:p-10 p-4">
+            {/* Image section */}
+            <div className="lg:w-2/5 w-full lg:h-full overflow-hidden h-[45%] flex lg:p-12 md:p-8 p-3">
               <ProjectImg project={p} />
             </div>
-            <div className="lg:w-3/5 w-full lg:h-full h-[52%] p-3 md:p-6 lg:p-16 gap-2 md:gap-4 lg:gap-7 flex rounded-lg flex-col overflow-hidden">
+
+            {/* Text section */}
+            <div className="lg:w-3/5 w-full lg:h-full h-[55%] p-3 md:p-6 lg:p-12 gap-2 md:gap-3 lg:gap-6 flex rounded-lg flex-col overflow-hidden">
               <div
-                className="text-[clamp(1.5rem,4vw,3.5rem)] Panchang-font flex-shrink-0"
+                className="text-[clamp(1.3rem,3.5vw,3.5rem)] Panchang-font flex-shrink-0 leading-tight"
                 onMouseEnter={() => {
                   setHover1(true);
                 }}
@@ -111,7 +119,7 @@ function Projects() {
               </div>
 
               <div
-                className="cabinet-font font-light text-[clamp(0.9rem,2vw,2rem)] flex-shrink-0"
+                className="cabinet-font font-light text-[clamp(0.8rem,1.8vw,1.8rem)] flex-shrink-0 leading-tight"
                 onMouseEnter={() => {
                   setHover1(true);
                 }}
@@ -121,8 +129,9 @@ function Projects() {
               >
                 {p.Timeline}
               </div>
+
               <div
-                className="cabinet-font text-[clamp(0.75rem,1.5vw,1.25rem)] overflow-y-auto flex-1 min-h-0 no-scrollbar"
+                className="cabinet-font text-[clamp(0.7rem,1.2vw,1.2rem)] overflow-y-auto flex-1 min-h-0 no-scrollbar leading-snug"
                 onMouseEnter={() => {
                   setHover1(true);
                 }}
