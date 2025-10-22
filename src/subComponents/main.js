@@ -56,7 +56,7 @@ function Main() {
   };
 
   return (
-    <div className="flex-grow  gap-5 flex flex-col  lg:p-5 p-2">
+    <div className="flex-grow  gap-5 flex flex-col  lg:p-5 p-2 max-h-[calc(100vh-80px)] overflow-hidden">
       {/* Header Section */}
       <div className="flex flex-col">
         <div className="flex flex-col Panchang-font">
