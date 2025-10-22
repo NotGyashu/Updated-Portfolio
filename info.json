@@ -1,0 +1,601 @@
+{
+  "basic_info": {
+    "name": "Gyashu Rahman",
+    "title": "Software Engineer | AI-Powered Systems | Scalable Architect",
+    "email": "rahmangyashu178@gmail.com",
+    "phone": "+91 7269021798",
+    "location": "India",
+    "links": {
+      "linkedin": "https://www.linkedin.com/in/gyashu-rahman-299627224/",
+      "github": "https://github.com/NotGyashu",
+      "portfolio": "https://gyashu.vercel.app/",
+      "leetcode": "https://leetcode.com/u/DeI_Is/",
+      "other": ["https://dev.to/gyashu","https://orcid.org/0009-0001-4418-1363","https://hashnode.com/@gyashu"]
+    }
+  },
+  "summary": {
+    "short": "Fullstack Engineer with strong systems background (C++/Rust) and experience deploying production-scale apps using React,
+Node.js, and cloud infra. Skilled at bridging web scalability with backend performance and AI-driven features.",
+    "medium": "Software engineer experienced in React/Node.js, SQL/NoSQL, and cloud deployments, building dashboards and feature-rich apps for 1,000+ users and optimizing performance with measurable results across latency, load times, and retention.",
+    "detailed": "Engineer with hands-on experience in full-stack development (React, Node.js, Express, MongoDB/MySQL), API design, and Oracle Cloud deployments; delivered client projects and product dashboards with 30%+ performance gains, 1,000+ user scalability, and strong foundations in DSA, DBMS, CN, and OOP; additionally created ML pipelines and simulations for BLDC fault detection with 95%+ accuracy."
+  },
+  "skills": {
+    "languages": [
+      "c",
+      "c++",
+      "rust",
+      "python",
+      "javascript",
+      "typescript",
+      "html",
+      "css"
+    ],
+    "frameworks": [
+      "react",
+      "next.js",
+      "node.js",
+      "express",
+      "tailwind",
+      "bootstrap",
+      "ejs",
+      "firebase"
+    ],
+    "databases": [
+      "mongodb",
+      "mysql",
+      "sql"
+    ],
+    "cloud": [
+      "oracle cloud",
+      "AWS"
+    ],
+    "devops": [
+      "cypress",
+      "swagger",
+      "webpack",
+      "vite",
+      "babel",
+      "nx",
+      "git"
+    ],
+    "tools": [
+      "grafana",
+      "new relic",
+      "vs code",
+      "auth0",
+      "passport.js",
+      "jquery",
+      "framer motion",
+      "material ui",
+      "chakra ui",
+      "recharts"
+    ],
+    "soft_skills": [
+      "team leadership",
+      "collaboration",
+      "communication",
+      "mentoring"
+    ]
+  },
+  "experience": [
+    {
+      "company": "Bytes Classes",
+      "role": "Software Engineer Intern",
+      "start_date": "2024-09",
+      "end_date": "2025-04",
+      "description": "Built production dashboard and backend services with React, Express, and MySQL, deployed on Oracle Cloud for a learning platform.",
+      "achievements": [
+        "Launched the main dashboard supporting onboarding for 1,000+ users",
+        "Reduced API/data latency by ~30% through optimizations and schema design",
+        "Led a team of 4 to deliver a hardware client web app, cutting order processing time by 30%",
+        "Shipped 5+ client features that increased user retention by ~15%"
+      ],
+      "technologies": [
+        "react",
+        "express",
+        "node.js",
+        "mysql",
+        "sequelize",
+        "oracle cloud",
+        "rest",
+        "swagger"
+      ]
+    },
+    {
+      "company": "Point Click Tourism (Dubai, UAE)",
+      "role": "Freelance Frontend Developer",
+      "start_date": "2024-07",
+      "end_date": "2024-08",
+      "description": "Developed a responsive React/Tailwind website and integrated real-time tour/booking APIs.",
+      "achievements": [
+        "Reduced load time by ~30% using bundling, minification, and lazy loading",
+        "Cut data update time by ~50% via realtime API integrations",
+        "Improved UX through responsive design and optimized rendering"
+      ],
+      "technologies": [
+        "react",
+        "tailwind",
+        "webpack",
+        "javascript",
+        "rest"
+      ]
+    },
+    {
+      "company": "SAE, JMI",
+      "role": "Technical Team Member",
+      "start_date": "2022-02",
+      "end_date": "2023-02",
+      "description": "Maintained the society website, added features, and improved responsiveness and performance.",
+      "achievements": [
+        "Implemented new features and regular updates to enhance UX",
+        "Collaborated on responsive design and site performance improvements"
+      ],
+      "technologies": [
+        "react",
+        "html",
+        "css",
+        "javascript"
+      ]
+    }
+  ],
+  "projects": [
+      {
+        "name": "Hybrid Speed Crawler",
+        "description": "High-throughput (100+ pages/sec) production-grade C++ web crawler engineered for scalability, fault tolerance, and compliance. Features smart frontier scheduling, robots.txt enforcement, HTTP/2 multiplexing, RocksDB persistence, and modular configuration.",
+        "role": "Author & Maintainer",
+        "timeline": "07-2025",
+        "tech_stack": [
+          "C++",
+          "libcurl",
+          "HTTP/2",
+          "RocksDB",
+          "SQLite",
+          "re2",
+          "Gumbo",
+          "TinyXML2",
+          "SIMD",
+          "zstd",
+          "lz4",
+          "bzip2",
+          "CMake",
+          "Tracy"
+        ],
+        "github_link": "https://github.com/NotGyashu/Crawler",
+        "documentation_link": "https://github.com/NotGyashu/Crawler/blob/main/README.md",
+        "achievements": [
+          "Engineered a high-throughput, policy-compliant web crawler supporting 50–100 pages/sec with hybrid concurrency (work-stealing + partitioned queues + lock-free data structures) and 256-shard domain-aware rate limiting for scalable politeness enforcement.",
+          "Implemented an HTTP/2 multiplexed networking layer with connection pooling, conditional GETs, compression, and full TLS verification, achieving low-latency, multi-connection crawling efficiency.",
+          "Developed SIMD/AVX2-accelerated HTML parsing, adaptive link extraction, and content filtering pipeline delivering up to 10× throughput improvement in CPU-bound workloads.",
+          "Built strict robots.txt compliance and rate-limiting system with dual cache (in-memory + RocksDB), crawl-delay handling, Retry-After backoff, and per-domain policy enforcement.",
+          "Persisted metadata, crawl state, and rate-limit tokens in RocksDB with batched I/O and JSON export for analytics and downstream ML/NLP pipelines.",
+          "Designed modular, hot-reloadable configuration architecture supporting domain-specific policies, runtime tuning, and pluggable content filters for enrichment integration.",
+          "Added robust error handling and fault tolerance mechanisms, including circuit breakers, exponential backoff, domain blacklisting, crash recovery, and graceful shutdown with state persistence.",
+          "Integrated Prometheus-based observability and telemetry to expose performance metrics (pages/sec, queue size, error rate) enabling real-time monitoring and alerting.",
+          "Delivered a configurable CLI with multiple crawl modes, runtime limits, JSON/CSV exports, compression, and performance logging for flexible large-scale operation.",
+          "Packaged and deployed for production via CMake, systemd, Docker, and Kubernetes manifests, supporting single-node and containerized distributed deployments."
+        ],
+        "metrics": {
+          "throughput": {
+            "observed_pages_per_second": "50-100",
+            "target_pages_per_second": "50-200",
+            "success_rate": "0.85-0.95",
+            "formula": "pages_per_second = (workers * concurrency_per_worker * success_rate) / avg_latency_seconds"
+          },
+          "latency_seconds": {
+            "avg_range": "0.5-2.0"
+          },
+          "concurrency": {
+            "concurrent_requests_per_worker": "5-10",
+            "max_connections_total": "100-1000",
+            "max_connections_per_host": "6-8"
+          },
+          "resource_usage": {
+            "queue_entry_bytes": 200,
+            "queue_memory_overhead_for_100k_urls_mb": 20,
+            "memory_per_worker_mb": 10,
+            "deployment_memory_target_gb": "<8"
+          },
+          "scaling": {
+            "recommended_workers_factor": "1.5-2.0× physical cores",
+            "example_presets": [
+              {
+                "cpu_cores": 8,
+                "memory_gb": 16,
+                "workers": 20,
+                "max_connections": 320,
+                "queue_size": 75000
+              },
+              {
+                "cpu_cores": 16,
+                "memory_gb": 32,
+                "workers": 40,
+                "max_connections": 640,
+                "queue_size": 150000
+              }
+            ]
+          },
+          "politeness": {
+            "domain_rate_limit_req_per_sec": 2.0,
+            "retry_backoff": "exponential",
+            "robots_txt": "enforced",
+            "conditional_get": true
+          },
+          "monitoring": {
+            "metrics": [
+              "crawler_pages_per_second",
+              "crawler_pages_total",
+              "crawler_queue_size",
+              "crawler_errors_total"
+            ]
+          }
+        },
+        "keywords": [
+          "high performance computing",
+          "distributed crawling",
+          "scalable systems",
+          "network optimization",
+          "multi-threading",
+          "concurrency",
+          "systems design",
+          "C++ performance engineering",
+          "HTTP/2 multiplexing",
+          "rate limiting",
+          "rocksdb persistence",
+          "observability",
+          "data pipelines",
+          "AI integration",
+          "machine learning",
+          "web infrastructure",
+          "resilient systems",
+          "parallel programming",
+          "DevOps automation"
+        ],
+        "tags": [
+          "C++",
+          "crawler",
+          "HTTP/2",
+          "libcurl",
+          "RocksDB",
+          "robots.txt",
+          "work-stealing",
+          "SIMD",
+          "CLI",
+          "Docker"
+        ]
+      },
+          {
+      "name": "webpage_quality_analyzer",
+      "description": "Multi-platform Rust analyzer with a trait-based async runtime, 115 metrics, and a compiled profile-aware scoring engine shipping to Rust, WASM, CLI, and C++.",
+      "role": "author and maintainer",
+      "timeline":"08-2025",
+      "tech_stack": [
+      "rust", "tokio", "reqwest", "serde", "wasm-bindgen", "wasm-pack", "TypeScript", "Node.js",
+      "C++17", "FFI", "CMake", "CLI", "criterion", "tl", "scraper", "PyO3 (planned)"
+      ],
+      "github_link": "https://github.com/NotGyashu/webpage-quality-analyser",
+      "Live_link":"https://wqa-murex.vercel.app/",
+      "documentation_link": "https://github.com/NotGyashu/webpage-quality-analyser/blob/main/DOCUMENTATION_INDEX.md",
+      "crates_io_link":"https://crates.io/crates/webpage_quality_analyzer",
+      "npm_link":"https://www.npmjs.com/package/webpage_quality_analyzer",
+      "achievements": [
+      "Trait-based async runtime abstraction (Tokio vs browser Fetch) with mutually exclusive features for native/WASM; single codebase deploys to 4 targets.",
+      "Profile compiler builds Arc<dyn MetricScorer> graph from JSON (8 built-in profiles) with per-metric thresholds, weights, penalties, and bonuses.",
+      "DOM cache reduced DOM traversals from 115 to 1, delivering 36–40× speedups and <100ms HTML-only analysis on typical pages.",
+      "Batch pipeline reaches 180+ pages/sec via shared connection pooling + semaphore-controlled concurrency.",
+      "98.8% output size reduction using field selectors and compact serialization; supports selector-based exports.",
+      "WASM production build with fallback content extractor (no blocking I/O), TypeScript bindings, and CI-grade export checks.",
+      "C++ staticlib + RAII wrappers and CMake examples; packaged distribution with headers, libs, and examples.",
+      "Phase 3–6 scoring features: compiled profiles, per-metric customization, penalties/bonuses, and output filtering.",
+      "Fixed cross-cutting scoring correctness: ratio-threshold normalization and custom WordCountScorer with excellence bonuses and clamp propagation.",
+      "1000+ downloads across npm and crates.io "
+      ],
+      "impact": "Automates content, SEO, accessibility, and technical QA with profile-aware scoring, high-throughput batch analysis, and minimal export footprints across native, browser, and C++.",
+      "tags": [
+      "systems-design", "high-performance", "rust", "wasm", "c++", "ffi", "cli",
+      "async", "batch-processing", "seo", "accessibility", "scoring-engine"
+      ]
+      },
+    {
+      "name": "Fault Detection in BLDC Motor",
+      "description": "ML-based predictive maintenance system using simulation data and feature engineering.",
+      "role": "ML Engineer",
+      "tech_stack": [
+        "python",
+        "scikit-learn",
+        "pandas",
+        "matlab simulink"
+      ],
+      "github_link": "https://github.com/NotGyashu/Fault_Detection_In_BLDC_Motor_Using_ML_Approaches",
+      "achievements": [
+        "Achieved 95%+ accuracy with Random Forest and SVM on fault classification",
+        "Built end-to-end data pipelines and feature extraction for real-time detection"
+      ],
+      "impact": "Demonstrated real-time fault detection feasibility with high accuracy.",
+      "tags": [
+        "ml",
+        "predictive-maintenance",
+        "simulation"
+      ]
+    },
+    {
+      "name": "Chrome-Assistant",
+      "description": "Intelligent in-page AI companion as a Chrome extension with context management.",
+      "role": "Full-stack Developer",
+      "tech_stack": [
+        "manifest v3",
+        "react",
+        "tensorflow.js",
+        "javascript",
+        "tailwind",
+        "webpack"
+      ],
+      "github_link": "https://github.com/NotGyashu/Chrome-Assistant",
+      "achievements": [
+        "Improved usability by ~30% via embedded text features",
+        "Reduced bundle size by ~25% using Webpack 5 optimizations"
+      ],
+      "impact": "Enhanced browsing with real-time responses and better context handling.",
+      "tags": [
+        "browser-extension",
+        "ai",
+        "frontend"
+      ]
+    },
+    {
+      "name": "Social-Arena",
+      "description": "Full-stack social media app with auth, profiles, chat, and engagement features.",
+      "role": "Full-stack Developer",
+      "tech_stack": [
+        "react",
+        "express",
+        "socket.io",
+        "mongodb",
+        "firebase",
+        "tailwind",
+        "axios",
+        "bcrypt"
+      ],
+      "github_link": "https://github.com/NotGyashu/Social-Arena",
+      "Live_link":"https://social-arena.vercel.app/",
+      "achievements": [
+        "Reduced login issues by ~15% via secure auth and UX enhancements",
+        "Shipped real-time chat and follow system to increase connectivity"
+      ],
+      "impact": "Boosted engagement through real-time features and intuitive UI.",
+      "tags": [
+        "mern",
+        "realtime",
+        "full-stack"
+      ]
+    },
+    {
+      "name": "Admin Dashboard",
+      "description": "Admin UI for user/product management, analytics, and workflow operations.",
+      "role": "Frontend Developer",
+      "tech_stack": [
+        "react",
+        "express",
+        "mongodb",
+        "tailwind",
+        "firebase",
+        "recharts"
+      ],
+      "github_link": "https://github.com/NotGyashu/Admin-Dashboard",
+      "Live_link":"http://khalsatech.me/Admin-dashboard/login",
+      "achievements": [
+        "Improved workflow efficiency by ~20% with streamlined admin flows",
+        "Integrated analytics for revenue, earnings, and balances"
+      ],
+      "impact": "Enabled teams to manage users/products with modern UX.",
+      "tags": [
+        "dashboard",
+        "admin",
+        "analytics"
+      ]
+    },
+    {
+      "name": "Anonymous-thoughts",
+      "description": "Note-keeping app with text and voice notes, CRUD operations, and UX features.",
+      "role": "Full-stack Developer",
+      "tech_stack": [
+        "react",
+        "material ui",
+        "javascript",
+        "axios",
+        "mongodb",
+        "tailwind",
+        "react-mic"
+      ],
+      "github_link": "https://github.com/NotGyashu/Anonymus-thoughts",
+      "Live_link":"https://anonymus-thoughts-client.vercel.app/login",
+      "achievements": [
+        "Implemented voice notes and emoji support with secure lock",
+        "Delivered fully responsive UX with CRUD operations"
+      ],
+      "impact": "Improved productivity for personal note workflows.",
+      "tags": [
+        "productivity",
+        "full-stack",
+        "frontend"
+      ]
+    },
+    {
+      "name": "Fingerpad Glove",
+      "description": "Embedded musical instrument using sensors and microcontroller input.",
+      "role": "Embedded Developer",
+      "tech_stack": [
+        "c++",
+        "microcontroller",
+        "sensors",
+        "supercollider"
+      ],
+      "github_link": "https://github.com/NotGyashu/FingerPad",
+      "achievements": [
+        "Generated tones based on real-time sensor interactions",
+        "Designed for user-friendly operation and synchronization"
+      ],
+      "impact": "Showcases creativity at the intersection of hardware and audio.",
+      "tags": [
+        "embedded",
+        "audio",
+        "iot"
+      ]
+    },
+    {
+      "name": "Elitas (E-commerce)",
+      "description": "E-commerce platform for home appliances with reliability and performance focus.",
+      "role": "Frontend Developer",
+      "tech_stack": [
+        "react",
+        "typescript",
+        "tailwind",
+        "grafana"
+      ],
+      "Live_link":"https://www.elitasappliances.com/",
+      "achievements": [
+        "Supported 5,000+ MAU with ~99.9% uptime",
+        "Reduced page load time by ~40% and improved CWV (LCP & FID) by ~35%, increasing retention by ~20%"
+      ],
+      "impact": "Production-focused performance optimization and monitoring.",
+      "tags": [
+        "ecommerce",
+        "performance"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "BTech in Electrical Engineering",
+      "institute": "Jamia Millia Islamia, New Delhi",
+      "start_year": "2021",
+      "end_year": "2025",
+      "gpa": "8.0 (aggregate)",
+      "major_subjects": [
+        "data structures and algorithms",
+        "dbms",
+        "computer networking",
+        "object oriented programming"
+      ]
+    },
+    {
+      "degree": "Senior Secondary Education (XII)",
+      "institute": "St. Al-Haneef Educational Centre, Chandauli",
+      "start_year": null,
+      "end_year": "2021",
+      "gpa": "95%",
+      "major_subjects": []
+    },
+    {
+      "degree": "Secondary Education (X)",
+      "institute": "St. Al-Haneef Educational Centre, Chandauli",
+      "start_year": null,
+      "end_year": "2019",
+      "gpa": "92%",
+      "major_subjects": []
+    }
+  ],
+  "achievements/Technical Highlights": [
+    "published npm pkg and rust crate with 1000+ downloads",
+    "Built a high-throughput C++ web crawler (100+ pages/sec)",
+    "LeetCode Biweekly Contest 165: Rank 301/30,000; 1700+ rating; 650+ problems solved (2025)",
+    "1st Place – JMI Hack (Inter-University Hackathon, 2024)",
+    "SIH college finalist (2024); Cleared Stage-1 of e-Yantra Robotics (IIT Bombay)",
+    "Participated in MLH Hackathon (2024) – built and deployed a scalable AI-powered team project",
+    "AIR ~40K/1M in JEE Mains (2021)",
+    "Class 10 & 12 School Topper"
+  ],
+  "certifications": [
+    {
+      "name": "Diploma in Computer Applications, Business Accounting and Multilingual D.T.P",
+      "issuer": "NIELIT",
+      "date": "2020",
+      "link": null
+    }
+  ],
+  "publications": [],
+  "open_source": [
+    {
+      "name": "webpage_quality_analyzer",
+      "repo": "https://github.com/NotGyashu/webpage_quality_analyzer",
+      "role": "owner",
+      "tech_stack": [
+        "rust",
+        "wasm",
+        "c++",
+        "ffi",
+        "cli"
+      ]
+    },
+    {
+      "name": "crawler",
+      "repo": "https://github.com/NotGyashu/crawler",
+      "role": "owner",
+      "tech_stack": [
+        "c++",
+        "http/2",
+        "libcurl",
+        "rocksdb",
+        "simd",
+        "docker"
+      ]
+    },
+    {
+      "name": "Chrome-Assistant",
+      "repo": "https://github.com/NotGyashu/Chrome-Assistant",
+      "role": "owner",
+      "tech_stack": [
+        "react",
+        "manifest v3",
+        "tensorflow.js",
+        "webpack",
+        "tailwind"
+      ]
+    },
+    {
+      "name": "Social-Arena",
+      "repo": "https://github.com/NotGyashu/Social-Arena",
+      "role": "owner",
+      "tech_stack": [
+        "react",
+        "express",
+        "socket.io",
+        "mongodb",
+        "firebase"
+      ]
+    },
+    {
+      "name": "Anonymus-thoughts",
+      "repo": "https://github.com/NotGyashu/Anonymus-thoughts",
+      "role": "owner",
+      "tech_stack": [
+        "react",
+        "material ui",
+        "mongodb",
+        "tailwind"
+      ]
+    },
+    {
+      "name": "FingerPad",
+      "repo": "https://github.com/NotGyashu/FingerPad",
+      "role": "owner",
+      "tech_stack": [
+        "c++",
+        "sensors",
+        "supercollider"
+      ]
+    }
+  ],
+  "leadership": [
+    "Student Placement Coordinator, JMI (2023–Present)",
+    "Class Representative (2021–2023)",
+    "Sports Committee Member, Hostel JMI (2022–2023)",
+    "Hostel Coordinator / Sports Coordinator "
+  ],
+  "hackathons": [
+    "JMI Hack (Winner, 2024)",
+    "Smart India Hackathon (University Finalist, 2024)",
+    "e-Yantra Robotics (Cleared Stage-1, IIT Bombay)",
+    "MLH Hackathon (Participant, 2024)"
+  ],
+  "interests": []
+}

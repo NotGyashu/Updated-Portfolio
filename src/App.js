@@ -13,12 +13,10 @@ import ThemeContext from "./contexts/themeContext";
 import Projects from "./components/projects";
 import Skills from "./components/skill";
 import { Contact } from "./components/contact";
-import OrientationOverlay from "./components/orientation";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [preloader, setPreloader] = useState(true);
-  const [start,setStart] = useState(false);
   const handlePreloaderHide = () => {
     setPreloader(false);
   };
@@ -26,8 +24,8 @@ function App() {
   return (
     <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
       <Router>
-        <OrientationOverlay setStart={setStart}/>
-        {start && (
+        
+       
           <div className="">
             {preloader ? (
               <Preloader
@@ -41,7 +39,7 @@ function App() {
               </div>
             )}
           </div>
-        )}
+        
       </Router>
     </ThemeContext.Provider>
   );

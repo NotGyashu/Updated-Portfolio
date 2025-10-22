@@ -13,7 +13,7 @@ function Hire({ setVisible, visible }) {
         }}
         onTouchStart={handleTouchStart}
       >
-        <img src="\paper-plane.png" className="h-6  w-6 " />
+        <img src="\paper-plane.png" className="lg:h-8 lg:w-8 lg:m-2 h-4 w-4" />
       </div>
     </div>
   );

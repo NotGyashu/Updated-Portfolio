@@ -65,22 +65,16 @@ function MainNavbar() {
   return (
     <div>
       <div
-        className={`h-auto py-1 ${
-          isContact || isProjects ||isSkills
-            ? "flex flex-row lg:gap-4 gap-2"
-            : "flex flex-col lg:gap-4 gap-2"
-        } 
-          
-        }`}
+        className={`h-auto py-1 flex flex-row lg:gap-4 gap-2`}
       >
         {imgLight.map((img, index) => (
           <motion.div
           key={index}
             className={`border  ${
               param === img.name
-                ? "gradient-border-2 border"
-                : "border border-black"
-            } bg-transparent rounded-full p-1 w-7 lg:p-2 lg:w-10 `}
+                ? "gradient-border-2 "
+                : " border-black"
+            } bg-transparent rounded-full p-1 lg:p-2 h-[clamp(1.3rem,3vw,4rem)] w-[clamp(1.3rem,3vw,4rem)]`}
             whileHover={{ scale: 1.1 }}
           >
             <Link to={img.link}>
