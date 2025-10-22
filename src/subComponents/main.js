@@ -97,14 +97,14 @@ function Main() {
       </div>
 
       {/* Content Section */}
-      <div className="flex md:flex-row-reverse  flex-col flex-1 justify-between md:gap-10 gap-5 lg:gap-16 lg:p-8 p-4">
+      <div className="flex  border md:flex-row-reverse  flex-col justify-between md:gap-10 gap-5 lg:gap-16 lg:p-8 p-4">
         {/* Description Text - Fluid from 1.5rem to 2.5rem */}
-        <div className="lg:w-[70vw]  text-[clamp(1rem,2.5vw,2.5rem)] flex cabinet-font text-right w-full">
+        <div className="lg:w-[70vw] border text-[clamp(1rem,2.5vw,2.5rem)] flex cabinet-font text-right w-full">
           {about.description}
         </div>
 
         {/* Container */}
-        <div className="flex lg:w-[30vw]  flex-col justify-end items-center">
+        <div className="flex lg:w-[30vw] border flex-col justify-end items-center">
           {/* Social Icons with AnimatePresence */}
           <AnimatePresence>
             {visible && (
