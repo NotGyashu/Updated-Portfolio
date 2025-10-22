@@ -64,7 +64,7 @@ function Main() {
             </div>
           </div>
           
-          <div className="flex gap-x-3 md:gap-x-5 text-[clamp(2rem,5.5vw,6rem)]">
+          <div className="flex md:flex-row flex-col gap-x-3 md:gap-x-5 text-[clamp(2rem,5.5vw,6rem)]">
             <div>I'm</div>
             <motion.div className="cursor-pointer flex">
               {"Gyashu".split("").map((char, i) => (
@@ -83,7 +83,7 @@ function Main() {
       </div>
 
       {/* Content Section */}
-      <div className="flex-grow flex flex-col md:flex-row-reverse  justify-between gap-4 md:gap-6 lg:gap-12 p-1 md:p-3 lg:p-6 min-h-0 pb-[env(safe-area-inset-bottom)]">
+      <div className="flex-grow flex flex-col md:flex-row-reverse   gap-4 md:gap-6 lg:gap-12 p-1 md:p-3 lg:p-6 min-h-0 pb-[env(safe-area-inset-bottom)]">
         
         {/* Description Text */}
         <div className="w-full md:w-[65%] lg:w-[60%] flex items-center cabinet-font text-left md:text-right text-[clamp(0.9rem,2.2vw,2.3rem)] leading-tight">
