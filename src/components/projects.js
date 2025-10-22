@@ -73,9 +73,9 @@ function Projects() {
         <ScrollTracker ref={scrollRef} />
       </div>
       {/* Main content area - Takes remaining space */}
-      <div className="flex md:gap-5 gap-2 flex-col  justify-between p-2">
+      <div className="flex md:gap-5 h-full gap-2 flex-col flex-grow  justify-between p-2">
       <div
-        className="flex  lg:mx-7  gap-12 lg:gap-28 md:gap-16 justify-between overflow-x-scroll no-scrollbar"
+        className="flex  lg:mx-7 flex-grow  gap-12 lg:gap-28 md:gap-16 justify-between overflow-x-scroll no-scrollbar"
         id="parent"
         ref={scrollRef}
         style={{
@@ -85,7 +85,7 @@ function Projects() {
         {projects.map((p, index) => (
           <div
             key={index}
-            className="flex border w-full min-w-full gap-2 flex-shrink-0 relative lg:flex-row flex-col h-full"
+            className="flex border flex-grow w-full min-w-full gap-2 flex-shrink-0 relative lg:flex-row flex-col h-full"
           >
             {/* Image section */}
             <div className="lg:w-2/5 w-full lg:h-full overflow-hidden h-[45%] flex lg:p-12 md:p-8 p-3">
@@ -93,7 +93,7 @@ function Projects() {
             </div>
 
             {/* Text section */}
-            <div className="lg:w-3/5 w-full lg:h-full h-[55%] p-3 md:p-6 lg:p-12 gap-2 md:gap-3 lg:gap-6 flex rounded-lg flex-col overflow-hidden">
+            <div className="lg:w-3/5 flex-grow w-full lg:h-full h-[55%] p-3 md:p-6 lg:p-12 gap-2 md:gap-3 lg:gap-6 flex rounded-lg flex-col overflow-hidden">
               <div
                 className="text-[clamp(1.3rem,3.5vw,3.5rem)] Panchang-font flex-shrink-0 leading-tight"
                 onMouseEnter={() => {
