@@ -34,20 +34,8 @@ function Projects() {
   }, []);
 
   return (
-    <div className="h-screen overflow-hidden cursor-none no-scrollbar w-full text-white box-border flex flex-col relative">
+    <div className="h-screen overflow-hidden cursor-none no-scrollbar text-white flex flex-col relative">
       <Inner />
-      <div
-        className="z-30 absolute border border-white bottom-3 left-[50%] translate-x-[-50%] lg:px-2 lg:py-1 px-3 rounded-full"
-        id="nav"
-        onMouseEnter={() => {
-          setShowCursor(false);
-        }}
-        onMouseLeave={() => {
-          setShowCursor(true);
-        }}
-      >
-        <MainNavbar />
-      </div>
       <div className="water absolute z-[-5]">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -81,13 +69,13 @@ function Projects() {
       </div>
 
       {/* ScrollTracker - Fixed height */}
-      <div className="flex-shrink-0 mb-20px h-[20px] md:h-[30px]">
+      <div className="flex-shrink-0  h-[20px] md:h-[30px]">
         <ScrollTracker ref={scrollRef} />
       </div>
-
       {/* Main content area - Takes remaining space */}
+      <div className="flex md:gap-5 gap-2 flex-col  justify-between p-2">
       <div
-        className="flex flex-1 overflow-y-hidden mb-[60px] md:mb-[70px] md:mx-4 lg:mx-7 gap-12 lg:gap-28 md:gap-16 justify-between overflow-x-scroll no-scrollbar"
+        className="flex  lg:mx-7  gap-12 lg:gap-28 md:gap-16 justify-between overflow-x-scroll no-scrollbar"
         id="parent"
         ref={scrollRef}
         style={{
@@ -144,6 +132,23 @@ function Projects() {
             </div>
           </div>
         ))}
+      </div>
+      
+        {/* Navbar - centered and self-sized */}
+        <div className="flex justify-center items-center flex-shrink-0 pb-2">
+          <div
+            className="border border-white lg:px-2 lg:py-1 px-3 py-1 rounded-full w-fit"
+            id="nav"
+            onMouseEnter={() => {
+              setShowCursor(false);
+            }}
+            onMouseLeave={() => {
+              setShowCursor(true);
+            }}
+          >
+            <MainNavbar />
+          </div>
+        </div>
       </div>
     </div>
   );
