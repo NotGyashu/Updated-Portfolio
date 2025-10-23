@@ -34,7 +34,7 @@ function Projects() {
   }, []);
 
   return (
-    <div className="h-screen overflow-hidden cursor-none no-scrollbar text-white flex flex-col relative">
+    <div className="h-screen overflow-hidden cursor-none no-scrollbar text-white flex flex-col relative" style={{ height: '100dvh', height: '100vh' }}>
       <Inner />
       <div className="water absolute z-[-5]">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
