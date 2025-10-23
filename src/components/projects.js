@@ -73,7 +73,7 @@ function Projects() {
         <ScrollTracker ref={scrollRef} />
       </div>
       {/* Main content area - Takes remaining space */}
-      <div className="flex md:gap-5 h-full gap-2 flex-col   justify-between p-2">
+      <div className="flex md:gap-5 h-full gap-26 flex-col  p-2">
       <div
         className="flex  lg:mx-7   gap-12 lg:gap-28 md:gap-16 justify-between overflow-x-scroll no-scrollbar"
         id="parent"
