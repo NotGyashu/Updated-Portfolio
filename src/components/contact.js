@@ -72,7 +72,7 @@ export const Contact = () => {
       </div>
       <div className="flex flex-col gap-5 flex-grow">
         <div className="lg:text-6xl md:text-4xl Panchang-font">Contact</div>
-        <div className="border flex flex-col gap-3 gradient-border justify-around bg-white flex-grow">
+        <div className="border h-[85%] flex flex-col gap-3 gradient-border justify-around bg-white flex-grow">
           <div className="flex flex-col gap-3 items-center justify-center">
             <div
               className="Panchang-font hover:underline lg:text-xl text-xs"
@@ -171,8 +171,7 @@ export const Contact = () => {
                  <div className="flex justify-center items-center flex-shrink-0">
                    <div
                      className="border-2 lg:px-2 lg:py-1 px-1 rounded-full "
-                     id="nav"
-                     
+                     id="nav" 
                    >
                      <MainNavbar />
                    </div>
