@@ -36,9 +36,10 @@ function Skills() {
 
 
     >
-      <div className=" absolute border z-30 border-gray-300   bg-white left-[40%] top-[12%] px-2 lg:py-1  rounded-full">
-        <MainNavbar />
-      </div>
+      <div className="absolute border z-30 border-gray-300 bg-white left-1/2 -translate-x-1/2 top-[12%] px-2 lg:py-1 rounded-full">
+  <MainNavbar />
+</div>
+
 
       <Inner />
 
