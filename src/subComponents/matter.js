@@ -8,6 +8,7 @@ import Matter, {
   Mouse,
   MouseConstraint,
   Body,
+  Runner,
 } from "matter-js";
 import { about } from "../info";
 
@@ -17,8 +18,9 @@ const BallPool = ({ dimensions }) => {
   const scene = useRef();
   const engine = useRef(Engine.create({ gravity: { x: 0, y: 0.5 } }));
   const renderRef = useRef(null);
-  const textElementsRef = useRef([]); // Track all text elements
-  const isInitialized = useRef(false); // Prevent double initialization
+  const runnerRef = useRef(null);
+  const textElementsRef = useRef([]);
+  const isInitialized = useRef(false);
 
   const getBaseRadius = () => {
     if (cw >= 1024) return cw / 25;
@@ -63,23 +65,28 @@ const BallPool = ({ dimensions }) => {
     renderRef.current = render;
 
     const maxRadius = getRadiusForImportance(5);
+    const wallThickness = maxRadius * 4; // Make walls thicker to prevent tunneling
     
     World.add(engine.current.world, [
-      Bodies.rectangle(cw / 2, -maxRadius, cw + 2 * maxRadius, 2 * maxRadius, {
+      Bodies.rectangle(cw / 2, -wallThickness / 2, cw + 2 * wallThickness, wallThickness, {
         isStatic: true,
         render: { visible: false },
+        slop: 0.5, // Helps with collision accuracy
       }),
-      Bodies.rectangle(-maxRadius, ch / 2, 2 * maxRadius, ch + 2 * maxRadius, {
+      Bodies.rectangle(-wallThickness / 2, ch / 2, wallThickness, ch + 2 * wallThickness, {
         isStatic: true,
         render: { visible: false },
+        slop: 0.5,
       }),
-      Bodies.rectangle(cw / 2, ch + maxRadius, cw + 2 * maxRadius, 2 * maxRadius, {
+      Bodies.rectangle(cw / 2, ch + wallThickness / 2, cw + 2 * wallThickness, wallThickness, {
         isStatic: true,
         render: { visible: false },
+        slop: 0.5,
       }),
-      Bodies.rectangle(cw + maxRadius, ch / 2, 2 * maxRadius, ch + 2 * maxRadius, {
+      Bodies.rectangle(cw + wallThickness / 2, ch / 2, wallThickness, ch + 2 * wallThickness, {
         isStatic: true,
         render: { visible: false },
+        slop: 0.5,
       }),
     ]);
 
@@ -93,10 +100,59 @@ const BallPool = ({ dimensions }) => {
     });
 
     World.add(engine.current.world, mouseConstraint);
-    Matter.Runner.run(engine.current);
+
+    // Use Runner with smaller delta for better accuracy
+    const runner = Runner.create({
+      delta: 1000 / 60,
+      isFixed: true,
+    });
+    runnerRef.current = runner;
+    Runner.run(runner, engine.current);
     Render.run(render);
 
-    // Start rendering circles after a delay
+    // Add boundary check to prevent tunneling
+    Events.on(engine.current, 'afterUpdate', function() {
+      const bodies = engine.current.world.bodies;
+      const maxVelocity = 20; // Maximum velocity limit
+
+      bodies.forEach(body => {
+        if (!body.isStatic) {
+          // Clamp velocity to prevent excessive speeds
+          if (body.velocity.x > maxVelocity) {
+            Body.setVelocity(body, { x: maxVelocity, y: body.velocity.y });
+          }
+          if (body.velocity.x < -maxVelocity) {
+            Body.setVelocity(body, { x: -maxVelocity, y: body.velocity.y });
+          }
+          if (body.velocity.y > maxVelocity) {
+            Body.setVelocity(body, { x: body.velocity.x, y: maxVelocity });
+          }
+          if (body.velocity.y < -maxVelocity) {
+            Body.setVelocity(body, { x: body.velocity.x, y: -maxVelocity });
+          }
+
+          // Check if body escaped bounds and bring it back
+          const padding = 10;
+          if (body.position.x < padding) {
+            Body.setPosition(body, { x: padding, y: body.position.y });
+            Body.setVelocity(body, { x: Math.abs(body.velocity.x) * 0.8, y: body.velocity.y });
+          }
+          if (body.position.x > cw - padding) {
+            Body.setPosition(body, { x: cw - padding, y: body.position.y });
+            Body.setVelocity(body, { x: -Math.abs(body.velocity.x) * 0.8, y: body.velocity.y });
+          }
+          if (body.position.y < padding) {
+            Body.setPosition(body, { x: body.position.x, y: padding });
+            Body.setVelocity(body, { x: body.velocity.x, y: Math.abs(body.velocity.y) * 0.8 });
+          }
+          if (body.position.y > ch - padding) {
+            Body.setPosition(body, { x: body.position.x, y: ch - padding });
+            Body.setVelocity(body, { x: body.velocity.x, y: -Math.abs(body.velocity.y) * 0.8 });
+          }
+        }
+      });
+    });
+
     const timeoutId = setTimeout(() => {
       renderCircles(cw, ch);
     }, 2000);
@@ -104,7 +160,6 @@ const BallPool = ({ dimensions }) => {
     return () => {
       clearTimeout(timeoutId);
       
-      // Remove all text elements from DOM
       textElementsRef.current.forEach(el => {
         if (el && el.parentNode) {
           el.parentNode.removeChild(el);
@@ -112,7 +167,10 @@ const BallPool = ({ dimensions }) => {
       });
       textElementsRef.current = [];
 
-      // Clean up Matter.js
+      if (runnerRef.current) {
+        Runner.stop(runnerRef.current);
+      }
+
       if (renderRef.current) {
         Render.stop(renderRef.current);
         if (renderRef.current.canvas) {
@@ -132,24 +190,6 @@ const BallPool = ({ dimensions }) => {
 
   const renderCircles = async (cw, ch) => {
     const clickedCircles = [];
-    
-    const boundaryCollision = (event) => {
-      const pairs = event.pairs;
-      for (let i = 0; i < pairs.length; i++) {
-        const pair = pairs[i];
-        const bodyA = pair.bodyA;
-        const bodyB = pair.bodyB;
-
-        if (bodyA.isCircle && (bodyB.isWall || bodyB.isBoundary)) {
-          bodyA.velocity.y *= -1;
-        }
-        if (bodyB.isCircle && (bodyA.isWall || bodyA.isBoundary)) {
-          bodyB.velocity.y *= -1;
-        }
-      }
-    };
-
-    Events.on(engine.current, "collisionStart", boundaryCollision);
 
     for (let i = 0; i < about.skills.length; i++) {
       const skill = about.skills[i];
@@ -170,10 +210,12 @@ const BallPool = ({ dimensions }) => {
       const randomVelocityY = (Math.random() - 0.5) * 5;
 
       const circle = Bodies.circle(randomX, randomY, radius, {
-        restitution: 0.9,
+        restitution: 0.8, // Reduced from 0.9 for more stable collisions
         friction: 0.1,
+        frictionAir: 0.01, // Added air friction to slow down over time
         density: 0.001 * importance,
         velocity: { x: randomVelocityX, y: randomVelocityY },
+        slop: 0.5, // Helps with collision accuracy
         render: {
           fillStyle: "transparent",
           strokeStyle: "#dee2e6",
@@ -207,7 +249,7 @@ const BallPool = ({ dimensions }) => {
       textElement.style.fontWeight = importance >= 4 ? "600" : "400";
       
       scene.current?.appendChild(textElement);
-      textElementsRef.current.push(textElement); // Track text element
+      textElementsRef.current.push(textElement);
 
       const updateTextPosition = () => {
         const circlePosition = circle.position;
