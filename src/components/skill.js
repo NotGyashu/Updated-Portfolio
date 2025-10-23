@@ -13,12 +13,13 @@ function Skills() {
    
   useEffect(() => {
     const handleResize = () => {
-      const { width, height } = container.current.getBoundingClientRect();
-      setDimensions({ width, height });
+      if (container.current) {
+        const { width, height } = container.current.getBoundingClientRect();
+        setDimensions({ width, height });
+      }
     };
 
     handleResize(); // Get initial dimensions
-
     window.addEventListener("resize", handleResize);
 
     return () => {
@@ -33,13 +34,10 @@ function Skills() {
         background:
           "radial-gradient(ellipse at bottom, #04050D 0%, #05010d 100%)",
       }}
-
-
     >
       <div className="absolute border z-30 border-gray-300 bg-white left-1/2 -translate-x-1/2 top-[12%] px-2 lg:py-1 rounded-full">
-  <MainNavbar />
-</div>
-
+        <MainNavbar />
+      </div>
 
       <Inner />
 
@@ -48,20 +46,20 @@ function Skills() {
       </div>
       <div className="flex lg:py-5 py-2 lg:px-10 px-4 flex-col items-center w-full h-full relative">
         <div
-          className="absolute inset-0 flex  justify-center top-[30%]"
+          className="absolute inset-0 flex justify-center top-[30%]"
           id="center"
         >
-          <div className="text-white lg:text-2xl text-xl cabinet-font">
+          <div className="text-white lg:text-2xl md:text-xl text-base cabinet-font">
             CLICK & DRAG
           </div>
         </div>
 
         <div
-          className="border absolute h-[85%] w-full  box-border flex-grow mb-6 rounded-3xl "
+          className="border absolute h-[85%] w-full box-border flex-grow mb-6 rounded-3xl"
           id="ballpool"
           ref={container}
         >
-          <BallPool dimensions={dimensions}  />
+          {dimensions.width > 0 && <BallPool dimensions={dimensions} />}
         </div>
       </div>
     </div>

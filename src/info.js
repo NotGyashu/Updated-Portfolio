@@ -4,22 +4,23 @@ export const about = {
 
     // "I'm a passionate full-stack developer with a strong foundation in front-end and back-end technologies. I specialize in creating responsive web applications with intuitive interfaces and robust functionality. My expertise includes React.js, Node.js, and MongoDB, and I am proficient in integrating third-party services like Firebase and Socket.io. I am committed to delivering high-quality code and innovative solutions to enhance user experiences. I am seeking opportunities to leverage my skills and experience in a dynamic development environment.",
   skills: [
-    "Javascript",
-    "Typescript",
-    "Python",
-    "Node.js",
-    "Express",
-    "Tailwind",
-    "Firebase",
-    "Next.js",
-    "React.js",
-    "Redux",
-    "jQuery",
-    "Matter.Js",
-    "Framer Motion",
-    "MongoDB",
-    "SQL",
-  ],
+  { name: "Javascript", importance: 5 },      // Most important - largest
+  { name: "Typescript", importance: 5 },
+  { name: "React.js", importance: 5 },
+  { name: "Node.js", importance: 4 },
+  { name: "Next.js", importance: 4 },
+  { name: "Python", importance: 4 },
+  { name: "Rust", importance: 4 },
+  { name: "Express", importance: 3 },
+  { name: "MongoDB", importance: 3 },
+  { name: "Redux", importance: 3 },
+  { name: "C++", importance: 3 },
+  { name: "Firebase", importance: 2 },
+  { name: "SQL", importance: 2 },
+  { name: "Matter.Js", importance: 2 },
+  { name: "jQuery", importance: 1 }           // Less important - smallest
+],
+
   // 'HTML' , 'CSS','Javascript','Typescript','Python','Bootstrap','Node.js','Express','Tailwind','EJS','Firebase','Next.js','React.js','Redux','jQuery','Swiper.js','Mongoose','Framer Motion','MongoDB','SQL','C++','NLP','GenAI'
 };
 

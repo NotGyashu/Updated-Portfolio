@@ -7,6 +7,7 @@ import Matter, {
   Events,
   Mouse,
   MouseConstraint,
+  Body,
 } from "matter-js";
 import { about } from "../info";
 
@@ -14,29 +15,40 @@ const BallPool = ({ dimensions }) => {
   const cw = dimensions.width;
   const ch = dimensions.height;
   const scene = useRef();
-  const engine = useRef(
-    Engine.create({
-      gravity: {
-        x: 0, // horizontal gravity
-        y: 0.5, // Vertical gravity (adjust as needed)
-      },
-    })
-  );
-  let radius; // Declare radius variable outside the if-else block
+  const engine = useRef(Engine.create({ gravity: { x: 0, y: 0.5 } }));
+  const renderRef = useRef(null);
+  const textElementsRef = useRef([]); // Track all text elements
+  const isInitialized = useRef(false); // Prevent double initialization
 
-  // Adjusted original radius
+  const getBaseRadius = () => {
+    if (cw >= 1024) return cw / 25;
+    else if (cw >= 768) return cw / 20;
+    else if (cw >= 480) return cw / 16;
+    else return cw / 14;
+  };
+
+  const getRadiusForImportance = (importance) => {
+    const baseRadius = getBaseRadius();
+    const scaleFactor = 0.6 + (importance - 1) * 0.2;
+    return baseRadius * scaleFactor;
+  };
+
+  const getFontSizeForImportance = (importance) => {
+    let baseFontSize;
+    if (cw >= 1024) baseFontSize = 14;
+    else if (cw >= 768) baseFontSize = 12;
+    else if (cw >= 480) baseFontSize = 10;
+    else baseFontSize = 9;
+    
+    const fontScaleFactor = 0.7 + (importance - 1) * 0.125;
+    return `${Math.round(baseFontSize * fontScaleFactor)}px`;
+  };
+
   useEffect(() => {
-    if (cw > 800) {
-      radius = cw / 20; // Adjusted original radius
-    } else {
-      radius = cw / 18;
-    }
+    if (!cw || !ch || isInitialized.current) return;
 
-    // Now you can use radius appropriately
-    //console.log("Current radius:", radius);
-  }, [cw, dimensions]); // Ensure cw is included in dependencies if it's used inside the effect
+    isInitialized.current = true;
 
-  useEffect(() => {
     const render = Render.create({
       element: scene.current,
       engine: engine.current,
@@ -48,121 +60,119 @@ const BallPool = ({ dimensions }) => {
       },
     });
 
-    // boundaries
+    renderRef.current = render;
+
+    const maxRadius = getRadiusForImportance(5);
+    
     World.add(engine.current.world, [
-      Bodies.rectangle(cw / 2, -radius, cw + 2 * radius, 2 * radius, {
+      Bodies.rectangle(cw / 2, -maxRadius, cw + 2 * maxRadius, 2 * maxRadius, {
         isStatic: true,
-        render: {
-          visible: false, // Make top boundary invisible
-        },
-      }), // top
-      Bodies.rectangle(-radius, ch / 2, 2 * radius, ch + 2 * radius, {
+        render: { visible: false },
+      }),
+      Bodies.rectangle(-maxRadius, ch / 2, 2 * maxRadius, ch + 2 * maxRadius, {
         isStatic: true,
-        render: {
-          visible: false, // Make top boundary invisible
-        },
-      }), // left
-      Bodies.rectangle(cw / 2, ch + radius, cw + 2 * radius, 2 * radius, {
+        render: { visible: false },
+      }),
+      Bodies.rectangle(cw / 2, ch + maxRadius, cw + 2 * maxRadius, 2 * maxRadius, {
         isStatic: true,
-        render: {
-          visible: false, // Make top boundary invisible
-        },
-      }), // bottom
-      Bodies.rectangle(cw + radius, ch / 2, 2 * radius, ch + 2 * radius, {
+        render: { visible: false },
+      }),
+      Bodies.rectangle(cw + maxRadius, ch / 2, 2 * maxRadius, ch + 2 * maxRadius, {
         isStatic: true,
-        render: {
-          visible: false, // Make top boundary invisible
-        },
-      }), // right
+        render: { visible: false },
+      }),
     ]);
 
-    // Add mouse constraint
     const mouse = Mouse.create(render.canvas);
     const mouseConstraint = MouseConstraint.create(engine.current, {
       mouse: mouse,
       constraint: {
-        stiffness: 0.8, // stiffness of the constraint
-        render: {
-          visible: false,
-        },
+        stiffness: 0.8,
+        render: { visible: false },
       },
     });
 
     World.add(engine.current.world, mouseConstraint);
-    // run the engine
     Matter.Runner.run(engine.current);
     Render.run(render);
 
-    // unmount
-    return () => {
-      // destroy Matter
-      Render.stop(render);
-      World.clear(engine.current.world);
-      Engine.clear(engine.current);
-      render.canvas.remove();
-      render.canvas = null;
-      render.context = null;
-      render.textures = {};
-    };
-  }, [dimensions]);
+    // Start rendering circles after a delay
+    const timeoutId = setTimeout(() => {
+      renderCircles(cw, ch);
+    }, 2000);
 
-  useEffect(() => {
-    if (dimensions.width && dimensions.height) {
-      if (true) {
-        setTimeout(() => {
-          renderCircles(cw, ch);
-        }, 2000);
+    return () => {
+      clearTimeout(timeoutId);
+      
+      // Remove all text elements from DOM
+      textElementsRef.current.forEach(el => {
+        if (el && el.parentNode) {
+          el.parentNode.removeChild(el);
+        }
+      });
+      textElementsRef.current = [];
+
+      // Clean up Matter.js
+      if (renderRef.current) {
+        Render.stop(renderRef.current);
+        if (renderRef.current.canvas) {
+          renderRef.current.canvas.remove();
+        }
+        renderRef.current.canvas = null;
+        renderRef.current.context = null;
+        renderRef.current.textures = {};
       }
-    }
-  }, [dimensions]);
+
+      World.clear(engine.current.world, false);
+      Engine.clear(engine.current);
+      
+      isInitialized.current = false;
+    };
+  }, [cw, ch]);
 
   const renderCircles = async (cw, ch) => {
     const clickedCircles = [];
-    // Define a boundary collision handler
+    
     const boundaryCollision = (event) => {
       const pairs = event.pairs;
-
       for (let i = 0; i < pairs.length; i++) {
         const pair = pairs[i];
         const bodyA = pair.bodyA;
         const bodyB = pair.bodyB;
 
-        // Check if the circle body collides with any of the boundaries
         if (bodyA.isCircle && (bodyB.isWall || bodyB.isBoundary)) {
-          // Reverse the vertical velocity to prevent it from falling out of bounds
           bodyA.velocity.y *= -1;
         }
         if (bodyB.isCircle && (bodyA.isWall || bodyA.isBoundary)) {
-          // Reverse the vertical velocity to prevent it from falling out of bounds
           bodyB.velocity.y *= -1;
         }
       }
     };
 
-    // Add the boundary collision handler to the collision event
     Events.on(engine.current, "collisionStart", boundaryCollision);
 
     for (let i = 0; i < about.skills.length; i++) {
       const skill = about.skills[i];
+      const skillName = typeof skill === 'string' ? skill : skill.name;
+      const importance = typeof skill === 'string' ? 3 : skill.importance;
+      
+      const radius = getRadiusForImportance(importance);
+      const fontSize = getFontSizeForImportance(importance);
       const delay = Math.random() * 600;
 
-      // Wait for the delay before rendering the circle
       await new Promise((resolve) => setTimeout(resolve, delay));
 
-      // Calculate random position considering boundaries and direction
-      const randomX = Math.random() * 1000;
-      const randomY = Math.random() * 0;
-
-      // Generate a unique ID for each circle
+      const randomX = Math.random() * (cw - 2 * radius) + radius;
+      const randomY = Math.random() * 100;
       const circleId = `circle-${i}`;
 
-      // Calculate random velocity vector
-      const randomVelocityX = (Math.random() - 0.5) * 5; // Random velocity between -2.5 and 2.5
+      const randomVelocityX = (Math.random() - 0.5) * 5;
       const randomVelocityY = (Math.random() - 0.5) * 5;
-      //console.log(cw, ch);
+
       const circle = Bodies.circle(randomX, randomY, radius, {
-        restitution: 1,
+        restitution: 0.9,
         friction: 0.1,
+        density: 0.001 * importance,
         velocity: { x: randomVelocityX, y: randomVelocityY },
         render: {
           fillStyle: "transparent",
@@ -171,89 +181,72 @@ const BallPool = ({ dimensions }) => {
         },
       });
 
-      // Assign the circleId to the circle's custom property
       circle.circleId = circleId;
-
-      // Add circle to the world
+      circle.importance = importance;
       World.add(engine.current.world, [circle]);
-      Matter.Sleeping.set(circle, false); // Wake the circle if needed
+      Matter.Sleeping.set(circle, false);
 
-      // Render text
       const textElement = document.createElement("div");
-      const words = skill.split(" "); // Split text into words
+      const words = skillName.split(" ");
       if (words.length === 2) {
-        // If there are two words, display them in two lines
         textElement.innerHTML = `${words[0]}<br>${words[1]}`;
       } else {
-        textElement.innerHTML = skill;
+        textElement.innerHTML = skillName;
       }
       textElement.style.position = "absolute";
       textElement.style.left = `${randomX}px`;
       textElement.style.top = `${randomY}px`;
       textElement.style.color = "#ffffff";
-      textElement.style.fontSize = "14px";
+      textElement.style.fontSize = fontSize;
       textElement.style.textAlign = "center";
       textElement.style.transform = "translate(-50%, -50%)";
       textElement.style.fontFamily = "panchanag";
+      textElement.style.pointerEvents = "none";
+      textElement.style.userSelect = "none";
+      textElement.style.lineHeight = "1.2";
+      textElement.style.fontWeight = importance >= 4 ? "600" : "400";
+      
       scene.current?.appendChild(textElement);
+      textElementsRef.current.push(textElement); // Track text element
 
       const updateTextPosition = () => {
         const circlePosition = circle.position;
         textElement.style.left = `${circlePosition.x}px`;
         textElement.style.top = `${circlePosition.y}px`;
       };
-      // Subscribe to position updates
+
       Events.on(engine.current, "afterUpdate", updateTextPosition);
     }
 
-    // Add click event listener to the scene's canvas
-
     function handleEvent(event) {
       event.preventDefault();
+      const rect = scene.current?.getBoundingClientRect();
+      if (!rect) return;
+      
       const mousePosition = {
-        x: event.offsetX || event.touches[0].clientX,
-        y: event.offsetY || event.touches[0].clientY,
+        x: (event.clientX || event.touches?.[0]?.clientX) - rect.left,
+        y: (event.clientY || event.touches?.[0]?.clientY) - rect.top,
       };
 
-      console.log("Mouse Position:", mousePosition);
-
-      // Check if any body contains the clicked point
       const bodies = Matter.Query.point(
         engine.current.world.bodies,
         mousePosition
       );
 
-      console.log("Bodies:", bodies);
-
-      // If a body is clicked, double its size
       if (bodies.length > 0) {
         const clickedBody = bodies[0];
-        const circleId = clickedBody.circleId; // Retrieve circleId here
-        console.log("Clicked Body:", clickedBody);
-        console.log("Circle ID:", circleId);
+        const circleId = clickedBody.circleId;
 
-        // Check if the circleId is already in clickedCircles array
-        const size = clickedCircles.includes(circleId);
-        console.log(size);
-
-        // If circleId is not in clickedCircles array, push it and scale the body
-        if (!size) {
+        if (circleId && !clickedCircles.includes(circleId)) {
           clickedCircles.push(circleId);
-          console.log(clickedCircles);
-          const scaleFactor = 1.2 + Math.random() * 0.4;
-          Matter.Body.scale(clickedBody, scaleFactor, scaleFactor);
+          const scaleFactor = 1.2 + Math.random() * 0.3;
+          Body.scale(clickedBody, scaleFactor, scaleFactor);
         }
       }
     }
 
     scene.current?.addEventListener("click", handleEvent);
     scene.current?.addEventListener("touchstart", handleEvent);
-
-    return () => {
-      // Cleanup event listeners
-      scene.current.removeEventListener("click", handleEvent);
-      scene.current.removeEventListener("touchstart", handleEvent);
-    };
   };
 
   return (
@@ -264,4 +257,4 @@ const BallPool = ({ dimensions }) => {
   );
 };
 
-export  {BallPool};
+export { BallPool };
