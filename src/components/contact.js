@@ -72,7 +72,7 @@ export const Contact = () => {
       </div>
       <div className="flex flex-col gap-5 flex-grow">
         <div className="lg:text-6xl md:text-4xl Panchang-font">Contact</div>
-        <div className="flex flex-col gap-3 gradient-border justify-around bg-white flex-grow">
+        <div className="border flex flex-col gap-3 gradient-border justify-around bg-white flex-grow">
           <div className="flex flex-col gap-3 items-center justify-center">
             <div
               className="Panchang-font hover:underline lg:text-xl text-xs"
@@ -100,7 +100,7 @@ export const Contact = () => {
               Lets Talk
             </motion.div>
             <div
-              className="flex justify-center mt-6 gap-3 items-center cursor-pointer"
+              className="flex justify-center mt-6 md:gap-3 gap-1 items-center cursor-pointer"
               onMouseEnter={disableCursor}
               onMouseLeave={enableCursor}
             >
@@ -132,15 +132,15 @@ export const Contact = () => {
                   className="border border-black rounded-full"
                   onClick={() => handleClick(s.link)}
                 >
-                  <img src={s.src} className="h-6 w-6 lg:m-4 m-2" />
+                  <img src={s.src} className="md:h-6 md:w-6 lg:m-4 m-2 h-4 w-4" />
                 </motion.div>
               ))}
             </div>
           </div>
 
-          <div className="flex justify-between items-center px-6">
+          <div className="flex   justify-between items-center px-6">
             <motion.div
-              className="lg:h-20 lg:w-20 h-16 w-16 cursor-pointer border border-black rounded-full flex justify-center items-center"
+              className="lg:h-20  lg:w-20 h-10 w-10 absolute bottom-2  cursor-pointer border border-black rounded-full flex justify-center items-center"
               variants={{
                 hidden: { opacity: 0 },
                 visible: { opacity: 1 },
@@ -160,17 +160,17 @@ export const Contact = () => {
             >
               <img
                 src="\icons8-up-arrow-100.png"
-                className="lg:h-12 h-8 w-8 lg:w-12"
+                className="lg:h-12 h-6 w-6 lg:w-12"
               />
             </motion.div>
-            <div className="Panchang-font text-xs">
+            <div className="Panchang-font clamp absolute bottom-2 right-2 text-[clamp(.4rem,1.5vw,2rem)]">
               &copy; {year} made with &#x2764;&#xFE0F;;
             </div>
           </div>
          {/* Navbar - centered and self-sized */}
-                 <div className="flex justify-center items-center flex-shrink-0 pb-2">
+                 <div className="flex justify-center items-center flex-shrink-0">
                    <div
-                     className="border border-white lg:px-2 lg:py-1 px-3 py-1 rounded-full w-fit"
+                     className="border-2 lg:px-2 lg:py-1 px-1 rounded-full "
                      id="nav"
                      
                    >

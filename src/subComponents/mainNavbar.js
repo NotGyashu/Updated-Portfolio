@@ -74,7 +74,7 @@ function MainNavbar() {
               param === img.name
                 ? "gradient-border-2 "
                 : " border-black"
-            } bg-transparent rounded-full p-1 lg:p-2 h-[clamp(1.3rem,3vw,4rem)] w-[clamp(1.3rem,3vw,4rem)]`}
+            } bg-transparent rounded-full p-1 lg:p-2 lg:h-12 h-6 w-6 lg:w-12`}
             whileHover={{ scale: 1.1 }}
           >
             <Link to={img.link}>
