@@ -167,11 +167,20 @@ export const Contact = () => {
               &copy; {year} made with &#x2764;&#xFE0F;;
             </div>
           </div>
+         {/* Navbar - centered and self-sized */}
+                 <div className="flex justify-center items-center flex-shrink-0 pb-2">
+                   <div
+                     className="border border-white lg:px-2 lg:py-1 px-3 py-1 rounded-full w-fit"
+                     id="nav"
+                     
+                   >
+                     <MainNavbar />
+                   </div>
+                 </div>
         </div>
+        
       </div>
-      <div className="border-2 z-10 absolute lg:bottom-7 bottom-4 left-[40%] px-2 lg:py-1 rounded-full">
-        <MainNavbar />
-      </div>
+      
     </div>
   );
 };

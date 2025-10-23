@@ -34,7 +34,7 @@ function Projects() {
   }, []);
 
   return (
-    <div className="max-h-screen min-h-screen overflow-hidden cursor-none no-scrollbar text-white flex flex-col relative">
+    <div className="h-screen overflow-hidden cursor-none no-scrollbar text-white flex flex-col relative">
       <Inner />
       <div className="water absolute z-[-5]">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -85,7 +85,7 @@ function Projects() {
         {projects.map((p, index) => (
           <div
             key={index}
-            className="flex border flex-grow w-full min-w-full gap-2 flex-shrink-0 relative lg:flex-row flex-col h-full"
+            className="flex border  w-full min-w-full gap-2 flex-shrink-0 relative lg:flex-row flex-col h-full"
           >
             {/* Image section */}
             <div className="lg:w-2/5 w-full lg:h-full overflow-hidden h-[45%] flex lg:p-12 md:p-8 p-3">
@@ -93,7 +93,7 @@ function Projects() {
             </div>
 
             {/* Text section */}
-            <div className="lg:w-3/5 flex-grow w-full lg:h-full h-[55%] p-3 md:p-6 lg:p-12 gap-2 md:gap-3 lg:gap-6 flex rounded-lg flex-col overflow-hidden">
+            <div className="lg:w-3/5 w-full lg:h-full h-[55%] p-3 md:p-6 lg:p-12 gap-2 md:gap-3 lg:gap-6 flex rounded-lg flex-col overflow-hidden">
               <div
                 className="text-[clamp(1.3rem,3.5vw,3.5rem)] Panchang-font flex-shrink-0 leading-tight"
                 onMouseEnter={() => {
